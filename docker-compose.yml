@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./web:/app
+      - /app/node_modules
     command: yarn dev -p 4000
     ports:
       - "4000:4000"
