@@ -1,16 +1,21 @@
-import Image from 'next/image';
+import { useRouter } from 'next/router';
+import Bio from '../../components/kato/Bio';
+import styles from '../../styles/members/styles_kato.module.css';
 
 export default function KatoPage() {
+  const router = useRouter();
+
+  const handleBackClick = () => {
+    router.push('/');
+  };
+
   return (
-    <div>
-      <h1>Kato Page</h1>
-      <p>これはkato.tsxのページです。</p>
-      <Image
-        src="/kato/profile.png"
-        alt="Kato's Profile"
-        width={200}
-        height={200}
-      />
+    <div className={styles.container}>
+      <h1 className={styles.heading}>Kato Page</h1>
+      <Bio />
+      <button onClick={handleBackClick} className={styles.backButton}>
+        戻る
+      </button>
     </div>
   );
 }
