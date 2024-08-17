@@ -1,0 +1,16 @@
+version: '3'
+services:
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    volumes:
+      - ./web:/app
+    command: yarn dev -p 4000
+    ports:
+      - "4000:4000"
+    tty: true
+    stdin_open: true
+
+volumes:
+  node_modules:
