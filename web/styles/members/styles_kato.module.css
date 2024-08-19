@@ -1,0 +1,45 @@
+/* コンテナ全体を中央寄りに配置 */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding-top: 50px;
+}
+
+/* 見出しのスタイル */
+.heading {
+  color: #3498db;
+  font-size: 2em;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* 戻るボタンのスタイル */
+.backButton {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.backButton:hover {
+  background-color: #2980b9;
+}
+
+/* Bioコンポーネント内の要素を中央揃えに */
+.bioContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* 画像とボタンの間に余白を追加 */
+.profileImage {
+  margin-bottom: 20px;
+}
