@@ -2,6 +2,7 @@ import { useRouter } from 'next/router';
 import Bio from '../../components/kato/Bio';
 import styles from '../../styles/members/styles_kato.module.css';
 
+
 export default function KatoPage() {
   const router = useRouter();
 

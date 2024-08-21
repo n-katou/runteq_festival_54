@@ -1,4 +1,4 @@
-/* コンテナ全体を中央寄りに配置 */
+コンテナ全体を中央寄りに配置
 .container {
   display: flex;
   flex-direction: column;
