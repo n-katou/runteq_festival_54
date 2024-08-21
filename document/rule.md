@@ -34,7 +34,7 @@ developは開発環境ということを表しています。
 
 [![Image from Gyazo](https://i.gyazo.com/29f0de8fe186917276ca77428aa36fc7.png)](https://gyazo.com/29f0de8fe186917276ca77428aa36fc7)
 
-例：下のようなissueで作業をする場合はfeature/issue4をブランチ名にします。
+例：上のようなissueで作業をする場合はfeature/issue4をブランチ名にします。
 ```bash
   git checkout -b feature/issue4
 ```
@@ -86,7 +86,7 @@ git push origin <branch名>
 ```
 
 ここでプルリクエストが送れる状態になったのでGithubに移動して
-プルリクエストを制作します。
+プルリクエストを制作します。*この段階ではまだマージしないでください！
 
 ## ここがものすごく重要なので間違えないでください！！！！
 [![Image from Gyazo](https://i.gyazo.com/072984dc4287819fb40fe1d587ecb816.png)](https://gyazo.com/072984dc4287819fb40fe1d587ecb816)
@@ -96,6 +96,12 @@ git push origin <branch名>
 ここで本番環境にあたるmainブランチを
 選んでしまうとコンフリクトなどエラーの原因になりえるので一度、開発環境である
 developブランチを最新にしていくイメージでいいと思います！
+
+プルリクエストを作成ののち
+mattermostのrunteq_festival_54のページで@allでメンションして
+プルリクエストのリンクを貼ってください！
+中心メンバー(*1)の内、2名以上がLGTMを出したら
+マージしてください！
 
 以上で開発の流れは終了となります！
 もし、作業が一日で終わらなかったり編集がしたい場合は、
