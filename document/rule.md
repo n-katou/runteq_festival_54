@@ -21,15 +21,6 @@ git checkout develop
 
 developは開発環境ということを表しています。
 
-そこで
-```bash
-  git fetch origin develop　(developに最新状態を取得している状態)
-
-  git merge origin/develop (fetchの内容でマージしている状態)
-```
-
-をしてください。
-
 そこからissueで設定されているissue名を使ったブランチに移行します。
 
 [![Image from Gyazo](https://i.gyazo.com/29f0de8fe186917276ca77428aa36fc7.png)](https://gyazo.com/29f0de8fe186917276ca77428aa36fc7)
@@ -82,6 +73,17 @@ git commit -m “メッセージ”
 commitを終えたら、
 
 ```bash
+  git fetch origin develop　(developに最新状態を取得している状態)
+
+  git merge origin/develop (fetchの内容でマージしている状態)
+```
+
+をしてください。
+これをすることでブランチを最新の状態にしつつ自分が追加したい内容を
+送る準備が整いました。
+その後、
+
+```bash
 git push origin <branch名>
 ```
 
@@ -104,15 +106,9 @@ mattermostのrunteq_festival_54のページで@allでメンションして
 マージしてください！
 
 以上で開発の流れは終了となります！
-もし、作業が一日で終わらなかったり編集がしたい場合は、
-一度、developブランチに移動して最初に行った
-
-```bash
-  git fetch origin develop
-
-  git merge origin/develop
-```
-をして最新の状態にしてから作業ブランチに移動してください！
+もし、編集がしたい場合も
+同じブランチを使って先ほどと同じ流れでプルリクエストを
+作ってもらえたら大丈夫です！
 
 ## 注意事項（必ず目を通してください）
 基本的にはそれぞれ持ち場のページのみの製作になります！
