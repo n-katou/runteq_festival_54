@@ -32,8 +32,7 @@ const GenericImage: React.FC<GenericImageProps> = ({ src, alt, top, left, center
           alt={alt}
           className={`${alt}-image z-10`}
           layout="responsive"
-          width="100%"
-          height="auto"
+          style={{ width: '100%', height: 'auto' }}
         />
         {children && (
           <div className="absolute inset-0 flex items-center justify-center z-20" style={{ transform: 'translateY(10%)' }} >
