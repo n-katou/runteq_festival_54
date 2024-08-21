@@ -16,7 +16,7 @@ const Template = () => {
               <div className="text-orange max-w-[600px] flex-col justify-center mx-auto xl:mx-0 text-center xl:text-left">
                 <h2 className="text-8xl">
                   Hello<br/>
-                  I'm yamada taro</h2>
+                  I<span>It&apos;s a wonderful day!</span>m yamada taro</h2>
                 <div className="text-2xl">My hobby is ...</div>
                 <div className="text-2xl">My Vision as a Future Engineer ...</div>
                 <div className="text-xl">こんにちは。エンジニアとして、問題解決と革新的なソリューション提供に情熱を持っています。継続的な学習を大切にし、チームと協力して高品質なソフトウェアを開発しています。技術とコミュニケーションの両方を駆使し、ユーザーの期待を超える成果を目指しています。よろしくお願いします。</div>
