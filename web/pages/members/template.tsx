@@ -1,7 +1,7 @@
 //import motion
 import {motion} from 'framer-motion'
 //componets
-import Social from "/components/template/parts/Social.tsx";
+import Social from "/components/template/parts/Social";
 import MyImg from "@/components/template/parts/MyImg";
 
 
