@@ -12,7 +12,7 @@ import FiftyFourImage from '../../public/index/54.png';
 import IchigoTabetaiImage from '../../public/index/ichigo_tabetai.png';
 import ZeninSotugyouImage from '../../public/index/zenin_sotugyou.png';
 
-const src = RunteqFestivalImage.src;
+
 
 const MainContent = () => {
   return (

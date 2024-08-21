@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
 import { Grid } from '@mui/material';
-import Image from 'next/image';
+import Image, { ImageProps } from 'next/image';
 
 interface GenericImageProps {
-  src: string;
+  src: ImageProps['src'];
   alt: string;
   top: number;
   left: number;
