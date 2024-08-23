@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <CacheProvider value={cache}>
       <CssBaseline />
-      <Box className="relative w-full min-h-screen bg-[#A1E0E6]">
-        <Grid container justifyContent="center" alignItems="center" className="relative w-full h-auto max-w-4xl m-auto">
+      <Box className="relative w-full bg-[#A1E0E6]" display="flex" justifyContent="center" alignItems="center" minHeight="100vh">
+        <Grid container justifyContent="center" alignItems="center" className="relative w-full max-w-4xl" sx={{ minHeight: '100vh' }}>
           <MainContent />
         </Grid>
       </Box>
