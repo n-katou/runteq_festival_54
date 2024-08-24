@@ -1,6 +1,9 @@
 import React, { ReactNode } from 'react';
+
 import Header from './Header';
 import Footer from './Footer';
+
+import Box from '@mui/material/Box';
 
 interface LayoutProps {
   children: ReactNode;
@@ -8,11 +11,19 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <div>
+    <Box 
+      sx={{ 
+        display: 'flex', 
+        flexDirection: 'column', 
+        minHeight: '100vh' 
+      }}
+    >
       <Header />
-        <main>{children}</main>
+      <Box component="main" sx={{ flexGrow: 1 }}>
+        {children}
+      </Box>
       <Footer />
-    </div>
+    </Box>
   );
 };
 
