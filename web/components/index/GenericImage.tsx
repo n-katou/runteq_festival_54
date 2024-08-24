@@ -9,11 +9,13 @@ interface GenericImageProps {
   left: number;
   centered: boolean;
   widthPercent: number;
-  children?: ReactNode; // children プロパティはオプショナルで、ReactNode 型を持つ
+  children?: ReactNode;
+  onMouseEnter?: () => void;
+  onMouseLeave?: () => void;
 }
 
 //ImageをマテリアルUIで使いまわしするコンポーネント
-const GenericImage: React.FC<GenericImageProps> = ({ src, alt, top, left, centered, widthPercent, children }) => {
+const GenericImage: React.FC<GenericImageProps> = ({ src, alt, top, left, centered, widthPercent, children, onMouseEnter,onMouseLeave }) => {
   return (
     <Grid
       item
@@ -25,13 +27,14 @@ const GenericImage: React.FC<GenericImageProps> = ({ src, alt, top, left, center
         transform: centered ? 'translate(-50%, -50%)' : 'none',
         width: `${widthPercent}%`,
       }}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       <div className="relative w-full h-full">
         <Image
           src={src}
           alt={alt}
           className={`${alt}-image z-10`}
-          layout="responsive"
           style={{ width: '100%', height: 'auto' }}
         />
         {children && (

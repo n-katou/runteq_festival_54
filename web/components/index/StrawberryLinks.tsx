@@ -1,86 +1,40 @@
 import React from 'react';
-import GenericImage from './GenericImage';
+import HoverableStrawberry from './HoverableStrawberry';
 import Link from 'next/link';
 
-import RedStrawberryImage from '../../public/index/red_strawberry.png';
-import PinkStrawberryImage from '../../public/index/pink_strawberry.png';
-import WhiteStrawberryImage from '../../public/index/white_strawberry.png';
-import GreenStrawberryImage from '../../public/index/green_strawberry.png';
+interface StrawberryLinksProps {
+  positions: number[];
+  top: number;
+  initialColor?: 'red' | 'pink' | 'white' | 'green';
+}
 
-const StrawberryLinks = () => {
-
-  const strawberries = [
-    { src: RedStrawberryImage, alt: 'red strawberry' },
-    { src: PinkStrawberryImage, alt: 'pink strawberry' },
-    { src: WhiteStrawberryImage, alt: 'white strawberry' },
-    { src: GreenStrawberryImage, alt: 'green strawberry' }
+const StrawberryLinks: React.FC<StrawberryLinksProps> = ({ positions, top, initialColor = 'red' }) => {
+  const links = [
+    { href: "/members/kato", text: "加藤" },
+    null,
+    null,
+    null,
+    null,
+    null,
   ];
 
-  const getRandomStrawberry = () => {
-    const randomIndex = Math.floor(Math.random() * strawberries.length);
-    return strawberries[randomIndex];
-  };
-
-  const strawberryLinks = [
-    {
-      position: { top: 10, left: 10 },
-      widthPercent: 9.5,
-      image: getRandomStrawberry(),
-      link: {
-        href: "/members/kato",
-        text: "加藤",
-      },
-    },
-    {
-      position: { top: 10, left: 24 },
-      widthPercent: 9.5,
-      image: getRandomStrawberry(),
-      link: null
-    },
-    {
-      position: { top: 10, left: 38 },
-      widthPercent: 9.5,
-      image: getRandomStrawberry(),
-      link: null
-    },
-    {
-      position: { top: 10, left: 52 },
-      widthPercent: 9.5,
-      image: getRandomStrawberry(),
-      link: null
-    },
-    {
-      position: { top: 10, left: 66 },
-      widthPercent: 9.5,
-      image: getRandomStrawberry(),
-      link: null
-    },
-    {
-      position: { top: 10, left: 80 },
-      widthPercent: 9.5,
-      image: getRandomStrawberry(),
-      link: null
-    },
-  ];
-  
   return (
     <>
-      {strawberryLinks.map((item, index) => (
-        <GenericImage
+      {positions.map((left, index) => (
+        <HoverableStrawberry
           key={index}
-          src={item.image.src}
-          alt={item.image.alt}
-          top={item.position.top}
-          left={item.position.left}
-          centered={false}
-          widthPercent={item.widthPercent}
+          top={top}
+          left={left}
+          widthPercent={9.5}
+          initialIndex={index}
+          initialColor={initialColor as 'red' | 'pink' | 'white' | 'green'}
         >
-          {item.link && (
-            <Link href={item.link.href} className="text-black bold">
-              {item.link.text}
+          {links[index] && (
+            <Link href={links[index]?.href} className="text-black bold" style={{ fontSize: 'clamp(12px, 2vw, 20px)' }}>
+              {links[index]?.text}
             </Link>
           )}
-        </GenericImage>
+        </HoverableStrawberry>
       ))}
     </>
   );
