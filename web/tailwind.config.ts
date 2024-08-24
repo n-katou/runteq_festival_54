@@ -24,10 +24,12 @@ const config: Config = {
     extend: {
       colors: {
         red: '#ff4c4c',
-        green: 'a8d8b9',
-        cream: 'fff7e5',
+        green: '#a8d8b9',
+        cream: '#fff7e5',
         pink: '#ffc4d4',
-        blue: 'a1e0e6',
+        blue: '#a1e0e6',
+        darkGreen: '#89d96e',
+        orange: '#ff914c',
         accent: {
           DEFAULT: 'ffc4d4',
           hover: "fff2f2",
@@ -37,6 +39,9 @@ const config: Config = {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "shape": "url('/template/shape-1.svg')",
+        "shape-light": "url('/template/shape-light.svg')",
+
       },
     },
   },
