@@ -1,18 +1,8 @@
-import React, { ReactNode } from 'react';
+import React from 'react';
 import { Grid } from '@mui/material';
-import Image, { ImageProps } from 'next/image';
+import Image from 'next/image';
 
-interface GenericImageProps {
-  src: ImageProps['src'];
-  alt: string;
-  top: number;
-  left: number;
-  centered: boolean;
-  widthPercent: number;
-  children?: ReactNode;
-  onMouseEnter?: () => void;
-  onMouseLeave?: () => void;
-}
+import { GenericImageProps } from '../../types/types_index'
 
 //ImageをマテリアルUIで使いまわしするコンポーネント
 const GenericImage: React.FC<GenericImageProps> = ({ src, alt, top, left, centered, widthPercent, children, onMouseEnter,onMouseLeave }) => {
@@ -26,6 +16,7 @@ const GenericImage: React.FC<GenericImageProps> = ({ src, alt, top, left, center
         left: `${left}%`,
         transform: centered ? 'translate(-50%, -50%)' : 'none',
         width: `${widthPercent}%`,
+        maxWidth: '100%',  // 最大幅をフレーム内に制限
       }}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -35,7 +26,7 @@ const GenericImage: React.FC<GenericImageProps> = ({ src, alt, top, left, center
           src={src}
           alt={alt}
           className={`${alt}-image z-10`}
-          style={{ width: '100%', height: 'auto' }}
+          style={{ width: '100%', height: 'auto', maxWidth: '100%' }}
         />
         {children && (
           <div className="absolute inset-0 flex items-center justify-center z-20" style={{ transform: 'translateY(10%)' }} >
