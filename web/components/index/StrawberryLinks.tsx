@@ -12,7 +12,7 @@ const StrawberryLinks: React.FC<StrawberriesProps> = ({ positions, top, initialC
     null,
     null,
     null,
-    null,
+    { href: "/members/demo", text: "demo" },
   ];
 
   return (
