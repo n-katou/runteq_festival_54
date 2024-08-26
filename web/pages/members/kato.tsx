@@ -1,7 +1,7 @@
 import { motion, useMotionValue, useTransform } from 'framer-motion';
-import Social from '../../template/components/Social';
-import MyImg from "../../template/components/MyImg";
-import { Transition } from '../../template/components/transitions';
+import Social from '../../components/kato/Social';
+import MyImg from "../../components/kato/MyImg";
+import { Transition } from '../../components/kato/transitions';
 
 const KatoPage: React.FC = () => {
   const x = useMotionValue(0);
