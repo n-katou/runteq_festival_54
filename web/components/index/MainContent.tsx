@@ -1,62 +1,29 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { Grid } from '@mui/material';
 
 import GenericImage from './GenericImage';
 import StrawberryLinks from './StrawberryLinks';
+import BasicStrawberries from './Basicstrawberries';
+import KirakiraEffect from './KirakiraEffect';
 
 import FrameImage from '../../public/index/frame.png';
 import RunteqFestivalImage from '../../public/index/runteq_festival.png';
 import FiftyFourImage from '../../public/index/54.png';
 import IchigoTabetaiImage from '../../public/index/ichigo_tabetai.png';
-import ZeninSotugyouImage from '../../public/index/zenin_sotugyou.png';
-import BasicStrawberries from './Basicstrawberries';
-import KirakiraEffect from './KirakiraEffect';
+import ReactSaikoImage from '../../public/index/react_saiko.png';
+
+import { useDisplaySettings } from '../../hooks/hooks_index';
 
 const MainContent = () => {
-  const [shouldDisplayStrawberries, setShouldDisplayStrawberries] = useState(false);
-  const [isLargeScreen, setIsLargeScreen] = useState(false);
-  const [adjustedTop, setAdjustedTop] = useState<number[]>([]);
-
-  useEffect(() => {
-    const updateDisplaySettings = () => {
-      const verticalAspectRatio = window.innerHeight / window.innerWidth;
-
-      // 縦長のアスペクト比が2以上かどうか
-      const displayStrawberries = verticalAspectRatio >= 2.1;
-      setShouldDisplayStrawberries(displayStrawberries);
-
-      // 画面が大きい場合
-      const largeScreen = window.innerWidth >= 1900 && window.innerHeight >= 1900;
-      setIsLargeScreen(largeScreen);
-
-      // 特定のアスペクト比範囲である場合に各行の top の値を調整
-      if (!isLargeScreen && !displayStrawberries && verticalAspectRatio < 2.1 && verticalAspectRatio >= 1
-      ) {
-        setAdjustedTop([12, 36, 60, 82]); // 例: 各行の top を調整
-      } else {
-        setAdjustedTop([]); // デフォルト値に戻す
-      }
-    };
-
-    // 初回のチェック
-    updateDisplaySettings();
-
-    // リサイズ時に縦方向のアスペクト比をチェック
-    window.addEventListener('resize', updateDisplaySettings);
-
-    // クリーンアップ
-    return () => {
-      window.removeEventListener('resize', updateDisplaySettings);
-    };
-  }, []);
+  const { shouldDisplayStrawberries, isLargeScreen, adjustedTop } = useDisplaySettings();
 
   const getTopValue = (defaultTop: number, index: number): number => {
     return adjustedTop.length > index ? adjustedTop[index] : defaultTop;
   };
 
   return (
-    <Grid item xs={12} className="relative py-6">
+    <Grid item xs={12} className="relative py-12">
       <Image
         src={FrameImage}
         alt="frame"
@@ -94,44 +61,13 @@ const MainContent = () => {
         widthPercent={13}
       />
 
-      <KirakiraEffect 
-        style={{ 
-          position: 'absolute', 
-          top: '34%', 
-          left: '40%', 
-        }}
-        scale={[0, 1.5, 0]}
-        delay={0}
-      />
-
-      <KirakiraEffect 
-        style={{ 
-          position: 'absolute', 
-          top: '36%', 
-          left: '42%', 
-        }}
-        scale={[0, 0.7, 0]}
-        delay={0.3}
-      />
-
-      <KirakiraEffect 
-        style={{ 
-          position: 'absolute', 
-          top: '34%', 
-          left: '54%', 
-        }}
-        scale={[0, 1.1, 0]}
-        delay={0.6}
-      />
-
-      <KirakiraEffect 
-        style={{ 
-          position: 'absolute', 
-          top: '43%', 
-          left: '54%', 
-        }}
-        scale={[0, 0.9, 0]}
-        delay={0.9}
+      <KirakiraEffect
+        effects={[
+          { style: { position: 'absolute', top: '34%', left: '40%' }, scale: [0, 1.5, 0], delay: 0 },
+          { style: { position: 'absolute', top: '36%', left: '42%' }, scale: [0, 0.7, 0], delay: 0.3 },
+          { style: { position: 'absolute', top: '34%', left: '54%' }, scale: [0, 1.1, 0], delay: 0.6 },
+          { style: { position: 'absolute', top: '43%', left: '54%' }, scale: [0, 0.9, 0], delay: 0.9 }
+        ]}
       />
 
       <GenericImage
@@ -150,12 +86,12 @@ const MainContent = () => {
       )}
 
       <GenericImage
-        src={ZeninSotugyouImage}
-        alt="zeninsotugyou"
+        src={ReactSaikoImage}
+        alt="reactsaiko"
         top={76}
         left={50}
         centered={true}
-        widthPercent={77}
+        widthPercent={62}
       />
 
       <BasicStrawberries positions={[10, 24, 38, 52, 66, 80]} top={getTopValue(81, 3)} initialColor={'green'} />

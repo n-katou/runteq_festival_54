@@ -1,54 +1,51 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
 
 import GenericImage from './GenericImage';
+import { useHoverEffect } from '../../hooks/hooks_index';
 
 import RedStrawberryImage from '../../public/index/red_strawberry.png';
+import RedStrawberryImage2 from '../../public/index/red_strawberry2.png';
+import RedStrawberryImage3 from '../../public/index/red_strawberry3.png';
 import PinkStrawberryImage from '../../public/index/pink_strawberry.png';
+import PinkStrawberryImage2 from '../../public/index/pink_strawberry2.png';
+import PinkStrawberryImage3 from '../../public/index/pink_strawberry3.png';
 import WhiteStrawberryImage from '../../public/index/white_strawberry.png';
+import WhiteStrawberryImage2 from '../../public/index/white_strawberry2.png';
+import WhiteStrawberryImage3 from '../../public/index/white_strawberry3.png';
 import GreenStrawberryImage from '../../public/index/green_strawberry.png';
+import GreenStrawberryImage2 from '../../public/index/green_strawberry2.png';
+import GreenStrawberryImage3 from '../../public/index/green_strawberry3.png';
+import StrawberryCalyxImage from '../../public/index/strawberry_calyx.png';
 
-interface HoverableStrawberryProps {
-  top: number;
-  left: number;
-  widthPercent: number;
-  centered?: boolean;
-  children?: React.ReactNode;
-  initialColor?: 'red' | 'pink' | 'white' | 'green'; // 開始色を指定するプロップス
-  initialIndex: number;
-}
+import { HoverableStrawberryProps } from '../../types/types_index';
 
 const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ top, left, widthPercent, centered = false, children, initialColor = 'red', initialIndex }) => {
-  const strawberries = [
-    { src: RedStrawberryImage, alt: 'red strawberry' },
-    { src: PinkStrawberryImage, alt: 'pink strawberry' },
-    { src: WhiteStrawberryImage, alt: 'white strawberry' },
-    { src: GreenStrawberryImage, alt: 'green strawberry' }
-  ];
-
-  const colorMap = {
-    red: 0,
-    pink: 1,
-    white: 2,
-    green: 3,
+  const normalStrawberryImages = {
+    red: [RedStrawberryImage],
+    pink: [PinkStrawberryImage],
+    white: [WhiteStrawberryImage],
+    green: [GreenStrawberryImage],
   };
 
-  const getRandomStrawberry = () => {
-    const randomIndex = Math.floor(Math.random() * strawberries.length);
-    return strawberries[randomIndex];
+  const hoverStrawberryImages = {
+    red: [RedStrawberryImage, RedStrawberryImage2, RedStrawberryImage3, StrawberryCalyxImage],
+    pink: [PinkStrawberryImage, PinkStrawberryImage2, PinkStrawberryImage3, StrawberryCalyxImage],
+    white: [WhiteStrawberryImage, WhiteStrawberryImage2, WhiteStrawberryImage3, StrawberryCalyxImage],
+    green: [GreenStrawberryImage, GreenStrawberryImage2, GreenStrawberryImage3, StrawberryCalyxImage],
   };
 
-  const initialColorIndex = colorMap[initialColor];
-  const initialStrawberry = strawberries[(initialColorIndex + initialIndex) % strawberries.length];
-  const [currentStrawberry, setCurrentStrawberry] = useState(initialStrawberry);
+  const colorOrder: Array<'red' | 'pink' | 'white' | 'green'> = ['red', 'pink', 'white', 'green'];
+  
+  // initialColor から順番にイチゴを配置
+  const startIndex = colorOrder.indexOf(initialColor);
+  
+  // 指定された初期カラーを基にした順序で色を決定
+  const currentColor = colorOrder[(startIndex + initialIndex) % colorOrder.length];
+  const initialStrawberry = normalStrawberryImages[currentColor][0];
 
-  const handleMouseEnter = () => {
-    setCurrentStrawberry(getRandomStrawberry());
-  };
-
-  const handleMouseLeave = () => {
-    setCurrentStrawberry(initialStrawberry); // 元のイチゴに戻す
-  };
+  // ホバー時の画像効果
+  const { currentImageIndex, isHovered, setIsHovered } = useHoverEffect(0, hoverStrawberryImages[currentColor]);
 
   const swingVariants = {
     initial: {
@@ -57,7 +54,7 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ top, left, wi
     animate: {
       rotate: [-7, 7, -7],
       transition: {
-        duration: 0.8,
+        duration: 1.2,
         ease: 'easeInOut',
         repeat: Infinity,
         repeatType: 'reverse' as const,
@@ -72,21 +69,21 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ top, left, wi
         top: `${top}%`,
         left: `${left}%`,
         transformOrigin: 'bottom center',
-        width: `${widthPercent}%`, // ここで幅を指定
+        width: `${widthPercent}%`,
       }}
       variants={swingVariants}
       initial="initial"
       whileHover="animate"
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
     >
       <GenericImage
         top={0}
         left={0}
-        src={currentStrawberry.src}
-        alt={currentStrawberry.alt}
+        src={isHovered ? hoverStrawberryImages[currentColor][currentImageIndex] : initialStrawberry}
+        alt={`${currentColor} strawberry`}
         centered={centered}
-        widthPercent={100} // 親のdivのサイズを基準に設定
+        widthPercent={100}
       >
         {children}
       </GenericImage>

@@ -1,14 +1,11 @@
 import React from 'react';
-import HoverableStrawberry from './HoverableStrawberry';
 import Link from 'next/link';
 
-interface StrawberryLinksProps {
-  positions: number[];
-  top: number;
-  initialColor?: 'red' | 'pink' | 'white' | 'green';
-}
+import HoverableStrawberry from './HoverableStrawberry';
 
-const StrawberryLinks: React.FC<StrawberryLinksProps> = ({ positions, top, initialColor = 'red' }) => {
+import { StrawberriesProps } from '../../types/types_index'
+
+const StrawberryLinks: React.FC<StrawberriesProps> = ({ positions, top, initialColor = 'red' }) => {
   const links = [
     { href: "/members/kato", text: "加藤" },
     null,
@@ -27,7 +24,7 @@ const StrawberryLinks: React.FC<StrawberryLinksProps> = ({ positions, top, initi
           left={left}
           widthPercent={9.5}
           initialIndex={index}
-          initialColor={initialColor as 'red' | 'pink' | 'white' | 'green'}
+          initialColor={initialColor}
         >
           {links[index] && (
             <Link href={links[index]?.href} className="text-black bold" style={{ fontSize: 'clamp(12px, 2vw, 20px)' }}>

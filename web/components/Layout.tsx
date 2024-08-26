@@ -18,11 +18,17 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         minHeight: '100vh' 
       }}
     >
-      <Header />
+      <Box sx={{ flexShrink: 0 }}>
+        <Header />
+      </Box>
+      
       <Box component="main" sx={{ flexGrow: 1 }}>
         {children}
       </Box>
-      <Footer />
+      
+      <Box sx={{ flexShrink: 0 }}>
+        <Footer />
+      </Box>
     </Box>
   );
 };
