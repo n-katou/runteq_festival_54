@@ -1,6 +1,10 @@
 import React from 'react';
+import Image from 'next/image';
+
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+
+import FooterLogoImage from '../public/index/footer_logo.png'
 
 const Footer = () => {
   return (
@@ -8,14 +12,15 @@ const Footer = () => {
       component="footer" 
       sx={{ 
         backgroundColor: '#FFC4D4', 
-        padding: '16px', 
-        textAlign: 'center', 
-        marginTop: 'auto' 
+        display:'flex', 
+        alignItems: 'center',
+        justifyContent: 'center' 
       }}
     >
-      <Typography variant="body2" color='#fff'>
-        &copy; 2024 RUNTEQ54
-      </Typography>
+        <Image src={FooterLogoImage} alt={'footer logo'} className={`footer-logo-image`} style={{ width: '3%', height: 'auto' }} />
+        <Typography variant="body2" color='#fff'>
+          2024 RUNTEQ54
+        </Typography>
     </Box>
   );
 };

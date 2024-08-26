@@ -1,13 +1,9 @@
 import React from 'react';
+
 import HoverableStrawberry from './HoverableStrawberry';
+import { StrawberriesProps } from '../../types/types_index'
 
-interface BasicStrawberriesProps {
-  positions: number[];
-  top: number;
-  initialColor?: 'red' | 'pink' | 'white' | 'green'; 
-}
-
-const BasicStrawberries: React.FC<BasicStrawberriesProps> = ({ positions, top, initialColor='red' }) => {
+const BasicStrawberries: React.FC<StrawberriesProps> = ({ positions, top, initialColor='red' }) => {
   return (
     <>
       {positions.map((left, index) => (
