@@ -38,7 +38,7 @@ const KatoPage: React.FC = () => {
                 <div className="mt-8 flex flex-col xl:flex-row items-center gap-8">
                   <Social
                     containerStyles="flex gap-6"
-                    iconStyles="w-10 h-10 border border-green rounded-full flex justify-center items-center text-white text-base bg-green hover:bg-darkGreen hover:text-white transition-all duration-500"
+                    iconStyles="w-12 h-12 border border-green rounded-full flex justify-center items-center text-white text-base bg-green hover:bg-darkGreen hover:text-white transition-all duration-500 text-5xl"
                   />
                 </div>
               </motion.div>
