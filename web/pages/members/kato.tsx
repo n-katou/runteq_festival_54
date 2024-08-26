@@ -18,7 +18,7 @@ const KatoPage: React.FC = () => {
       className="relative min-h-screen"
     >
       <div className="h-[80vh] xl:h-screen relative flex items-center justify-center">
-        <div className="absolute w-full h-full z-10 bg-blue/[0.86]" />
+        <div className="absolute w-full h-full z-10" />
         <section className="relative z-20 py-12 xl:py-24 text-white">
           <div className="container mx-auto">
             <div className="flex justify-between items-center gap-x-8">
@@ -64,12 +64,12 @@ const KatoPage: React.FC = () => {
                   >
                     <div
                       className="w-[500px] h-[500px] bg-no-repeat absolute -top-1 -right-1 z-0"
-                      style={{ backgroundImage: `url('/template/shape-light.svg')` }}
+                      style={{ backgroundImage: `url('/kato/shape-light.svg')` }}
                     />
                     <MyImg
                       containerStyles="w-[510px] h-[462px] bg-no-repeat relative bg-bottom rounded-lg overflow-hidden shadow-lg"
                       imgSrc='/kato/profile.png'
-                      style={{ backgroundImage: `url('/template/shape-1.svg')` }}
+                      style={{ backgroundImage: `url('/kato/shape-1.svg')` }}
                     />
                   </motion.div>
                 </div>
@@ -78,7 +78,7 @@ const KatoPage: React.FC = () => {
           </div>
         </section>
         <video autoPlay loop muted className="absolute top-0 left-0 w-full h-full object-cover">
-          <source src="/template/strawberry.mp4" type="video/mp4" />
+          <source src="/kato/sky.mp4" type="video/mp4" />
         </video>
       </div>
     </motion.section>
