@@ -29,7 +29,6 @@ const config: Config = {
         pink: '#ffc4d4',
         blue: '#a1e0e6',
         darkGreen: '#89d96e',
-        lightblue: '#b3e9ee',
         orange: '#ff914c',
         accent: {
           DEFAULT: 'ffc4d4',
