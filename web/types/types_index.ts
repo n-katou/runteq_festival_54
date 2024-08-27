@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { ImageProps } from 'next/image';
+import { ImageProps, StaticImageData } from 'next/image';
 
 export interface GenericImageProps {
   src: ImageProps['src'];
@@ -21,6 +21,8 @@ export interface HoverableStrawberryProps {
   children?: React.ReactNode;
   initialColor?: 'red' | 'pink' | 'white' | 'green'; // 開始色を指定するプロップス
   initialIndex: number;
+  onLastImage?: () => void;
+  onHoverEnd?: () => void;
 }
 
 export interface StrawberriesProps {
@@ -35,4 +37,18 @@ export interface KirakiraEffectProps {
     scale?: number[];
     delay?: number;
   }[];
+}
+
+export interface UseTextVisibilityProps {
+  isHovered: boolean;
+  currentImageIndex: number;
+  hoverStrawberryImages: {
+    red: StaticImageData[];
+    pink: StaticImageData[];
+    white: StaticImageData[];
+    green: StaticImageData[];
+  };
+  currentColor: 'red' | 'pink' | 'white' | 'green';
+  onLastImage: () => void;
+  onHoverEnd: () => void;
 }
