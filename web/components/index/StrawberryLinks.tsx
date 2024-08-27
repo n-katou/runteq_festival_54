@@ -12,8 +12,6 @@ const StrawberryLinks: React.FC<StrawberriesProps> = ({ positions, top, initialC
     { href: "/members/kato", text: "加藤" },
     null,
     null,
-    null,
-    null,
     { href: "/members/demo", text: "demo" },
   ];
 
