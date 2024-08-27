@@ -11,12 +11,24 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-      <Header />
-      <Box component="main" sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh'
+      }}
+    >
+      <Box sx={{ flexShrink: 0 }}>
+        <Header />
+      </Box>
+
+      <Box component="main" sx={{ flexGrow: 1 }}>
         {children}
       </Box>
-      <Footer />
+
+      <Box sx={{ flexShrink: 0 }}>
+        <Footer />
+      </Box>
     </Box>
   );
 };
