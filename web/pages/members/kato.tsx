@@ -19,10 +19,13 @@ const KatoPage: React.FC = () => {
       transition={{ Transition }}
       className="relative min-h-screen"
     >
-      <div className="h-[80vh] xl:h-screen relative flex flex-col items-center justify-center">
-        <div className="absolute w-full h-full z-10" />
+      {/* 背景ビデオの配置 */}
+      <video autoPlay loop muted className="absolute top-0 left-0 w-full h-full object-cover z-0">
+        <source src="/kato/back.mp4" type="video/mp4" />
+      </video>
 
-        {/* 自己紹介とプロフィール画像のセクション */}
+      {/* コンテンツエリア */}
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen">
         <section className="relative z-20 py-12 xl:py-24 text-white w-full">
           <div className="container mx-auto flex flex-col lg:flex-row items-center gap-x-8">
             <motion.div
@@ -82,10 +85,6 @@ const KatoPage: React.FC = () => {
         </section>
 
         <AppsList />
-
-        <video autoPlay loop muted className="absolute top-0 left-0 w-full h-full object-cover">
-          <source src="/kato/back.mp4" type="video/mp4" />
-        </video>
       </div>
     </motion.section>
   );
