@@ -20,7 +20,7 @@ import StrawberryCalyxImage from '../../public/index/strawberry_calyx.png';
 
 import { HoverableStrawberryProps } from '../../types/types_index';
 
-const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ top, left, widthPercent, centered = false, children, initialColor = 'red', initialIndex, onLastImage, onHoverEnd }) => {
+const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPercent, centered = false, children, initialColor = 'red', initialIndex, onLastImage, onHoverEnd }) => {
   const normalStrawberryImages = {
     red: [RedStrawberryImage],
     pink: [PinkStrawberryImage],
@@ -75,7 +75,6 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ top, left, wi
     <motion.div
       style={{
         position: 'absolute',
-        top: `${top}%`,
         left: `${left}%`,
         transformOrigin: 'bottom center',
         width: `${widthPercent}%`,
@@ -90,8 +89,6 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ top, left, wi
       }}
     >
       <GenericImage
-        top={0}
-        left={0}
         src={isHovered ? hoverStrawberryImages[currentColor][currentImageIndex] : initialStrawberry}
         alt={`${currentColor} strawberry`}
         centered={centered}
