@@ -11,14 +11,7 @@ import FiftyFourImage from '../../public/index/54.png';
 import IchigoTabetaiImage from '../../public/index/ichigo_tabetai.png';
 import ReactSaikoImage from '../../public/index/react_saiko.png';
 
-import { useDisplaySettings } from '../../hooks/hooks_index';
-
 const MainContent = () => {
-  const { shouldDisplayStrawberries, isLargeScreen, adjustedTop } = useDisplaySettings();
-
-  const getTopValue = (defaultTop: number, index: number): number => {
-    return adjustedTop.length > index ? adjustedTop[index] : defaultTop;
-  };
 
   return (
     <Box
