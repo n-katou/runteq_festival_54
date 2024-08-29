@@ -67,14 +67,14 @@ const KatoPage: React.FC = () => {
                   dragElastic={0.18}
                   dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
                   whileTap={{ cursor: 'grabbing' }}
-                  className="backdrop-blur-lg bg-white/20 p-8 rounded-lg shadow-lg"
+                  className="backdrop-blur-lg bg-white/20 p-4 sm:p-8 rounded-lg shadow-lg"
                 >
                   <div
-                    className="w-[500px] h-[500px] bg-no-repeat absolute -top-1 -right-1 z-0"
+                    className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] bg-no-repeat absolute -top-1 -right-1 z-0"
                     style={{ backgroundImage: `url('/kato/shape-light.svg')` }}
                   />
                   <MyImg
-                    containerStyles="w-[510px] h-[462px] bg-no-repeat relative bg-bottom rounded-lg overflow-hidden shadow-lg"
+                    containerStyles="w-[310px] h-[272px] sm:w-[410px] sm:h-[362px] lg:w-[510px] lg:h-[462px] bg-no-repeat relative bg-bottom rounded-lg overflow-hidden shadow-lg"
                     imgSrc='/kato/profile.png'
                     style={{ backgroundImage: `url('/kato/shape-1.svg')` }}
                   />

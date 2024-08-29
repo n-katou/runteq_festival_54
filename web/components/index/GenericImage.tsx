@@ -5,16 +5,15 @@ import Image from 'next/image';
 import { GenericImageProps } from '../../types/types_index'
 
 //ImageをマテリアルUIで使いまわしするコンポーネント
-const GenericImage: React.FC<GenericImageProps> = ({ src, alt, top, left, centered, widthPercent, children, onMouseEnter,onMouseLeave }) => {
+const GenericImage: React.FC<GenericImageProps> = ({ src, alt, centered, widthPercent, children, onMouseEnter,onMouseLeave, style }) => {
   return (
     <Grid
       item
       xs={12}
       className="absolute"
       style={{
-        top: `${top}%`,
-        left: `${left}%`,
-        transform: centered ? 'translate(-50%, -50%)' : 'none',
+        ...style,
+        transform: centered ? 'translate(-50%, 0)' : 'none', // Y軸だけでなく、X軸も中央揃えする
         width: `${widthPercent}%`,
         maxWidth: '100%',  // 最大幅をフレーム内に制限
       }}

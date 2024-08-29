@@ -4,17 +4,15 @@ import { ImageProps, StaticImageData } from 'next/image';
 export interface GenericImageProps {
   src: ImageProps['src'];
   alt: string;
-  top: number;
-  left: number;
   centered: boolean;
   widthPercent: number;
   children?: ReactNode;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
+  style?: React.CSSProperties;
 }
 
 export interface HoverableStrawberryProps {
-  top: number;
   left: number;
   widthPercent: number;
   centered?: boolean;
@@ -27,7 +25,6 @@ export interface HoverableStrawberryProps {
 
 export interface StrawberriesProps {
   positions: number[];
-  top: number;
   initialColor: 'red' | 'pink' | 'white' | 'green'; 
 }
 
