@@ -5,7 +5,7 @@ import HoverableStrawberry from './HoverableStrawberry';
 
 import { StrawberriesProps } from '../../types/types_index'
 
-const StrawberryLinks: React.FC<StrawberriesProps> = ({ positions, top, initialColor = 'red' }) => {
+const StrawberryLinks: React.FC<StrawberriesProps> = ({ positions, initialColor = 'red' }) => {
   const [hideText, setHideText] = useState<number | null>(null); // 非表示にするリンクのインデックスを管理
 
   const links = [
@@ -26,9 +26,8 @@ const StrawberryLinks: React.FC<StrawberriesProps> = ({ positions, top, initialC
       {positions.map((left, index) => (
         <HoverableStrawberry
           key={index}
-          top={top}
           left={left}
-          widthPercent={9.5}
+          widthPercent={10}
           initialIndex={index}
           initialColor={initialColor}
           onLastImage={() => setHideText(index)} // 最後の画像に到達したらテキストを非表示にする
