@@ -11,6 +11,33 @@ const ReiPage: React.FC = () => {
   const rotateX = useTransform(y, [-100, 100], [30, -30]);
   const rotateY = useTransform(x, [-100, 100], [-30, 30]);
 
+  // 1つの絵文字が画面上にランダムな動きをするアニメーション
+  const createFloatingEmoji = (emoji: string, delay: number) => (
+    <motion.div
+      className="text-3xl absolute"
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{
+        opacity: [0, 1, 1, 0],
+        scale: [0, 1, 5, 0],
+        x: [0, Math.random() * 200 - 100, Math.random() * 200 - 100, 0],
+        y: [0, Math.random() * 200 - 100, Math.random() * 200 - 100, 0],
+        rotate: [0, Math.random() * 360, Math.random() * 360, 0],
+      }}
+      transition={{
+        duration: 10,
+        repeat: Infinity,
+        delay: delay,
+        ease: "easeInOut",
+      }}
+      style={{
+        top: `${Math.random() * 100}%`,
+        left: `${Math.random() * 100}%`,
+      }}
+    >
+      {emoji}
+    </motion.div>
+  );
+
   return (
     <motion.section
       initial={{ opacity: 0 }}
@@ -20,9 +47,12 @@ const ReiPage: React.FC = () => {
       className="relative min-h-screen bg-blue/[0.86]"
     >
       {/* コンテンツエリア */}
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen overflow-hidden">
         <section className="relative z-20 py-12 xl:py-24 text-white w-full bg-blue/[0.86]">
           <div className="container mx-auto flex flex-col lg:flex-row items-center gap-x-8">
+            {/* 浮遊する絵文字を追加 */}
+            {[...Array(5)].map((_, i) => createFloatingEmoji("🍓", i * 2))}
+            {[...Array(5)].map((_, i) => createFloatingEmoji("🦀", i * 2 + 1))}
             <motion.div
               initial={{ opacity: 0, y: "-50%" }}
               animate={{ opacity: 1, y: 0 }}
@@ -60,38 +90,6 @@ const ReiPage: React.FC = () => {
               }}
               className="w-full lg:w-1/2 flex justify-center mt-8 lg:mt-0 relative"
             >
-              <motion.div
-                className="text-3xl absolute top-full left-0"
-                initial={{ x: 0, y: 0 }}
-                animate={{
-                  x: [0, 100, 0],
-                  y: [0, 50, 0],
-                  rotate: [0, 360, 0],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                🍓
-              </motion.div>
-              <motion.div
-                className="text-3xl absolute top-full left-0"
-                initial={{ x: 0, y: 0 }}
-                animate={{
-                  x: [0, 100, 0],
-                  y: [0, 50, 0],
-                  rotate: [0, 360, 0],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                🦀
-              </motion.div>
               <div style={{ perspective: 2000 }}>
                 <motion.div
                   style={{ x, y, rotateX, rotateY, z: 100 }}
@@ -105,6 +103,13 @@ const ReiPage: React.FC = () => {
                     className="w-full h-full absolute -top-1 -right-1 z-0"
                     style={{ backgroundImage: `url('/rei/shape-light.svg')` }}
                   />
+                  {/* 浮遊する絵文字を追加 */}
+                  {[...Array(5)].map((_, i) =>
+                    createFloatingEmoji("🍓", i * 2)
+                  )}
+                  {[...Array(5)].map((_, i) =>
+                    createFloatingEmoji("🦀", i * 2 + 1)
+                  )}
                   <MyImg
                     containerStyles="w-[280px] h-[246px] sm:w-[350px] sm:h-[308px] md:w-[400px] md:h-[352px] lg:w-[450px] lg:h-[396px] bg-no-repeat relative bg-bottom rounded-lg overflow-hidden shadow-lg"
                     imgSrc="/rei/rei.png"
@@ -124,6 +129,11 @@ const ReiPage: React.FC = () => {
           >
             <h2 className="text-3xl md:text-4xl mb-6">Application</h2>
             <div className="flex flex-col sm:flex-row gap-6">
+              {/* 浮遊する絵文字を追加 */}
+              {[...Array(5)].map((_, i) => createFloatingEmoji("🍓", i * 2))}
+              {[...Array(5)].map((_, i) =>
+                createFloatingEmoji("🦀", i * 2 + 1)
+              )}
               <div className="w-full sm:w-1/2">
                 <h3 className="text-xl mb-3">ポートフォリオ</h3>
                 <a
