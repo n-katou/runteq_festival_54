@@ -1,9 +1,9 @@
 //import motion
 import { motion, useMotionValue, useTransform } from 'framer-motion'
 //componets
-import Social from '../../template/components/Social';
-import MyImg from "../../template/components/MyImg";
-import { Transition } from '../../template/components/transitions';
+import Social from '../../components/knnts/Social';
+import MyImg from "../../components/knnts/MyImg";
+import { Transition } from '../../components/knnts/transitions';
 
 const Template: React.FC = () => {
   const x = useMotionValue(0);
