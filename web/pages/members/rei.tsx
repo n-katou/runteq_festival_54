@@ -44,11 +44,11 @@ const ReiPage: React.FC = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ Transition }}
-      className="relative min-h-screen bg-blue/[0.86]"
+      className="relative min-h-screen"
     >
       {/* コンテンツエリア */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen overflow-hidden">
-        <section className="relative z-20 py-12 xl:py-24 text-white w-full bg-blue/[0.86]">
+        <section className="relative z-20 py-12 xl:py-24 text-white w-full bg-cream/[0.5]">
           <div className="container mx-auto flex flex-col lg:flex-row items-center gap-x-8">
             {/* 浮遊する絵文字を追加 */}
             {[...Array(5)].map((_, i) => createFloatingEmoji("🍓", i * 2))}
