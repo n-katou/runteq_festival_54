@@ -10,6 +10,7 @@ export interface GenericImageProps {
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   style?: React.CSSProperties;
+  onImageLoad?: (height: number) => void; 
 }
 
 export interface HoverableStrawberryProps {
@@ -21,6 +22,8 @@ export interface HoverableStrawberryProps {
   initialIndex: number;
   onLastImage?: () => void;
   onHoverEnd?: () => void;
+  href?: string;
+  linkText?: string; 
 }
 
 export interface StrawberriesProps {

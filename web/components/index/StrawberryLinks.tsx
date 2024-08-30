@@ -1,25 +1,17 @@
-import React, {useState} from 'react';
-import Link from 'next/link';
+import React from 'react';
 
 import HoverableStrawberry from './HoverableStrawberry';
 
 import { StrawberriesProps } from '../../types/types_index'
 
 const StrawberryLinks: React.FC<StrawberriesProps> = ({ positions, initialColor = 'red' }) => {
-  const [hideText, setHideText] = useState<number | null>(null); // 非表示にするリンクのインデックスを管理
 
   const links = [
     { href: "/members/kato", text: "加藤" },
-    null,
-    null,
-    { href: "/members/demo", text: "demo" },
+    { href: "/members/mick", text: "mick" },
+    { href: "/members/nori", text: "nori" },
+    { href: "/members/konisi", text: "小西" },
   ];
-
-  const handleHoverEnd = (index: number) => {
-    if (hideText === index) {
-      setHideText(null); // ホバーが終了したときにテキストを再度表示
-    }
-  };
 
   return (
     <>
@@ -30,15 +22,9 @@ const StrawberryLinks: React.FC<StrawberriesProps> = ({ positions, initialColor 
           widthPercent={10}
           initialIndex={index}
           initialColor={initialColor}
-          onLastImage={() => setHideText(index)} // 最後の画像に到達したらテキストを非表示にする
-          onHoverEnd={() => handleHoverEnd(index)}
-        >
-          {links[index] && (
-            <Link href={links[index]?.href} className="text-black bold" style={{ fontSize: 'clamp(12px, 2vw, 20px)' }}>
-               {hideText !== index && <span>{links[index]?.text}</span>}
-            </Link>
-          )}
-        </HoverableStrawberry>
+          href={links[index]?.href} // 各イチゴにリンク先を渡す
+          linkText={links[index]?.text} // 各イチゴにリンクのテキストを渡す
+        />
       ))}
     </>
   );

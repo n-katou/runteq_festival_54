@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 import {UseTextVisibilityProps} from '../types/types_index';
 
@@ -126,4 +126,16 @@ export const useMaxSize = () => {
   }, []);
 
   return maxSize;
+};
+
+export const useImageHeight = (onImageLoad?: (height: number) => void) => {
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (imageRef.current && onImageLoad) {
+      onImageLoad(imageRef.current.clientHeight); // 画像の高さを親コンポーネントに渡す
+    }
+  }, [imageRef.current, onImageLoad]);
+
+  return imageRef;
 };
