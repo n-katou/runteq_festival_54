@@ -58,3 +58,8 @@ export interface UseTextVisibilityProps {
   onLastImage: () => void;
   onHoverEnd: () => void;
 }
+
+export interface PreviewCardProps {
+  title: string;
+  link: string;
+}

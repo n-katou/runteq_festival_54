@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { Box, Grid } from '@mui/material';
 
@@ -24,7 +24,7 @@ const MainContent = () => {
     ];
   
     const links2 = [
-      { href: "/members/lnnts", text: "かなナッツ"  },
+      { href: "/members/knnts", text: "かなナッツ"  },
     ];
   
     const links3 = [
@@ -121,10 +121,23 @@ const MainContent = () => {
         alt={ 'TVImage' }
         className={ 'TVImage' }
         style={{
-          width: '20%',
+          width: '25%',
           height: 'auto',
           position: 'fixed',
           left: 30,
+          bottom: 10,
+        }} 
+      />
+
+      <Image
+        src={ TVImage }
+        alt={ 'TVImage' }
+        className={ 'TVImage' }
+        style={{
+          width: '25%',
+          height: 'auto',
+          position: 'fixed',
+          right: 30,
           bottom: 10,
         }} 
       />

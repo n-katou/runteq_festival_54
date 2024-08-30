@@ -21,6 +21,8 @@ import StrawberryCalyxImage from '../../public/index/strawberry_calyx.png';
 
 import { HoverableStrawberryProps } from '../../types/types_index';
 
+import PreviewCard from './PreviewCard';
+
 const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPercent, centered = false, initialColor = 'red', initialIndex, onLastImage, onHoverEnd, href, linkText }) => {
   const [imageHeight, setImageHeight] = useState<number | null>(null);
 
@@ -75,7 +77,8 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
   };
 
   return (
-    <motion.div
+    <>
+        <motion.div
       style={{
         position: 'absolute',
         left: `${left}%`,
@@ -136,6 +139,15 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
         )}
       </Link>
     </motion.div>
+      {/* isHovered が true のときに PreviewCard を HoverableStrawberry コンポーネントの外で表示 */}
+      {isHovered && href && (
+        <PreviewCard 
+          title={linkText || ""}
+          link={href}
+        />
+      )}
+    </>
+
   );
 };
 
