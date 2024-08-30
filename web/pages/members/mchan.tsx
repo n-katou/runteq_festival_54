@@ -1,9 +1,9 @@
 //import motion
 import { motion, useMotionValue, useTransform } from 'framer-motion'
 //componets
-import Social from '../../template/components/Social';
-import MyImg from "../../template/components/MyImg";
-import { Transition } from '../../template/components/transitions';
+import Social from '../../components/mchan/Social';
+import MyImg from "../../components/mchan/MyImg";
+import { Transition } from '../../components/mchan/transitions';
 
 const Template: React.FC = () => {
   const x = useMotionValue(0);
@@ -33,7 +33,7 @@ const Template: React.FC = () => {
                 <span className="relative z-10 text-white" style={{
                   textShadow: '2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000'
                 }}>
-                  mちゃん's Profile
+                  mちゃん&apos;s Profile
                 </span>
                   <div
                     className="absolute inset-0 -z-10"
