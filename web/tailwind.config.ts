@@ -28,6 +28,7 @@ const config: Config = {
         cream: '#fff7e5',
         pink: '#ffc4d4',
         blue: '#a1e0e6',
+        lightblue: '#AEE4EA',
         darkGreen: '#89d96e',
         orange: '#ff914c',
         accent: {
