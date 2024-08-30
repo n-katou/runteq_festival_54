@@ -1,8 +1,8 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { motion } from 'framer-motion';
 
 import GenericImage from './GenericImage';
-import { useHoverEffect } from '../../hooks/hooks_index';
+import { useHoverEffect, useTextVisibility } from '../../hooks/hooks_index';
 
 import RedStrawberryImage from '../../public/index/red_strawberry.png';
 import RedStrawberryImage2 from '../../public/index/red_strawberry2.png';
@@ -20,7 +20,7 @@ import StrawberryCalyxImage from '../../public/index/strawberry_calyx.png';
 
 import { HoverableStrawberryProps } from '../../types/types_index';
 
-const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ top, left, widthPercent, centered = false, children, initialColor = 'red', initialIndex }) => {
+const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPercent, centered = false, children, initialColor = 'red', initialIndex, onLastImage, onHoverEnd }) => {
   const normalStrawberryImages = {
     red: [RedStrawberryImage],
     pink: [PinkStrawberryImage],
@@ -47,6 +47,15 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ top, left, wi
   // ホバー時の画像効果
   const { currentImageIndex, isHovered, setIsHovered } = useHoverEffect(0, hoverStrawberryImages[currentColor]);
 
+  useTextVisibility({
+    isHovered,
+    currentImageIndex,
+    hoverStrawberryImages,
+    currentColor,
+    onLastImage: () => onLastImage && onLastImage(),
+    onHoverEnd: () => onHoverEnd && onHoverEnd(),
+  });
+
   const swingVariants = {
     initial: {
       rotate: 0,
@@ -66,7 +75,6 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ top, left, wi
     <motion.div
       style={{
         position: 'absolute',
-        top: `${top}%`,
         left: `${left}%`,
         transformOrigin: 'bottom center',
         width: `${widthPercent}%`,
@@ -75,11 +83,12 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ top, left, wi
       initial="initial"
       whileHover="animate"
       onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
+      onHoverEnd={() => {
+        setIsHovered(false);
+        if (onHoverEnd) onHoverEnd(); // ホバーが終了したときにonHoverEndを呼び出す
+      }}
     >
       <GenericImage
-        top={0}
-        left={0}
         src={isHovered ? hoverStrawberryImages[currentColor][currentImageIndex] : initialStrawberry}
         alt={`${currentColor} strawberry`}
         centered={centered}

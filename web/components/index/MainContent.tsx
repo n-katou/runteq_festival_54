@@ -1,13 +1,11 @@
-import React from 'react';
-import Image from 'next/image';
-import { Grid } from '@mui/material';
+import React, { useState,useEffect } from 'react';
+import { Box, Grid } from '@mui/material';
 
 import GenericImage from './GenericImage';
 import StrawberryLinks from './StrawberryLinks';
 import BasicStrawberries from './Basicstrawberries';
 import KirakiraEffect from './KirakiraEffect';
 
-import FrameImage from '../../public/index/frame.png';
 import RunteqFestivalImage from '../../public/index/runteq_festival.png';
 import FiftyFourImage from '../../public/index/54.png';
 import IchigoTabetaiImage from '../../public/index/ichigo_tabetai.png';
@@ -23,81 +21,86 @@ const MainContent = () => {
   };
 
   return (
-    <Grid item xs={12} className="relative py-12">
-      <Image
-        src={FrameImage}
-        alt="frame"
-        className="frame-image"
-        style={{ width: 'auto', height: 'auto', minHeight: '100vh' }}
-      />
+    <Box
+      sx={{ 
+        width: '100%', 
+        height: 'auto', 
+        margin: '50px 10px',
+        padding: '50px 150px 200px 150px',
+        boxSizing: 'border-box', 
+        display: 'flex',
+        flexDirection: 'column', 
+        alignItems: 'center',
+        border: {
+          xs: '10px double #fff',  // 小さな画面用
+          sm: '20px double #fff',  // 中くらいの画面用
+          lg: '30px double #fff',  // 大きな画面用
+        }
+      }}
+    >
+      <Grid container direction="column" alignItems="center" spacing={20}>
+        <Grid item>
+          <StrawberryLinks initialColor={'pink'} positions={[7, 29, 60, 82]} />
+        </Grid>
 
-      <StrawberryLinks initialColor={'red'} positions={[10, 24, 38, 52, 66, 80]} top={getTopValue(10, 0)} />
+        <Grid item>
+          <GenericImage
+            src={RunteqFestivalImage}
+            alt="runteq festival"
+            centered={true}
+            widthPercent={77}
+          />
+        </Grid>
 
-      {(isLargeScreen || shouldDisplayStrawberries) && (
-        <BasicStrawberries positions={[10, 24, 38, 52, 66, 80]} top={17} initialColor={'white'} />
-      )}
+        <Grid item>
+          <BasicStrawberries positions={[24, 66]} initialColor={'red'} />
 
-      <GenericImage
-        src={RunteqFestivalImage}
-        alt="runteq festival"
-        top={28}
-        left={50}
-        centered={true}
-        widthPercent={77}
-      />
+          <GenericImage
+            src={FiftyFourImage}
+            alt="fifty four"
+            centered={true}
+            widthPercent={13}  // 画像サイズを調整
+          >
+            <KirakiraEffect
+              effects={[
+                { style: { position: 'absolute', top: '-15%', left: '-15%' }, scale: [0, 1.5, 0], delay: 0 },
+                { style: { position: 'absolute', top: '3%', left: '70%' }, scale: [0, 0.7, 0], delay: 0.3 },
+                { style: { position: 'absolute', top: '-10%', left: '80%' }, scale: [0, 1.1, 0], delay: 0.6 },
+                { style: { position: 'absolute', top: '65%', left: '2%' }, scale: [0, 0.9, 0], delay: 0.9 }
+              ]}
+            />
+          </GenericImage>
+        </Grid>
 
-      <BasicStrawberries positions={[10, 24, 66, 80]} top={getTopValue(34, 1)} initialColor={'pink'} />
+        <Grid item>
+          <GenericImage
+            src={IchigoTabetaiImage}
+            alt="ichigotabetai"
+            centered={true}
+            widthPercent={77}
+          />
+        </Grid>
 
-      {(isLargeScreen || shouldDisplayStrawberries) && (
-        <BasicStrawberries positions={[10, 24, 66, 80]} top={41} initialColor={'green'} />
-      )}
+        <Grid item>
+          <BasicStrawberries positions={[7, 29, 60, 82]} initialColor={'white'} />
+        </Grid>
 
-      <GenericImage
-        src={FiftyFourImage}
-        alt="fifty four"
-        top={40}
-        left={50}
-        centered={true}
-        widthPercent={13}
-      />
+        <Grid item>
+          <GenericImage
+            src={ReactSaikoImage}
+            alt="reactsaiko"
+            centered={true}
+            widthPercent={62}
+          />
+        </Grid>
 
-      <KirakiraEffect
-        effects={[
-          { style: { position: 'absolute', top: '34%', left: '40%' }, scale: [0, 1.5, 0], delay: 0 },
-          { style: { position: 'absolute', top: '36%', left: '42%' }, scale: [0, 0.7, 0], delay: 0.3 },
-          { style: { position: 'absolute', top: '34%', left: '54%' }, scale: [0, 1.1, 0], delay: 0.6 },
-          { style: { position: 'absolute', top: '43%', left: '54%' }, scale: [0, 0.9, 0], delay: 0.9 }
-        ]}
-      />
-
-      <GenericImage
-        src={IchigoTabetaiImage}
-        alt="ichigotabetai"
-        top={52}
-        left={50}
-        centered={true}
-        widthPercent={77}
-      />
-
-      <BasicStrawberries positions={[10, 24, 38, 52, 66, 80]} top={getTopValue(59, 2)} initialColor={'white'} />
-
-      {(isLargeScreen || shouldDisplayStrawberries) && (
-        <BasicStrawberries positions={[10, 24, 38, 52, 66, 80]} top={65} initialColor={'red'} />
-      )}
-
-      <GenericImage
-        src={ReactSaikoImage}
-        alt="reactsaiko"
-        top={76}
-        left={50}
-        centered={true}
-        widthPercent={62}
-      />
-
-      <BasicStrawberries positions={[10, 24, 38, 52, 66, 80]} top={getTopValue(81, 3)} initialColor={'green'} />
-
-    </Grid>
+        <Grid item>
+          <BasicStrawberries positions={[7, 29, 60, 82]} initialColor={'green'} />
+        </Grid>
+      </Grid>
+        
+    </Box>
   );
 };
-
-export default MainContent;
+  
+  export default MainContent;

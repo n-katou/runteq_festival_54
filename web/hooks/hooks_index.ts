@@ -1,5 +1,7 @@
 import { useState, useEffect } from 'react';
 
+import {UseTextVisibilityProps} from '../types/types_index';
+
 export function useDisplaySettings () {
   const [shouldDisplayStrawberries, setShouldDisplayStrawberries] = useState(false);
   const [isLargeScreen, setIsLargeScreen] = useState(false);
@@ -41,21 +43,59 @@ export function useDisplaySettings () {
   return { shouldDisplayStrawberries, isLargeScreen, adjustedTop };
 };
 
-export const useHoverEffect = (initialIndex: number, hoverImages: any[]) => {
+export const useHoverEffect = (initialIndex: number, hoverImages: any[], onLastImage?: () => void) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(initialIndex);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
-    if (isHovered) {
-      const interval = setInterval(() => {
-        setCurrentImageIndex((prevIndex) => (prevIndex + 1) % hoverImages.length);
-      }, 700);
+    let interval: NodeJS.Timeout | null = null;
 
-      return () => clearInterval(interval);
+    if (isHovered) {
+      interval = setInterval(() => {
+        setCurrentImageIndex((prevIndex) => {
+          const nextIndex = prevIndex + 1;
+          // 最後の画像に到達したらそのままにする
+          if (nextIndex < hoverImages.length) {
+            return nextIndex;
+          } else {
+            clearInterval(interval!); // タイマーをクリアする
+            return prevIndex; // 最後の画像に固定
+          }
+        });
+      }, 700);
     } else {
       setCurrentImageIndex(initialIndex); // ホバーが外れたら初期の画像に戻る
+      if (interval) {
+        clearInterval(interval);
+      }
     }
+
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+        
+      }
+    };
   }, [isHovered, hoverImages, initialIndex]);
 
   return { currentImageIndex, isHovered, setIsHovered };
+};
+
+export const useTextVisibility = ({
+  isHovered,
+  currentImageIndex,
+  hoverStrawberryImages,
+  currentColor,
+  onLastImage,
+  onHoverEnd,
+}: UseTextVisibilityProps) => {
+  useEffect(() => {
+    if (isHovered && currentImageIndex === hoverStrawberryImages[currentColor].length - 1) {
+      // 最後の画像に到達したらテキストを非表示
+      onLastImage();
+    } else {
+      // ホバーが終了したらテキストを再表示
+      onHoverEnd();
+    }
+  }, [isHovered, currentImageIndex, hoverStrawberryImages, currentColor, onLastImage, onHoverEnd]);
 };
