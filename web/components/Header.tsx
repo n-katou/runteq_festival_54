@@ -6,8 +6,10 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import { FaGithub } from 'react-icons/fa';
 
 import XIcon from '@mui/icons-material/X';
 
@@ -67,9 +69,12 @@ const Header = () => {
           <Button color="inherit" href="/about" size={getHeaderMenuVariant()} sx={{ fontSize: getHeaderMenuFontSize() }}>
             About
           </Button>
-          <Button color="inherit" onClick={() => shareOnX()} sx={{ ml: 2 }}>
+          <IconButton color="inherit" href="https://github.com/n-katou/runteq_festival_54" target="_blank" sx={{ ml: 2 }}>
+            <FaGithub />
+          </IconButton>
+          <IconButton color="inherit" onClick={() => shareOnX()} sx={{ ml: 2 }}>
             <XIcon />
-          </Button>
+          </IconButton>
         </Box>
       </Toolbar>
     </AppBar>
