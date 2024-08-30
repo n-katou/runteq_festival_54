@@ -24,7 +24,7 @@ const Footer = () => {
   };
 
   return (
-<Box 
+    <Box 
       component="footer" 
       sx={{ 
         backgroundColor: '#FFC4D4', 
@@ -32,7 +32,6 @@ const Footer = () => {
         alignItems: 'center',
         justifyContent: 'center',
         height: 'auto',
-        padding: 1
       }}
     >
       <Box sx={{ width: { xs: '10%', sm: '8%', md: '4%' }, height: 'auto' }}>
