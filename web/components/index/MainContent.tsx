@@ -4,7 +4,6 @@ import { Box, Grid } from '@mui/material';
 
 import GenericImage from './GenericImage';
 import StrawberryLinks from './StrawberryLinks';
-import BasicStrawberries from './Basicstrawberries';
 import KirakiraEffect from './KirakiraEffect';
 
 import RunteqFestivalImage from '../../public/index/runteq_festival.png';
@@ -15,6 +14,26 @@ import ReactSaikoImage from '../../public/index/react_saiko.png';
 import TVImage from '../../public/index/TV.png';
 
 const MainContent = () => {
+
+    // 各段ごとのリンク情報を定義
+    const links1 = [
+      { href: "/members/kato", text: "加藤" },
+      { href: "/members/mick", text: "mick" },
+      { href: "/members/nori", text: "nori" },
+      { href: "/members/konisi", text: "小西" },
+    ];
+  
+    const links2 = [
+      { href: "/members/lnnts", text: "かなナッツ"  },
+    ];
+  
+    const links3 = [
+      { href: "/contact/phone", text: "Phone" },
+    ];
+  
+    const links4 = [
+      { href: "/contact/PC", text: "PC" },
+    ];
 
   return (
     <>
@@ -37,7 +56,7 @@ const MainContent = () => {
       >
         <Grid container direction="column" alignItems="center" spacing={20}>
           <Grid item>
-            <StrawberryLinks initialColor={'pink'} positions={[7, 29, 60, 82]} />
+            <StrawberryLinks initialColor={'pink'} positions={[7, 29, 60, 82]} links={links1} />
           </Grid>
 
           <Grid item>
@@ -50,7 +69,7 @@ const MainContent = () => {
           </Grid>
 
           <Grid item>
-            <BasicStrawberries positions={[24, 66]} initialColor={'red'} />
+            <StrawberryLinks positions={[24, 66]} initialColor={'red'} links={links2}/>
 
             <GenericImage
               src={FiftyFourImage}
@@ -79,7 +98,7 @@ const MainContent = () => {
           </Grid>
 
           <Grid item>
-            <BasicStrawberries positions={[7, 29, 60, 82]} initialColor={'white'} />
+            <StrawberryLinks positions={[7, 29, 60, 82]} initialColor={'white'} links={links3}/>
           </Grid>
 
           <Grid item>
@@ -92,7 +111,7 @@ const MainContent = () => {
           </Grid>
 
           <Grid item>
-            <BasicStrawberries positions={[7, 29, 60, 82]} initialColor={'green'} />
+            <StrawberryLinks positions={[7, 29, 60, 82]} initialColor={'green'} links={links4}/>
           </Grid>
         </Grid>
       </Box>

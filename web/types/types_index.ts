@@ -31,6 +31,12 @@ export interface StrawberriesProps {
   initialColor: 'red' | 'pink' | 'white' | 'green'; 
 }
 
+export interface StrawberryLinksProps {
+  positions: number[];
+  initialColor?: 'red' | 'pink' | 'white' | 'green';
+  links: { href: string; text: string }[];
+}
+
 export interface KirakiraEffectProps {
   effects: {
     style?: React.CSSProperties;
