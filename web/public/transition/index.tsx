@@ -11,8 +11,8 @@ interface RouteMap {
 
 const routes: RouteMap = {
     "/members/mick": "Mick",
-    "/members/kato": "Kato",
-    "/members/demo": "Demo",
+    "/": "HOME",
+    "/about": "About"
 };
 
 const anim = (variants: any) => {
@@ -26,7 +26,6 @@ const anim = (variants: any) => {
 
 interface CurveProps {
     children: React.ReactNode;
-    backgroundColor: string;
 }
 
 interface Dimensions {
@@ -34,7 +33,7 @@ interface Dimensions {
     height: number | null;
 }
 
-export default function Curve({ children, backgroundColor }: CurveProps) {
+export default function Curve({ children }: CurveProps) {
     const router = useRouter();
     const [dimensions, setDimensions] = useState<Dimensions>({
         width: null,
@@ -56,7 +55,7 @@ export default function Curve({ children, backgroundColor }: CurveProps) {
     }, []);
 
     return (
-        <div className='page curve' style={{ backgroundColor }}>
+        <div className='page curve'>
             <div style={{ opacity: dimensions.width == null ? 1 : 0 }} className='background' />
             <motion.p className='route' {...anim(text)}>
                 {routes[router.route]}
