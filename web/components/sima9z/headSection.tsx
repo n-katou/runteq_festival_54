@@ -13,10 +13,10 @@ const HeadSection: React.FC = () => {
           Sima9z Page
         </Typography>
         <Box sx={{ marginTop: 4 }}>
-          <Button variant="contained" color="secondary" sx={{ marginRight: 2 }} href="https://github.com/sima9z">
+          <Button variant="contained" color="secondary" sx={{ marginRight: 2 }} component="a" href="https://github.com/sima9z" target="_blank" rel="noopener noreferrer">
             github
           </Button>
-          <Button variant="outlined" color="secondary" href="https://x.com/sima9z77407">
+          <Button variant="outlined" color="secondary" href="https://x.com/sima9z77407" target="_blank" rel="noopener noreferrer">
             X
           </Button>
         </Box>

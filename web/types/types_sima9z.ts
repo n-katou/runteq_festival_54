@@ -7,4 +7,5 @@ export interface ReusableCardProps {
   description: string;
   link: string;
   bgcolor?: string;
+  onClick?: () => void;
 }

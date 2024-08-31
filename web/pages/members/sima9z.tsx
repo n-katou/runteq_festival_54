@@ -13,7 +13,7 @@ import { Theme } from '../../components/sima9z/Theme'
 const Sima9zPage: React.FC = () => {
   return (
     <ThemeProvider theme={Theme}>
-      <Box sx={{ position: 'relative', width: '100%', height: 'calc(100vh - 64px)', zIndex: 10 }}>
+      <Box sx={{ position: 'relative', width: '100%', height: 'calc(100vh - 64px)', zIndex: 10, pointerEvents: 'none' }}>
         <Image
           src="/sima9z/strawberry_frame.png"
           alt="strawberry_frame"

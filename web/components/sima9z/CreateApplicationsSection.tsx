@@ -46,6 +46,7 @@ const CreateApplicationsSection: React.FC = () => {
             description="卒業制作アプリ。犬と猫を飼えるゲーム。GSAP使用。目下、鋭意作業中。"
             link="#"
             bgcolor="#E8A9A5"
+            onClick={() => alert('準備中です。お待ちくださいませ。')}
           />
         </Grid>
       </Grid>

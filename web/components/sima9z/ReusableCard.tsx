@@ -4,7 +4,7 @@ import Image from 'next/image';
 
 import { ReusableCardProps } from '../../types/types_sima9z';
 
-const ReusableCard: React.FC<ReusableCardProps> = ({ imageSrc, imageAlt, title, description, link, bgcolor }) => {
+const ReusableCard: React.FC<ReusableCardProps> = ({ imageSrc, imageAlt, title, description, link, bgcolor, onClick }) => {
   return (
     <Paper
       elevation={3}
@@ -27,7 +27,12 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ imageSrc, imageAlt, title, 
         height={300}
         style={{ borderRadius: '15px' }}
       />
-      <Button href={link}>
+      <Button         
+        href={link !== '#' ? link : undefined} 
+        onClick={link === '#' ? onClick : undefined} 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
         <Typography variant="h5" sx={{ marginTop: 2, color: '#ff3e60', fontFamily: 'Pacifico, cursive' }}>
           {title}
         </Typography>
