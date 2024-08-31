@@ -72,7 +72,6 @@ const KatoPage: React.FC = () => {
                 <motion.div
                   className="backdrop-blur-lg bg-white/5 p-8 rounded-lg shadow-lg max-w-[600px] mx-auto xl:mx-0 text-center xl:text-left lg:w-1/2 mt-4 lg:mt-0"
                 >
-                  <h2 className="text-5xl font-bold text-orange">Hello</h2>
                   <h2 className="text-3xl mt-2 font-semibold text-orange">My Name is Naoto Kato</h2>
                   <div className="text-xl mt-4 text-orange">My Vision to Become the Ultimate PM</div>
                   <div className="mt-4 text-lg leading-relaxed text-orange">
