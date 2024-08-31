@@ -13,21 +13,24 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
         transition={{ duration: 0.5 }}
         style={{
           position: 'fixed',
-          left: '37px',
-          bottom: '145px',
-          width: '24%',
-          height: '35%',
+          left: '2%',
+          bottom: '4%',
+          width: '17%',
+          height: '76%',
           border: '1px solid black',
           backgroundColor: 'white',
           zIndex: 0,
+          borderRadius: '10px', 
+          overflow: 'hidden', 
         }}
       >
         <iframe
           src={link}
           width="100%"
           height="100%"
-          style={{ border: 'none' }}
+          style={{ border: 'none', overflow: 'hidden' }}
           sandbox="allow-scripts allow-same-origin"
+          scrolling="no"
         />
       </motion.div>
 
@@ -38,21 +41,24 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
         transition={{ duration: 0.5 }}
         style={{
           position: 'fixed',
-          right: '37px',
-          bottom: '145px',
-          width: '24%',
-          height: '35%',
+          right: '2%',
+          bottom: '4%',
+          width: '17%',
+          height: '76%',
           border: '1px solid black',
           backgroundColor: 'white',
           zIndex: 0,
+          borderRadius: '10px', 
+          overflow: 'hidden', 
         }}
       >
         <iframe
           src={link}
           width="100%"
           height="100%"
-          style={{ border: 'none' }}
+          style={{ border: 'none', overflow: 'hidden' }}
           sandbox="allow-scripts allow-same-origin"
+          scrolling="no"
         />
       </motion.div>
     </>

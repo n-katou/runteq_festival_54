@@ -11,7 +11,7 @@ import FiftyFourImage from '../../public/index/54.png';
 import IchigoTabetaiImage from '../../public/index/ichigo_tabetai.png';
 import ReactSaikoImage from '../../public/index/react_saiko.png';
 
-import TVImage from '../../public/index/TV.png';
+import IphoneImage from '../../public/index/iphone.png';
 
 const MainContent = () => {
 
@@ -25,10 +25,13 @@ const MainContent = () => {
   
     const links2 = [
       { href: "/members/knnts", text: "かなナッツ"  },
+      { href: "/members/mchan", text: "Mちゃん"  },
     ];
   
     const links3 = [
-      { href: "/contact/phone", text: "Phone" },
+      { href: "/members/natsu", text: "natsu" },
+      { href: "/members/rei", text: "rei" },
+      { href: "/members/sima9z", text: "sima9z" }
     ];
   
     const links4 = [
@@ -117,28 +120,28 @@ const MainContent = () => {
       </Box>
 
       <Image
-        src={ TVImage }
-        alt={ 'TVImage' }
-        className={ 'TVImage' }
+        src={ IphoneImage }
+        alt={ 'IphoneImage' }
+        className={ 'IphoneImage' }
         style={{
-          width: '25%',
+          width: '30%',
           height: 'auto',
           position: 'fixed',
-          left: 30,
-          bottom: 10,
+          left: -70,
+          bottom: -30,
         }} 
       />
 
       <Image
-        src={ TVImage }
-        alt={ 'TVImage' }
-        className={ 'TVImage' }
+        src={ IphoneImage }
+        alt={ 'IphoneImage' }
+        className={ 'IphoneImage' }
         style={{
-          width: '25%',
+          width: '30%',
           height: 'auto',
           position: 'fixed',
-          right: 30,
-          bottom: 10,
+          right: -70,
+          bottom: -30,
         }} 
       />
     </>
