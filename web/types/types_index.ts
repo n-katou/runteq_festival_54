@@ -10,6 +10,7 @@ export interface GenericImageProps {
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
   style?: React.CSSProperties;
+  onImageLoad?: (height: number) => void; 
 }
 
 export interface HoverableStrawberryProps {
@@ -21,11 +22,19 @@ export interface HoverableStrawberryProps {
   initialIndex: number;
   onLastImage?: () => void;
   onHoverEnd?: () => void;
+  href?: string;
+  linkText?: string; 
 }
 
 export interface StrawberriesProps {
   positions: number[];
   initialColor: 'red' | 'pink' | 'white' | 'green'; 
+}
+
+export interface StrawberryLinksProps {
+  positions: number[];
+  initialColor?: 'red' | 'pink' | 'white' | 'green';
+  links: { href: string; text: string }[];
 }
 
 export interface KirakiraEffectProps {
@@ -48,4 +57,9 @@ export interface UseTextVisibilityProps {
   currentColor: 'red' | 'pink' | 'white' | 'green';
   onLastImage: () => void;
   onHoverEnd: () => void;
+}
+
+export interface PreviewCardProps {
+  title: string;
+  link: string;
 }
