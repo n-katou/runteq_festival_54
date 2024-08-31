@@ -50,10 +50,10 @@ const AppsList: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {apps.map((app, index) => (
             <motion.div
-              key={index}
+              // key={index}
               className="p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 transform"
-              custom={index}
-              variants={itemVariants}
+            // custom={index}
+            // variants={itemVariants}
             >
               <div className="text-4xl text-orange-500 mb-4">
                 {app.icon} {/* アイコンを表示 */}
