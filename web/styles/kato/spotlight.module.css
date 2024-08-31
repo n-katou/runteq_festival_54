@@ -1,18 +1,72 @@
-@keyframes spotlightMove {
+@keyframes spotlightMove1 {
   0% {
-    background-position: var(--start-x) var(--start-y);
+    background-position: var(--start1-x) var(--start1-y);
+  }
+
+  25% {
+    background-position: var(--middle1-1-x) var(--middle1-1-y);
   }
 
   50% {
-    background-position: var(--middle-x) var(--middle-y);
+    background-position: var(--middle1-2-x) var(--middle1-2-y);
+  }
+
+  75% {
+    background-position: var(--middle1-3-x) var(--middle1-3-y);
   }
 
   100% {
-    background-position: var(--end-x) var(--end-y);
+    background-position: var(--end1-x) var(--end1-y);
   }
 }
 
-.spotlight {
+@keyframes spotlightMove2 {
+  0% {
+    background-position: var(--start2-x) var(--start2-y);
+  }
+
+  25% {
+    background-position: var(--middle2-1-x) var(--middle2-1-y);
+  }
+
+  50% {
+    background-position: var(--middle2-2-x) var(--middle2-2-y);
+  }
+
+  75% {
+    background-position: var(--middle2-3-x) var(--middle2-3-y);
+  }
+
+  100% {
+    background-position: var(--end2-x) var(--end2-y);
+  }
+}
+
+@keyframes spotlightMove3 {
+  0% {
+    background-position: var(--start3-x) var(--start3-y);
+  }
+
+  25% {
+    background-position: var(--middle3-1-x) var(--middle3-1-y);
+  }
+
+  50% {
+    background-position: var(--middle3-2-x) var(--middle3-2-y);
+  }
+
+  75% {
+    background-position: var(--middle3-3-x) var(--middle3-3-y);
+  }
+
+  100% {
+    background-position: var(--end3-x) var(--end3-y);
+  }
+}
+
+.spotlight1,
+.spotlight2,
+.spotlight3 {
   position: absolute;
   top: 0;
   left: 0;
@@ -20,6 +74,19 @@
   height: 100%;
   background: radial-gradient(circle, rgba(255, 255, 255, 1) 10%, rgba(0, 0, 0, 0.9) 40%, rgba(0, 0, 0, 1) 70%);
   background-size: 200% 200%;
-  animation: spotlightMove 3s ease-in-out forwards;
   z-index: 1000;
+  pointer-events: none;
+  /* クリックを無効化 */
+}
+
+.spotlight1 {
+  animation: spotlightMove1 4s ease-in-out infinite;
+}
+
+.spotlight2 {
+  animation: spotlightMove2 4s ease-in-out infinite;
+}
+
+.spotlight3 {
+  animation: spotlightMove3 4s ease-in-out infinite;
 }

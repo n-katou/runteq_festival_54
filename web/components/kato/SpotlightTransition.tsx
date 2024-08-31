@@ -27,27 +27,72 @@ const SpotlightTransition: React.FC<{ onComplete: () => void }> = ({ onComplete 
     };
   }, [onComplete]);
 
-  const start = generateRandomPosition();
-  const middle1 = generateRandomPosition();
-  const middle2 = generateRandomPosition();
-  const middle3 = generateRandomPosition();
-  const end = generateRandomPosition();
+  // スポットライト1の位置
+  const start1 = generateRandomPosition();
+  const middle1_1 = generateRandomPosition();
+  const middle1_2 = generateRandomPosition();
+  const middle1_3 = generateRandomPosition();
+  const end1 = generateRandomPosition();
 
-  const spotlightStyle = {
-    '--start-x': start.x,
-    '--start-y': start.y,
-    '--middle1-x': middle1.x,
-    '--middle1-y': middle1.y,
-    '--middle2-x': middle2.x,
-    '--middle2-y': middle2.y,
-    '--middle3-x': middle3.x,
-    '--middle3-y': middle3.y,
-    '--end-x': end.x,
-    '--end-y': end.y,
+  // スポットライト2の位置
+  const start2 = generateRandomPosition();
+  const middle2_1 = generateRandomPosition();
+  const middle2_2 = generateRandomPosition();
+  const middle2_3 = generateRandomPosition();
+  const end2 = generateRandomPosition();
+
+  // スポットライト3の位置
+  const start3 = generateRandomPosition();
+  const middle3_1 = generateRandomPosition();
+  const middle3_2 = generateRandomPosition();
+  const middle3_3 = generateRandomPosition();
+  const end3 = generateRandomPosition();
+
+  const spotlightStyle1 = {
+    '--start1-x': start1.x,
+    '--start1-y': start1.y,
+    '--middle1-1-x': middle1_1.x,
+    '--middle1-1-y': middle1_1.y,
+    '--middle1-2-x': middle1_2.x,
+    '--middle1-2-y': middle1_2.y,
+    '--middle1-3-x': middle1_3.x,
+    '--middle1-3-y': middle1_3.y,
+    '--end1-x': end1.x,
+    '--end1-y': end1.y,
+  } as React.CSSProperties;
+
+  const spotlightStyle2 = {
+    '--start2-x': start2.x,
+    '--start2-y': start2.y,
+    '--middle2-1-x': middle2_1.x,
+    '--middle2-1-y': middle2_1.y,
+    '--middle2-2-x': middle2_2.x,
+    '--middle2-2-y': middle2_2.y,
+    '--middle2-3-x': middle2_3.x,
+    '--middle2-3-y': middle2_3.y,
+    '--end2-x': end2.x,
+    '--end2-y': end2.y,
+  } as React.CSSProperties;
+
+  const spotlightStyle3 = {
+    '--start3-x': start3.x,
+    '--start3-y': start3.y,
+    '--middle3-1-x': middle3_1.x,
+    '--middle3-1-y': middle3_1.y,
+    '--middle3-2-x': middle3_2.x,
+    '--middle3-2-y': middle3_2.y,
+    '--middle3-3-x': middle3_3.x,
+    '--middle3-3-y': middle3_3.y,
+    '--end3-x': end3.x,
+    '--end3-y': end3.y,
   } as React.CSSProperties;
 
   return (
-    <div className={styles.spotlight} style={spotlightStyle} />
+    <div>
+      <div className={styles.spotlight1} style={spotlightStyle1} />
+      <div className={styles.spotlight2} style={spotlightStyle2} />
+      <div className={styles.spotlight3} style={spotlightStyle3} />
+    </div>
   );
 };
 

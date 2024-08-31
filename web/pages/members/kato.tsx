@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useTransform } from 'framer-motion';
 import Social from '../../components/kato/Social';
 import MyImg from "../../components/kato/MyImg";
 import AppsList from '../../components/kato/AppsList';
@@ -11,6 +11,12 @@ const KatoPage: React.FC = () => {
   const handleTransitionComplete = () => {
     setShowContent(true);
   };
+
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const rotateX = useTransform(y, [-100, 100], [30, -30]);
+  const rotateY = useTransform(x, [-100, 100], [-30, 30]);
 
   return (
     <motion.section
@@ -39,26 +45,15 @@ const KatoPage: React.FC = () => {
             <section className="relative z-20 py-12 xl:py-24 text-white w-full">
               <div className="container mx-auto flex flex-col lg:flex-row items-center gap-x-8">
                 <motion.div
-                  className="backdrop-blur-lg bg-white/20 p-8 rounded-lg shadow-lg max-w-[600px] mx-auto xl:mx-0 text-center xl:text-left lg:w-1/2"
+                  className="relative mt-8 lg:mt-0"
                 >
-                  <h2 className="text-5xl font-bold text-orange">Hello</h2>
-                  <div className="text-3xl mt-2 font-semibold text-orange">My Name is Naoto Kato</div>
-                  <div className="text-xl mt-4 text-orange">My Vision to Become the Ultimate PM</div>
-                  <div className="mt-4 text-lg leading-relaxed text-orange">
-                    前職では、主にバラエティや音楽番組の照明を担当していました。2022年末までテレビ業界でキャリアを積む中で、IT分野に強い興味を持ち、プログラミングスクールでスキルを習得しました。現在は、SIerに常駐して運用保守の業務を担当しつつ、自社業務ではReactを用いたフロントエンド開発にも携わっています。10月からはメガベンチャーでPMとして従事します。将来的には複数のプロジェクトを管理しマネジメントスキルを高め、新規プロジェクトの立ち上げに携わりたいと考えています。
-                  </div>
-                  <div className="mt-8 flex flex-col xl:flex-row items-center gap-8">
-                    <Social
-                      containerStyles="flex gap-6"
-                      iconStyles="w-12 h-12 border border-green rounded-full flex justify-center items-center text-white text-base bg-green hover:bg-darkGreen hover:text-white transition-all duration-500 text-5xl"
-                    />
-                  </div>
-                </motion.div>
-
-                <motion.div className="relative mt-8 lg:mt-0">
                   <div style={{ perspective: 2000 }}>
                     <motion.div
-                      style={{ x: 0, y: 0, rotateX: 0, rotateY: 0, z: 100 }}
+                      style={{ x, y, rotateX, rotateY, z: 100 }}
+                      drag
+                      dragElastic={0.18}
+                      dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
+                      whileTap={{ cursor: 'grabbing' }}
                       className="backdrop-blur-lg bg-white/20 p-4 sm:p-8 rounded-lg shadow-lg"
                     >
                       <div
@@ -71,6 +66,23 @@ const KatoPage: React.FC = () => {
                         style={{ backgroundImage: `url('/kato/shape-1.svg')` }}
                       />
                     </motion.div>
+                  </div>
+                </motion.div>
+
+                <motion.div
+                  className="backdrop-blur-lg bg-white/20 p-8 rounded-lg shadow-lg max-w-[600px] mx-auto xl:mx-0 text-center xl:text-left lg:w-1/2 mt-4 lg:mt-0"
+                >
+                  <h2 className="text-5xl font-bold text-orange">Hello</h2>
+                  <div className="text-3xl mt-2 font-semibold text-orange">My Name is Naoto Kato</div>
+                  <div className="text-xl mt-4 text-orange">My Vision to Become the Ultimate PM</div>
+                  <div className="mt-4 text-lg leading-relaxed text-orange">
+                    前職では、主にバラエティや音楽番組の照明を担当していました。2022年末までテレビ業界でキャリアを積む中で、IT分野に強い興味を持ち、プログラミングスクールでスキルを習得しました。現在は、SIerに常駐して運用保守の業務を担当しつつ、自社業務ではReactを用いたフロントエンド開発にも携わっています。10月からはメガベンチャーでPMとして従事します。将来的には複数のプロジェクトを管理しマネジメントスキルを高め、新規プロジェクトの立ち上げに携わりたいと考えています。
+                  </div>
+                  <div className="mt-8 flex flex-col xl:flex-row items-center gap-8">
+                    <Social
+                      containerStyles="flex gap-6"
+                      iconStyles="w-12 h-12 border border-green rounded-full flex justify-center items-center text-white text-base bg-green hover:bg-darkGreen hover:text-white transition-all duration-500 text-5xl"
+                    />
                   </div>
                 </motion.div>
               </div>
