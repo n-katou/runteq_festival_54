@@ -25,10 +25,12 @@ const MainContent = () => {
   
     const links2 = [
       { href: "/members/knnts", text: "かなナッツ"  },
+      { href: "/members/mchan", text: "Mちゃん"  },
     ];
   
     const links3 = [
-      { href: "/contact/phone", text: "Phone" },
+      { href: "/members/natsu", text: "natsu" },
+      { href: "/members/rei", text: "rei" },
     ];
   
     const links4 = [
