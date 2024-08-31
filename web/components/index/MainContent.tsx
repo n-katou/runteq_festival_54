@@ -31,6 +31,7 @@ const MainContent = () => {
     const links3 = [
       { href: "/members/natsu", text: "natsu" },
       { href: "/members/rei", text: "rei" },
+      { href: "/members/sima9z", text: "sima9z" }
     ];
   
     const links4 = [
