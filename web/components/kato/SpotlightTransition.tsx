@@ -16,7 +16,7 @@ const SpotlightTransition: React.FC<SpotlightTransitionProps> = ({ onComplete })
       setAngle1((prev) => (prev + 5) % 360);
       setAngle2((prev) => (prev - 7 + 360) % 360);
       setAngle3((prev) => (prev + 8) % 360);
-    }, 50); // 短いインターバルでスピード感を演出
+    }, 50);
 
     return () => clearInterval(interval);
   }, []);
@@ -24,7 +24,7 @@ const SpotlightTransition: React.FC<SpotlightTransitionProps> = ({ onComplete })
   useEffect(() => {
     const timer = setTimeout(() => {
       onComplete();
-    }, 3000); // エフェクトの時間を延長
+    }, 3000);
 
     return () => clearTimeout(timer);
   }, [onComplete]);
@@ -39,16 +39,34 @@ const SpotlightTransition: React.FC<SpotlightTransitionProps> = ({ onComplete })
     return { x: `${x}%`, y: `${y}%` };
   };
 
+  const glitchEffect = {
+    scale: [1, 0.9, 1.1, 1],
+    rotate: [0, -10, 10, 0],
+    transition: {
+      duration: 0.2,
+      ease: 'easeInOut',
+      repeat: Infinity,
+      repeatDelay: 5, // 5秒ごとにグリッチが発生
+    },
+  };
+
   return (
-    <div className={styles.spotlightContainer}>
+    <div
+      className={styles.spotlightContainer}
+      style={{
+        background: 'linear-gradient(45deg, #000428, #004e92)',
+        overflow: 'hidden',
+      }}
+    >
       <motion.div
         className={styles.spotlight}
         style={{
-          background: 'radial-gradient(circle, rgba(75,0,130,1) 40%, rgba(255,255,255,0) 80%)',
-          filter: 'blur(10px)',  // 光の尾引き効果
-          boxShadow: '0px 0px 20px rgba(75,0,130,0.7)',
+          background: 'radial-gradient(circle, rgba(255,105,180,1) 40%, rgba(255,255,255,0) 80%)',
+          filter: 'blur(10px)',
+          boxShadow: '0px 0px 20px rgba(255,105,180,0.7)',
         }}
         animate={{
+          ...glitchEffect,
           top: calculatePosition(angle1, 20, false).y,
           left: calculatePosition(angle1, 20, false).x,
           scale: [1, 1.8, 1],
@@ -60,17 +78,18 @@ const SpotlightTransition: React.FC<SpotlightTransitionProps> = ({ onComplete })
           duration: 2,
           ease: "easeInOut",
           repeat: Infinity,
-          repeatType: 'reverse', // 逆方向に繰り返す
+          repeatType: 'reverse',
         }}
       />
       <motion.div
         className={styles.spotlight}
         style={{
-          background: 'radial-gradient(circle, rgba(255,69,0,1) 40%, rgba(255,255,255,0) 80%)',
+          background: 'radial-gradient(circle, rgba(0,255,255,1) 40%, rgba(255,255,255,0) 80%)',
           filter: 'blur(15px)',
-          boxShadow: '0px 0px 20px rgba(255,69,0,0.7)',
+          boxShadow: '0px 0px 20px rgba(0,255,255,0.7)',
         }}
         animate={{
+          ...glitchEffect,
           top: calculatePosition(angle2, 30, true).y,
           left: calculatePosition(angle2, 30, true).x,
           scale: [1, 2, 1],
@@ -88,11 +107,12 @@ const SpotlightTransition: React.FC<SpotlightTransitionProps> = ({ onComplete })
       <motion.div
         className={styles.spotlight}
         style={{
-          background: 'radial-gradient(circle, rgba(0,191,255,1) 40%, rgba(255,255,255,0) 80%)',
+          background: 'radial-gradient(circle, rgba(255,255,0,1) 40%, rgba(255,255,255,0) 80%)',
           filter: 'blur(12px)',
-          boxShadow: '0px 0px 20px rgba(0,191,255,0.7)',
+          boxShadow: '0px 0px 20px rgba(255,255,0,0.7)',
         }}
         animate={{
+          ...glitchEffect,
           top: calculatePosition(angle3, 40, false).y,
           left: calculatePosition(angle3, 40, false).x,
           scale: [1, 2.2, 1],
@@ -105,6 +125,24 @@ const SpotlightTransition: React.FC<SpotlightTransitionProps> = ({ onComplete })
           ease: "easeInOut",
           repeat: Infinity,
           repeatType: 'reverse',
+        }}
+      />
+      <motion.div
+        className={styles.particles}
+        style={{
+          position: 'absolute',
+          width: '100%',
+          height: '100%',
+          background: 'radial-gradient(circle, rgba(255,255,255,0.1) 10%, rgba(255,255,255,0) 70%)',
+        }}
+        animate={{
+          opacity: [0.5, 1, 0.5],
+          scale: [1, 1.05, 1],
+        }}
+        transition={{
+          duration: 3,
+          ease: "easeInOut",
+          repeat: Infinity,
         }}
       />
     </div>
