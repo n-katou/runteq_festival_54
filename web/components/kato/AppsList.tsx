@@ -24,19 +24,6 @@ const apps = [
   }
 ];
 
-// モーション設定
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: (index: number) => ({
-    opacity: 1,
-    y: 0,
-    transition: {
-      delay: index * 0.5,
-      duration: 1,
-      ease: "easeOut"
-    }
-  })
-};
 
 const AppsList: React.FC = () => {
   return (
@@ -45,15 +32,12 @@ const AppsList: React.FC = () => {
       animate="visible"
       className="relative z-20 py-12 xl:py-24 text-orange w-full"
     >
-      <div className="container mx-auto backdrop-blur-lg bg-white/20 p-8 rounded-lg shadow-lg">
+      <div className="container mx-auto backdrop-blur-lg bg-white/5 p-8 rounded-lg shadow-lg">
         <h2 className="text-4xl font-bold text-center mb-12 text-orange">My Applications</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {apps.map((app, index) => (
             <motion.div
-              // key={index}
-              className="p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 transform"
-            // custom={index}
-            // variants={itemVariants}
+              className="p-6 bg-blue/30 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 transform"
             >
               <div className="text-4xl text-orange-500 mb-4">
                 {app.icon} {/* アイコンを表示 */}

@@ -54,7 +54,7 @@ const KatoPage: React.FC = () => {
                       dragElastic={0.18}
                       dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
                       whileTap={{ cursor: 'grabbing' }}
-                      className="backdrop-blur-lg bg-white/20 p-4 sm:p-8 rounded-lg shadow-lg"
+                      className="backdrop-blur-lg p-4 sm:p-8 rounded-lg shadow-lg"
                     >
                       <div
                         className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] bg-no-repeat absolute -top-1 -right-1 z-0"
@@ -70,10 +70,10 @@ const KatoPage: React.FC = () => {
                 </motion.div>
 
                 <motion.div
-                  className="backdrop-blur-lg bg-white/20 p-8 rounded-lg shadow-lg max-w-[600px] mx-auto xl:mx-0 text-center xl:text-left lg:w-1/2 mt-4 lg:mt-0"
+                  className="backdrop-blur-lg bg-white/5 p-8 rounded-lg shadow-lg max-w-[600px] mx-auto xl:mx-0 text-center xl:text-left lg:w-1/2 mt-4 lg:mt-0"
                 >
                   <h2 className="text-5xl font-bold text-orange">Hello</h2>
-                  <div className="text-3xl mt-2 font-semibold text-orange">My Name is Naoto Kato</div>
+                  <h2 className="text-3xl mt-2 font-semibold text-orange">My Name is Naoto Kato</h2>
                   <div className="text-xl mt-4 text-orange">My Vision to Become the Ultimate PM</div>
                   <div className="mt-4 text-lg leading-relaxed text-orange">
                     前職では、主にバラエティや音楽番組の照明を担当していました。2022年末までテレビ業界でキャリアを積む中で、IT分野に強い興味を持ち、プログラミングスクールでスキルを習得しました。現在は、SIerに常駐して運用保守の業務を担当しつつ、自社業務ではReactを用いたフロントエンド開発にも携わっています。10月からはメガベンチャーでPMとして従事します。将来的には複数のプロジェクトを管理しマネジメントスキルを高め、新規プロジェクトの立ち上げに携わりたいと考えています。
