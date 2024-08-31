@@ -78,7 +78,7 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
 
   return (
     <>
-        <motion.div
+      <motion.div
       style={{
         position: 'absolute',
         left: `${left}%`,
