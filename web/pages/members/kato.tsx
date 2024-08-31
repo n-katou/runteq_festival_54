@@ -54,8 +54,13 @@ const KatoPage: React.FC = () => {
                       dragElastic={0.18}
                       dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
                       whileTap={{ cursor: 'grabbing' }}
-                      className="backdrop-blur-lg p-4 sm:p-8 rounded-lg shadow-lg"
+                      className="backdrop-blur-lg p-4 sm:p-8 rounded-lg shadow-lg relative cursor-grab"
                     >
+                      {/* ドラッグハンドルの追加 */}
+                      <div className="absolute top-2 right-2 bg-darkGreen/50 text-white p-2 rounded-full shadow-md">
+                        <span className="text-sm">Drag</span>
+                      </div>
+
                       <div
                         className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] bg-no-repeat absolute -top-1 -right-1 z-0"
                         style={{ backgroundImage: `url('/kato/shape-light.svg')` }}
