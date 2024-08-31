@@ -1,7 +1,6 @@
 import React from 'react';
-import Image from 'next/image';
 
-import { Box, Typography, Button } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 const theme = createTheme({
@@ -25,15 +24,7 @@ const headSection: React.FC = () => {
           <Typography variant="h2" sx={{ color: 'white', fontFamily: 'Pacifico, cursive' }}>
             Sima9z Page
           </Typography>
-          <Box sx={{ marginTop: 4 }}>
-            <Button variant="contained" color="secondary" sx={{ marginRight: 2 }} href="https://github.com/sima9z" target="_blank" rel="noopener noreferrer">
-              github
-            </Button>
-            <Button variant="outlined" color="secondary" href="https://x.com/sima9z77407" target="_blank" rel="noopener noreferrer">
-              X
-            </Button>
           </Box>
-        </Box>
         </ThemeProvider>
       );
     };

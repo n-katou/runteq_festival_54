@@ -1,11 +1,12 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { Container, Box } from '@mui/material';
+import { Container, Box, Button } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 
-import ProfileSection from '../../components/sima9z/ProfileSection'
 import HeadSection from '../../components/sima9z/HeadSection'
+import ProfileSection from '../../components/sima9z/ProfileSection'
+import Links from '../../components/sima9z/Links'
 import CreateApplicationsSection from '../../components/sima9z/CreateApplicationsSection'
 
 import { Theme } from '../../components/sima9z/Theme'
@@ -19,6 +20,7 @@ const Sima9zPage: React.FC = () => {
           alt="strawberry_frame"
           layout="fill"
           objectFit="cover"
+          style={{ pointerEvents: 'auto' }}
         />
       </Box>
 
@@ -26,6 +28,8 @@ const Sima9zPage: React.FC = () => {
         <HeadSection />
 
         <ProfileSection />
+
+        <Links />
 
         <CreateApplicationsSection />
       </Container>
