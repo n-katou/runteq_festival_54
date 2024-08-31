@@ -11,12 +11,7 @@ import FiftyFourImage from '../../public/index/54.png';
 import IchigoTabetaiImage from '../../public/index/ichigo_tabetai.png';
 import ReactSaikoImage from '../../public/index/react_saiko.png';
 
-import TVImage from '../../public/index/TV.png';
-import WhiteTVImage from '../../public/index/white_TV.png';
-import BlackTVImage from '../../public/index/black_TV.png';
-import OrengeTVImage from '../../public/index/orenge_TV.png';
-import PinkTVImage from '../../public/index/pink_TV.png';
-import GreenTVImage from '../../public/index/green_TV.png';
+import IphoneImage from '../../public/index/iphone.png';
 
 const MainContent = () => {
 
@@ -125,28 +120,28 @@ const MainContent = () => {
       </Box>
 
       <Image
-        src={ WhiteTVImage }
-        alt={ 'TVImage' }
-        className={ 'TVImage' }
+        src={ IphoneImage }
+        alt={ 'IphoneImage' }
+        className={ 'IphoneImage' }
         style={{
-          width: '25%',
+          width: '30%',
           height: 'auto',
           position: 'fixed',
-          left: 30,
-          bottom: 10,
+          left: -70,
+          bottom: -30,
         }} 
       />
 
       <Image
-        src={ WhiteTVImage }
-        alt={ 'TVImage' }
-        className={ 'TVImage' }
+        src={ IphoneImage }
+        alt={ 'IphoneImage' }
+        className={ 'IphoneImage' }
         style={{
-          width: '25%',
+          width: '30%',
           height: 'auto',
           position: 'fixed',
-          right: 30,
-          bottom: 10,
+          right: -70,
+          bottom: -30,
         }} 
       />
     </>
