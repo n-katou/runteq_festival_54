@@ -20,11 +20,11 @@ const Sima9zPage: React.FC = () => {
           alt="strawberry_frame"
           layout="fill"
           objectFit="cover"
-          style={{ pointerEvents: 'auto' }}
+          style={{ pointerEvents: 'none' }}
         />
       </Box>
 
-      <Container maxWidth="lg"  sx={{ position: 'relative', zIndex: 0, marginTop: '-100vh', paddingTop: '10vh' }}>
+      <Container maxWidth="lg"  sx={{ position: 'relative', zIndex: 0, marginTop: '-90vh' }}>
         <HeadSection />
 
         <ProfileSection />
