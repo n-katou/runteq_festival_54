@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import Social from '../../components/kato/Social';
 import MyImg from "../../components/kato/MyImg";
 import AppsList from '../../components/kato/AppsList';
-import SpotlightTransition from '../../components/kato/spotlight';
+import SpotlightTransition from '../../components/kato/SpotlightTransition';
 
 const KatoPage: React.FC = () => {
   const [showContent, setShowContent] = useState(false);
@@ -14,10 +14,10 @@ const KatoPage: React.FC = () => {
 
   return (
     <motion.section
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ duration: 1 }}
+      initial={{ opacity: 0 }} // 初期状態: 非表示
+      animate={{ opacity: 1 }} // アニメーション: 表示
+      exit={{ opacity: 0 }} // ページ離脱時: フェードアウト
+      transition={{ duration: 1 }} // フェードインの時間
       className="relative min-h-screen"
     >
       {!showContent && <SpotlightTransition onComplete={handleTransitionComplete} />}
@@ -30,14 +30,15 @@ const KatoPage: React.FC = () => {
           </video>
 
           {/* コンテンツエリア */}
-          <div className="relative z-10 flex flex-col items-center justify-center min-h-screen">
+          <motion.div
+            initial={{ opacity: 0 }} // 初期状態: 非表示
+            animate={{ opacity: 1 }} // アニメーション: 表示
+            transition={{ duration: 1 }} // フェードインの時間
+            className="relative z-10 flex flex-col items-center justify-center min-h-screen"
+          >
             <section className="relative z-20 py-12 xl:py-24 text-white w-full">
               <div className="container mx-auto flex flex-col lg:flex-row items-center gap-x-8">
                 <motion.div
-                  // initial={{ opacity: 0, y: '-50%' }}
-                  // animate={{ opacity: 1, y: 0 }}
-                  // exit={{ opacity: 0, y: '-50%' }}
-                  // transition={{ duration: 1 }}
                   className="backdrop-blur-lg bg-white/20 p-8 rounded-lg shadow-lg max-w-[600px] mx-auto xl:mx-0 text-center xl:text-left lg:w-1/2"
                 >
                   <h2 className="text-5xl font-bold text-orange">Hello</h2>
@@ -54,17 +55,7 @@ const KatoPage: React.FC = () => {
                   </div>
                 </motion.div>
 
-                <motion.div
-                  // initial={{ opacity: 0, scale: 0 }}
-                  // animate={{ opacity: 1, scale: 1 }}
-                  // transition={{
-                  //   type: "spring",
-                  //   stiffness: 100,
-                  //   damping: 10,
-                  //   delay: 0.4,
-                  // }}
-                  className="relative mt-8 lg:mt-0"
-                >
+                <motion.div className="relative mt-8 lg:mt-0">
                   <div style={{ perspective: 2000 }}>
                     <motion.div
                       style={{ x: 0, y: 0, rotateX: 0, rotateY: 0, z: 100 }}
@@ -86,7 +77,7 @@ const KatoPage: React.FC = () => {
             </section>
 
             <AppsList />
-          </div>
+          </motion.div>
         </>
       )}
     </motion.section>
