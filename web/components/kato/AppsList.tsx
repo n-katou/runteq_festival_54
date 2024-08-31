@@ -37,7 +37,8 @@ const AppsList: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {apps.map((app, index) => (
             <motion.div
-              className="p-6 bg-blue/30 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 transform"
+              key={index}
+              className="p-6 bg-blue/30 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 transform hover:bg-white"
             >
               <div className="text-4xl text-orange-500 mb-4">
                 {app.icon} {/* アイコンを表示 */}
