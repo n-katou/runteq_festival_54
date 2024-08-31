@@ -1,7 +1,7 @@
 import React from 'react';
 import Image from 'next/image';
 
-import { Container, Box, Button } from '@mui/material';
+import { Container, Box } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 
 import HeadSection from '../../components/sima9z/HeadSection'
