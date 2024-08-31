@@ -46,7 +46,23 @@ const SpotlightTransition: React.FC<SpotlightTransitionProps> = ({ onComplete })
       duration: 0.2,
       ease: 'easeInOut',
       repeat: Infinity,
-      repeatDelay: 5, // 5秒ごとにグリッチが発生
+      repeatDelay: 5,
+    },
+  };
+
+  const particleVariants = {
+    animate: {
+      x: ["0%", "100%", "-100%"],
+      y: ["0%", "100%", "-100%"],
+      scale: [0.5, 1.5, 0.5],
+      opacity: [0.7, 1, 0],
+      rotate: [0, 360],
+      transition: {
+        duration: 5,
+        ease: "easeInOut",
+        repeat: Infinity,
+        repeatType: "mirror",
+      },
     },
   };
 
@@ -61,9 +77,9 @@ const SpotlightTransition: React.FC<SpotlightTransitionProps> = ({ onComplete })
       <motion.div
         className={styles.spotlight}
         style={{
-          background: 'radial-gradient(circle, rgba(255,105,180,1) 40%, rgba(255,255,255,0) 80%)',
+          background: 'radial-gradient(circle, rgba(138, 43, 226,1) 40%, rgba(255,255,255,0) 80%)',
           filter: 'blur(10px)',
-          boxShadow: '0px 0px 20px rgba(255,105,180,0.7)',
+          boxShadow: '0px 0px 20px rgba(138, 43, 226,0.7)',
         }}
         animate={{
           ...glitchEffect,
@@ -107,9 +123,9 @@ const SpotlightTransition: React.FC<SpotlightTransitionProps> = ({ onComplete })
       <motion.div
         className={styles.spotlight}
         style={{
-          background: 'radial-gradient(circle, rgba(255,255,0,1) 40%, rgba(255,255,255,0) 80%)',
+          background: 'radial-gradient(circle, rgba(255, 69, 0,1) 40%, rgba(255,255,255,0) 80%)',
           filter: 'blur(12px)',
-          boxShadow: '0px 0px 20px rgba(255,255,0,0.7)',
+          boxShadow: '0px 0px 20px rgba(255, 69, 0,0.7)',
         }}
         animate={{
           ...glitchEffect,
@@ -125,24 +141,6 @@ const SpotlightTransition: React.FC<SpotlightTransitionProps> = ({ onComplete })
           ease: "easeInOut",
           repeat: Infinity,
           repeatType: 'reverse',
-        }}
-      />
-      <motion.div
-        className={styles.particles}
-        style={{
-          position: 'absolute',
-          width: '100%',
-          height: '100%',
-          background: 'radial-gradient(circle, rgba(255,255,255,0.1) 10%, rgba(255,255,255,0) 70%)',
-        }}
-        animate={{
-          opacity: [0.5, 1, 0.5],
-          scale: [1, 1.05, 1],
-        }}
-        transition={{
-          duration: 3,
-          ease: "easeInOut",
-          repeat: Infinity,
         }}
       />
     </div>
