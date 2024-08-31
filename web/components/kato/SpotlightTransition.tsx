@@ -24,7 +24,7 @@ const SpotlightTransition: React.FC<SpotlightTransitionProps> = ({ onComplete })
   useEffect(() => {
     const timer = setTimeout(() => {
       onComplete();
-    }, 3000);
+    }, 2800);
 
     return () => clearTimeout(timer);
   }, [onComplete]);
