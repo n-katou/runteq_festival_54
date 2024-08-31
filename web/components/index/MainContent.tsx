@@ -12,6 +12,11 @@ import IchigoTabetaiImage from '../../public/index/ichigo_tabetai.png';
 import ReactSaikoImage from '../../public/index/react_saiko.png';
 
 import TVImage from '../../public/index/TV.png';
+import WhiteTVImage from '../../public/index/white_TV.png';
+import BlackTVImage from '../../public/index/black_TV.png';
+import OrengeTVImage from '../../public/index/orenge_TV.png';
+import PinkTVImage from '../../public/index/pink_TV.png';
+import GreenTVImage from '../../public/index/green_TV.png';
 
 const MainContent = () => {
 
@@ -120,7 +125,7 @@ const MainContent = () => {
       </Box>
 
       <Image
-        src={ TVImage }
+        src={ WhiteTVImage }
         alt={ 'TVImage' }
         className={ 'TVImage' }
         style={{
@@ -133,7 +138,7 @@ const MainContent = () => {
       />
 
       <Image
-        src={ TVImage }
+        src={ WhiteTVImage }
         alt={ 'TVImage' }
         className={ 'TVImage' }
         style={{

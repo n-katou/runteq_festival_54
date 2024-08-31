@@ -4,14 +4,14 @@ import { motion } from 'framer-motion';
 import { PreviewCardProps } from '../../types/types_index'
 
 const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
-  const handleIframeLoad = () => {
-    const iframe = document.querySelector('iframe');
-    if (iframe) {
-      setTimeout(() => {
-        iframe.contentWindow?.scrollTo(0, 90); // スクロール位置を調整
-      }, 100);
-    }
-  };
+  // const handleIframeLoad = () => {
+  //   const iframe = document.querySelector('iframe');
+  //   if (iframe) {
+  //     setTimeout(() => {
+  //       iframe.contentWindow?.scrollTo(0, 90); // スクロール位置を調整
+  //     }, 100);
+  //   }
+  // };
 
   return (
     <>
@@ -37,7 +37,6 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
           height="100%"
           style={{ border: 'none' }}
           sandbox="allow-scripts allow-same-origin"
-          onLoad={handleIframeLoad}
         />
       </motion.div>
 
@@ -63,7 +62,6 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
           height="100%"
           style={{ border: 'none' }}
           sandbox="allow-scripts allow-same-origin"
-          onLoad={handleIframeLoad}
         />
       </motion.div>
     </>
