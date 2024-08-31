@@ -62,13 +62,19 @@ const KatoPage: React.FC = () => {
                       </div>
 
                       <div
-                        className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] bg-no-repeat absolute -top-1 -right-1 z-0"
+                        className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] bg-no-repeat absolute -top-1 -right-1 z-0 hidden sm:block"
                         style={{ backgroundImage: `url('/kato/shape-light.svg')` }}
                       />
                       <MyImg
                         containerStyles="w-[310px] h-[272px] sm:w-[410px] sm:h-[362px] lg:w-[510px] lg:h-[462px] bg-no-repeat relative bg-bottom rounded-lg overflow-hidden shadow-lg"
                         imgSrc='/kato/profile.png'
-                        style={{ backgroundImage: `url('/kato/shape-1.svg')` }}
+                        style={{
+                          backgroundImage: `url('/kato/shape-1.svg')`,
+                          backgroundSize: 'contain',
+                          backgroundRepeat: 'no-repeat',
+                          backgroundPosition: 'center',
+                          display: 'block' // profile.pngは常に表示
+                        }}
                       />
                     </motion.div>
                   </div>
