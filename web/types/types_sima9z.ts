@@ -1,8 +1,10 @@
+import { ImageProps } from 'next/image';
+
 export interface ReusableCardProps {
-  imageSrc: string;
+  imageSrc: ImageProps['src'];
   imageAlt: string;
   title: string;
   description: string;
   link: string;
-  bgcolor?: string;  // bgcolorは任意のプロパティなので、オプショナルとします
+  bgcolor?: string;
 }
