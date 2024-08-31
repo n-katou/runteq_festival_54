@@ -4,7 +4,7 @@ import { ThemeProvider } from '@mui/material/styles';
 
 import { ProfileSectionTheme } from './Theme'
 
-const Links = () => {
+const ButtonLinks = () => {
   return (
     <ThemeProvider theme={ProfileSectionTheme}>
       <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 4 }}>
@@ -36,4 +36,4 @@ const Links = () => {
   );
 };
 
-export default Links;
+export default ButtonLinks;

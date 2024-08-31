@@ -6,7 +6,7 @@ import { ThemeProvider } from '@mui/material/styles';
 
 import HeadSection from '../../components/sima9z/HeadSection'
 import ProfileSection from '../../components/sima9z/ProfileSection'
-import Links from '../../components/sima9z/Links'
+import ButtonLinks from '../../components/sima9z/ButtonLinks'
 import CreateApplicationsSection from '../../components/sima9z/CreateApplicationsSection'
 
 import { Theme } from '../../components/sima9z/Theme'
@@ -29,7 +29,7 @@ const Sima9zPage: React.FC = () => {
 
         <ProfileSection />
 
-        <Links />
+        <ButtonLinks />
 
         <CreateApplicationsSection />
       </Container>
