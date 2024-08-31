@@ -4,39 +4,13 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import Social from "../../components/rei/Social";
 import MyImg from "../../components/rei/MyImg";
 import { Transition } from "../../components/rei/transitions";
+import FloatingEmoji from "../../components/rei/FloatingEmoji";
 
 const ReiPage: React.FC = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useTransform(y, [-100, 100], [30, -30]);
   const rotateY = useTransform(x, [-100, 100], [-30, 30]);
-
-  // 1つの絵文字が画面上にランダムな動きをするアニメーション
-  const createFloatingEmoji = (emoji: string, delay: number) => (
-    <motion.div
-      className="text-3xl absolute"
-      initial={{ opacity: 0, scale: 0 }}
-      animate={{
-        opacity: [0, 1, 1, 0],
-        scale: [0, 1, 5, 0],
-        x: [0, Math.random() * 200 - 100, Math.random() * 200 - 100, 0],
-        y: [0, Math.random() * 200 - 100, Math.random() * 200 - 100, 0],
-        rotate: [0, Math.random() * 360, Math.random() * 360, 0],
-      }}
-      transition={{
-        duration: 10,
-        repeat: Infinity,
-        delay: delay,
-        ease: "easeInOut",
-      }}
-      style={{
-        top: `${Math.random() * 100}%`,
-        left: `${Math.random() * 100}%`,
-      }}
-    >
-      {emoji}
-    </motion.div>
-  );
 
   return (
     <motion.section
@@ -51,8 +25,12 @@ const ReiPage: React.FC = () => {
         <section className="relative z-20 py-12 xl:py-24 text-white w-full bg-cream/[0.5]">
           <div className="container mx-auto flex flex-col lg:flex-row items-center gap-x-8">
             {/* 浮遊する絵文字を追加 */}
-            {[...Array(5)].map((_, i) => createFloatingEmoji("🍓", i * 2))}
-            {[...Array(5)].map((_, i) => createFloatingEmoji("🦀", i * 2 + 1))}
+            {[...Array(5)].map((_, i) => (
+              <FloatingEmoji key={`strawberry-${i}`} emoji="🍓" delay={i * 2} />
+            ))}
+            {[...Array(5)].map((_, i) => (
+              <FloatingEmoji key={`crab-${i}`} emoji="🦀" delay={i * 2 + 1} />
+            ))}
             <motion.div
               initial={{ opacity: 0, y: "-50%" }}
               animate={{ opacity: 1, y: 0 }}
@@ -104,12 +82,20 @@ const ReiPage: React.FC = () => {
                     style={{ backgroundImage: `url('/rei/shape-light.svg')` }}
                   />
                   {/* 浮遊する絵文字を追加 */}
-                  {[...Array(5)].map((_, i) =>
-                    createFloatingEmoji("🍓", i * 2)
-                  )}
-                  {[...Array(5)].map((_, i) =>
-                    createFloatingEmoji("🦀", i * 2 + 1)
-                  )}
+                  {[...Array(5)].map((_, i) => (
+                    <FloatingEmoji
+                      key={`strawberry-app-${i}`}
+                      emoji="🍓"
+                      delay={i * 2}
+                    />
+                  ))}
+                  {[...Array(5)].map((_, i) => (
+                    <FloatingEmoji
+                      key={`crab-app-${i}`}
+                      emoji="🦀"
+                      delay={i * 2 + 1}
+                    />
+                  ))}
                   <MyImg
                     containerStyles="w-[280px] h-[246px] sm:w-[350px] sm:h-[308px] md:w-[400px] md:h-[352px] lg:w-[450px] lg:h-[396px] bg-no-repeat relative bg-bottom rounded-lg overflow-hidden shadow-lg"
                     imgSrc="/rei/rei.png"
@@ -130,10 +116,16 @@ const ReiPage: React.FC = () => {
             <h2 className="text-3xl md:text-4xl mb-6">Application</h2>
             <div className="flex flex-col sm:flex-row gap-6">
               {/* 浮遊する絵文字を追加 */}
-              {[...Array(5)].map((_, i) => createFloatingEmoji("🍓", i * 2))}
-              {[...Array(5)].map((_, i) =>
-                createFloatingEmoji("🦀", i * 2 + 1)
-              )}
+              {[...Array(5)].map((_, i) => (
+                <FloatingEmoji
+                  key={`strawberry-${i}`}
+                  emoji="🍓"
+                  delay={i * 2}
+                />
+              ))}
+              {[...Array(5)].map((_, i) => (
+                <FloatingEmoji key={`crab-${i}`} emoji="🦀" delay={i * 2 + 1} />
+              ))}
               <div className="w-full sm:w-1/2">
                 <h3 className="text-xl mb-3">ポートフォリオ</h3>
                 <a
