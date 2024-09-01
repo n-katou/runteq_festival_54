@@ -79,18 +79,18 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
   return (
     <>
       <motion.div
-      style={{
-        position: 'absolute',
-        left: `${left}%`,
-        transformOrigin: 'bottom center',
-        width: `${widthPercent}%`,
-      }}
-      variants={swingVariants}
-      initial="initial"
-      whileHover="animate"
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-    >
+        style={{
+          position: 'absolute',
+          left: `${left}%`,
+          transformOrigin: 'bottom center',
+          width: `${widthPercent}%`,
+        }}
+        variants={swingVariants}
+        initial="initial"
+        whileHover="animate"
+        onHoverStart={() => setIsHovered(true)}
+        onHoverEnd={() => setIsHovered(false)}
+      >
       <Link href={href || "#"} style={{ display: 'block', position: 'relative', height: '100%', minHeight: 'full' }}>
         <GenericImage
           src={isHovered ? hoverStrawberryImages[currentColor][currentImageIndex] : initialStrawberry}
@@ -113,6 +113,7 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
               color: 'black',
               textAlign: 'center',
               pointerEvents: 'none',
+              fontFamily: 'Pacifico, cursive',
             }}
           >
             {linkText}
@@ -132,6 +133,7 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
               color: 'black',
               textAlign: 'center',
               pointerEvents: 'none',
+              fontFamily: 'Pacifico, cursive',
             }}
           >
             {linkText}

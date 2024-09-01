@@ -20,7 +20,7 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
           border: '1px solid black',
           backgroundColor: 'white',
           zIndex: 0,
-          borderRadius: '10px', 
+          borderRadius: '20px', 
           overflow: 'hidden', 
         }}
       >
@@ -48,7 +48,7 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
           border: '1px solid black',
           backgroundColor: 'white',
           zIndex: 0,
-          borderRadius: '10px', 
+          borderRadius: '20px', 
           overflow: 'hidden', 
         }}
       >

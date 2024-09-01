@@ -17,25 +17,26 @@ const MainContent = () => {
 
     // 各段ごとのリンク情報を定義
     const links1 = [
-      { href: "/members/kato", text: "加藤" },
+      { href: "/members/kato", text: "kato" },
       { href: "/members/mick", text: "mick" },
       { href: "/members/nori", text: "nori" },
-      { href: "/members/konisi", text: "小西" },
+      { href: "/members/konisi", text: "konisi" },
     ];
   
     const links2 = [
-      { href: "/members/knnts", text: "かなナッツ"  },
-      { href: "/members/mchan", text: "Mちゃん"  },
+      { href: "/members/knnts", text: "kana"  },
+      { href: "/members/mchan", text: "Mchan"  },
     ];
   
     const links3 = [
       { href: "/members/natsu", text: "natsu" },
       { href: "/members/rei", text: "rei" },
-      { href: "/members/sima9z", text: "sima9z" }
+      { href: "/members/sima9z", text: "sima9z" },
+      { href: "/members/hase", text: "hase" }
     ];
   
     const links4 = [
-      { href: "/contact/PC", text: "PC" },
+      { href: "/members/yu-ki", text: "yu-ki" },
     ];
 
   return (
@@ -82,10 +83,10 @@ const MainContent = () => {
             >
               <KirakiraEffect
                 effects={[
-                  { style: { position: 'absolute', top: '-15%', left: '-15%' }, scale: [0, 1.5, 0], delay: 0 },
-                  { style: { position: 'absolute', top: '3%', left: '70%' }, scale: [0, 0.7, 0], delay: 0.3 },
-                  { style: { position: 'absolute', top: '-10%', left: '80%' }, scale: [0, 1.1, 0], delay: 0.6 },
-                  { style: { position: 'absolute', top: '65%', left: '2%' }, scale: [0, 0.9, 0], delay: 0.9 }
+                  { style: { position: 'absolute', top: '-5%', left: '-20%' }, scale: [0, 1.5, 0], delay: 0 },
+                  { style: { position: 'absolute', top: '3%', left: '65%' }, scale: [0, 0.7, 0], delay: 0.3 },
+                  { style: { position: 'absolute', top: '-5%', left: '85%' }, scale: [0, 1.1, 0], delay: 0.6 },
+                  { style: { position: 'absolute', top: '75%', left: '-10%' }, scale: [0, 0.9, 0], delay: 0.9 }
                 ]}
               />
             </GenericImage>
