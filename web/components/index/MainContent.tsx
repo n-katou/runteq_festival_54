@@ -58,7 +58,7 @@ const MainContent = () => {
           }
         }}
       >
-        <Grid container direction="column" alignItems="center" spacing={20}>
+        <Grid container direction="column" alignItems="center" spacing={24}>
           <Grid item>
             <StrawberryLinks initialColor={'pink'} positions={[7, 29, 60, 82]} links={links1} />
           </Grid>

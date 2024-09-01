@@ -12,7 +12,7 @@ const StrawberryLinks: React.FC<StrawberryLinksProps> = ({ positions, initialCol
         <HoverableStrawberry
           key={index}
           left={left}
-          widthPercent={10}
+          widthPercent={12}
           initialIndex={index}
           initialColor={initialColor}
           href={links[index]?.href} // 各イチゴにリンク先を渡す

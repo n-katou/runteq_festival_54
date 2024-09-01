@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+import { useTheme } from '@mui/material/styles';
+import { Box } from '@mui/material';
+
 import GenericImage from './GenericImage';
 import { useHoverEffect, useTextVisibility } from '../../hooks/hooks_index';
 
@@ -25,6 +28,7 @@ import PreviewCard from './PreviewCard';
 
 const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPercent, centered = false, initialColor = 'red', initialIndex, onLastImage, onHoverEnd, href, linkText }) => {
   const [imageHeight, setImageHeight] = useState<number | null>(null);
+  const theme = useTheme();
 
   const normalStrawberryImages = {
     red: [RedStrawberryImage],
@@ -100,44 +104,64 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
           onImageLoad={(height) => setImageHeight(height)}
         />
         {isHovered && currentImageIndex !== hoverStrawberryImages[currentColor].length - 1 && (
-          <span
-            style={{
-              position: 'absolute',
-              top: imageHeight
-                ? window.innerHeight > window.innerWidth
-                  ? `calc(${imageHeight / 2}px + 1vh)`  // 縦長の画面での設定
-                  : `calc(${imageHeight / 2}px + 2vh)`  // 横長の画面での設定
-                : '60%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              color: 'black',
-              textAlign: 'center',
-              pointerEvents: 'none',
-              fontFamily: 'Pacifico, cursive',
-            }}
-          >
-            {linkText}
-          </span>
+          <Box
+          sx={{
+            position: 'absolute',
+            top: imageHeight
+              ? window.innerHeight > window.innerWidth
+                ? `calc(${imageHeight / 2}px + 1vh)`  // 縦長の画面での設定
+                : `calc(${imageHeight / 2}px + 2vh)`  // 横長の画面での設定
+              : '60%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            color: 'black',
+            textAlign: 'center',
+            pointerEvents: 'none',
+            fontFamily: 'Pacifico, cursive',
+            fontSize: '3vw',  // デフォルトのフォントサイズ
+            [theme.breakpoints.up('sm')]: {
+              fontSize: '3vw', // sm以上の画面で3vw
+            },
+            [theme.breakpoints.up('md')]: {
+              fontSize: '2.5vw', // md以上の画面で2vw
+            },
+            [theme.breakpoints.up('lg')]: {
+              fontSize: '1.8vw', // lg以上の画面で1vw
+            },
+          }}
+        >
+          {linkText}
+        </Box>
         )}
         {!isHovered && (
-          <span
-            style={{
-              position: 'absolute',
-              top: imageHeight
-                ? window.innerHeight > window.innerWidth
-                  ? `calc(${imageHeight / 2}px + 1vh )`  // 縦長の画面での設定
-                  : `calc(${imageHeight / 2}px + 2vh)`  // 横長の画面での設定
-                : '60%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              color: 'black',
-              textAlign: 'center',
-              pointerEvents: 'none',
-              fontFamily: 'Pacifico, cursive',
-            }}
-          >
-            {linkText}
-          </span>
+         <Box
+         sx={{
+           position: 'absolute',
+           top: imageHeight
+             ? window.innerHeight > window.innerWidth
+               ? `calc(${imageHeight / 2}px + 1vh)`  // 縦長の画面での設定
+               : `calc(${imageHeight / 2}px + 2vh)`  // 横長の画面での設定
+             : '60%',
+           left: '50%',
+           transform: 'translate(-50%, -50%)',
+           color: 'black',
+           textAlign: 'center',
+           pointerEvents: 'none',
+           fontFamily: 'Pacifico, cursive',
+           fontSize: '3vw',  // デフォルトのフォントサイズ
+           [theme.breakpoints.up('sm')]: {
+             fontSize: '3vw', // sm以上の画面で3vw
+           },
+           [theme.breakpoints.up('md')]: {
+             fontSize: '2.5vw', // md以上の画面で2vw
+           },
+           [theme.breakpoints.up('lg')]: {
+             fontSize: '1.8vw', // lg以上の画面で1vw
+           },
+         }}
+       >
+         {linkText}
+       </Box>
         )}
       </Link>
     </motion.div>
