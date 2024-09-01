@@ -14,22 +14,36 @@ import { Theme } from '../../components/sima9z/Theme'
 const Sima9zPage: React.FC = () => {
   return (
     <ThemeProvider theme={Theme}>
-      <Box sx={{ position: 'relative', width: '100%', height: 'calc(100vh - 64px)', zIndex: 10, pointerEvents: 'none' }}>
+      <Box sx={{ position: 'relative', width: '100%', height: '100vh', zIndex: 10, pointerEvents: 'none' }}>
+        <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: 'auto', maxWidth: '100%', maxHeight: '100%' }}>
         <Image
           src="/sima9z/strawberry_frame.png"
           alt="strawberry_frame"
-          layout="fill"
-          objectFit="cover"
-          style={{ pointerEvents: 'none' }}
+          width={1920}
+          height={1080} 
+          objectFit="contain"
+          style={{ pointerEvents: 'none', width: '100%', height: 'auto' }}
         />
+        </Box>
       </Box>
 
-      <Container maxWidth="lg"  sx={{ position: 'relative', zIndex: 0, marginTop: '-90vh' }}>
+      <Container
+        maxWidth="lg"
+        sx={{
+          position: 'relative',
+          zIndex: 0,
+          marginTop: '-70vh',
+          '@media (max-width: 1000px)': {
+            marginTop: '-80vh',
+          },
+          '@media (max-width: 700px)': {
+            marginTop: '-90vh',
+          },
+        }}
+      >
         <HeadSection />
 
         <ProfileSection />
-
-        <ButtonLinks />
 
         <CreateApplicationsSection />
       </Container>
