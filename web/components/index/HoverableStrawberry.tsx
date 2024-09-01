@@ -1,4 +1,5 @@
-import React,{useEffect} from 'react';
+import React, { useState } from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
 
 import GenericImage from './GenericImage';
@@ -20,7 +21,11 @@ import StrawberryCalyxImage from '../../public/index/strawberry_calyx.png';
 
 import { HoverableStrawberryProps } from '../../types/types_index';
 
-const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ top, left, widthPercent, centered = false, children, initialColor = 'red', initialIndex, onLastImage, onHoverEnd }) => {
+import PreviewCard from './PreviewCard';
+
+const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPercent, centered = false, initialColor = 'red', initialIndex, onLastImage, onHoverEnd, href, linkText }) => {
+  const [imageHeight, setImageHeight] = useState<number | null>(null);
+
   const normalStrawberryImages = {
     red: [RedStrawberryImage],
     pink: [PinkStrawberryImage],
@@ -39,8 +44,6 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ top, left, wi
   
   // initialColor から順番にイチゴを配置
   const startIndex = colorOrder.indexOf(initialColor);
-  
-  // 指定された初期カラーを基にした順序で色を決定
   const currentColor = colorOrder[(startIndex + initialIndex) % colorOrder.length];
   const initialStrawberry = normalStrawberryImages[currentColor][0];
 
@@ -52,14 +55,16 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ top, left, wi
     currentImageIndex,
     hoverStrawberryImages,
     currentColor,
-    onLastImage: () => onLastImage && onLastImage(),
-    onHoverEnd: () => onHoverEnd && onHoverEnd(),
+    onLastImage: () => {
+      if (onLastImage) onLastImage();
+    },
+    onHoverEnd: () => {
+      if (onHoverEnd) onHoverEnd();
+    },
   });
 
   const swingVariants = {
-    initial: {
-      rotate: 0,
-    },
+    initial: { rotate: 0 },
     animate: {
       rotate: [-7, 7, -7],
       transition: {
@@ -72,10 +77,10 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ top, left, wi
   };
 
   return (
-    <motion.div
+    <>
+      <motion.div
       style={{
         position: 'absolute',
-        top: `${top}%`,
         left: `${left}%`,
         transformOrigin: 'bottom center',
         width: `${widthPercent}%`,
@@ -84,22 +89,65 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ top, left, wi
       initial="initial"
       whileHover="animate"
       onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => {
-        setIsHovered(false);
-        if (onHoverEnd) onHoverEnd(); // ホバーが終了したときにonHoverEndを呼び出す
-      }}
+      onHoverEnd={() => setIsHovered(false)}
     >
-      <GenericImage
-        top={0}
-        left={0}
-        src={isHovered ? hoverStrawberryImages[currentColor][currentImageIndex] : initialStrawberry}
-        alt={`${currentColor} strawberry`}
-        centered={centered}
-        widthPercent={100}
-      >
-        {children}
-      </GenericImage>
+      <Link href={href || "#"} style={{ display: 'block', position: 'relative', height: '100%', minHeight: 'full' }}>
+        <GenericImage
+          src={isHovered ? hoverStrawberryImages[currentColor][currentImageIndex] : initialStrawberry}
+          alt={`${currentColor} strawberry`}
+          centered={centered}
+          widthPercent={100}
+          onImageLoad={(height) => setImageHeight(height)}
+        />
+        {isHovered && currentImageIndex !== hoverStrawberryImages[currentColor].length - 1 && (
+          <span
+            style={{
+              position: 'absolute',
+              top: imageHeight
+                ? window.innerHeight > window.innerWidth
+                  ? `calc(${imageHeight / 2}px + 1vh)`  // 縦長の画面での設定
+                  : `calc(${imageHeight / 2}px + 2vh)`  // 横長の画面での設定
+                : '60%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              color: 'black',
+              textAlign: 'center',
+              pointerEvents: 'none',
+            }}
+          >
+            {linkText}
+          </span>
+        )}
+        {!isHovered && (
+          <span
+            style={{
+              position: 'absolute',
+              top: imageHeight
+                ? window.innerHeight > window.innerWidth
+                  ? `calc(${imageHeight / 2}px + 1vh )`  // 縦長の画面での設定
+                  : `calc(${imageHeight / 2}px + 2vh)`  // 横長の画面での設定
+                : '60%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              color: 'black',
+              textAlign: 'center',
+              pointerEvents: 'none',
+            }}
+          >
+            {linkText}
+          </span>
+        )}
+      </Link>
     </motion.div>
+      {/* isHovered が true のときに PreviewCard を HoverableStrawberry コンポーネントの外で表示 */}
+      {isHovered && href && (
+        <PreviewCard 
+          title={linkText || ""}
+          link={href}
+        />
+      )}
+    </>
+
   );
 };
 
