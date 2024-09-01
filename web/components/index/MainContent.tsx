@@ -125,11 +125,11 @@ const MainContent = () => {
         alt={ 'IphoneImage' }
         className={ 'IphoneImage' }
         style={{
-          width: '30%',
+          width: '460px',
           height: 'auto',
           position: 'fixed',
           left: -70,
-          bottom: -30,
+          bottom: 20,
         }} 
       />
 
@@ -138,11 +138,11 @@ const MainContent = () => {
         alt={ 'IphoneImage' }
         className={ 'IphoneImage' }
         style={{
-          width: '30%',
+          width: '460px',
           height: 'auto',
           position: 'fixed',
           right: -70,
-          bottom: -30,
+          bottom: 20,
         }} 
       />
     </>

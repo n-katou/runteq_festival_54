@@ -13,10 +13,10 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
         transition={{ duration: 0.5 }}
         style={{
           position: 'fixed',
-          left: '2%',
-          bottom: '4%',
-          width: '17%',
-          height: '76%',
+          left: '30px',
+          bottom: '80px',
+          width: '260px',
+          height: '530px',
           border: '1px solid black',
           backgroundColor: 'white',
           zIndex: 0,
@@ -41,10 +41,10 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
         transition={{ duration: 0.5 }}
         style={{
           position: 'fixed',
-          right: '2%',
-          bottom: '4%',
-          width: '17%',
-          height: '76%',
+          right: '30px',
+          bottom: '80px',
+          width: '260px',
+          height: '530px',
           border: '1px solid black',
           backgroundColor: 'white',
           zIndex: 0,
