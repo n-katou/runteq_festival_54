@@ -34,7 +34,7 @@ const KonisiPage: React.FC = () => {
                 趣味：猫・お笑い
               </div>
               <div className="text-base sm:text-lg xl:text-xl">
-                一言：よろしくお願いします:partying_face:
+                一言：よろしくお願いします🥳
               </div>
               <br />
               <div className="flex flex-col xl:flex-row items-center gap-8">
