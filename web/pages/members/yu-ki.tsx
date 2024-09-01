@@ -4,7 +4,7 @@ import Social from '../../components/yu-ki/Social';
 import MyImg from "../../components/yu-ki/MyImg";
 import { Transition } from '../../components/yu-ki/transitions';
 
-const KonisiPage: React.FC = () => {
+const YuukiPage: React.FC = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useTransform(y, [-100, 100], [30, -30]);
@@ -87,4 +87,4 @@ const KonisiPage: React.FC = () => {
   );
 };
 
-export default KonisiPage;
+export default YuukiPage;
