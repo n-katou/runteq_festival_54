@@ -5,7 +5,7 @@ import MyImg from "../../components/shino/MyImg";
 import { Transition } from '../../components/shino/transitions';
 import AppsList from '../../components/shino/AppsList';
 
-const KatoPage: React.FC = () => {
+const ShinoPage: React.FC = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useTransform(y, [-100, 100], [30, -30]);
@@ -22,7 +22,7 @@ const KatoPage: React.FC = () => {
       {/* 背景ビデオの配置 */}
       <img 
   src="/shino/background.jpg" 
-  alt="Strawberry" 
+  alt="Lavender" 
   className="absolute top-0 left-0 w-full h-full object-cover" 
 />
 
@@ -101,4 +101,4 @@ const KatoPage: React.FC = () => {
   );
 };
 
-export default KatoPage;
+export default ShinoPage;

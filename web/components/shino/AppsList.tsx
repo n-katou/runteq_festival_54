@@ -41,7 +41,7 @@ const AppsList: React.FC = () => {
     >
       <div className="container mx-auto backdrop-blur-lg bg-white/20 p-8 rounded-lg shadow-lg">
         <h2 className="text-4xl font-bold text-center mb-12 text-sky-700">My Applications</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
           {apps.map((app, index) => (
             <motion.div
               key={index}
