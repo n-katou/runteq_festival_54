@@ -1,10 +1,10 @@
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 // components
-import Social from '../../components/nori/Social';
-import MyImg from "../../components/nori/MyImg";
-import { Transition } from '../../components/nori/transitions';
+import Social from '../../components/hase/Social';
+import MyImg from "../../components/hase/MyImg";
+import { Transition } from '../../components/hase/transitions';
 
-const NoriPage: React.FC = () => {
+const KonisiPage: React.FC = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useTransform(y, [-100, 100], [30, -30]);
@@ -29,12 +29,12 @@ const NoriPage: React.FC = () => {
               transition={{ Transition }}
               className="text-orange max-w-full xl:max-w-[600px] flex-col text-center xl:text-left"
             >
-              <h2 className="text-3xl sm:text-4xl xl:text-6xl">則皮早乃香（のり）</h2>
+              <h2 className="text-3xl sm:text-4xl xl:text-6xl">はせ</h2>
               <div className="text-base sm:text-lg xl:text-xl">
-                趣味：お箏、中国ドラマ鑑賞（時代劇）、漫画、アニメ
+                趣味：猫・お笑い
               </div>
               <div className="text-base sm:text-lg xl:text-xl">
-                一言：甲子園球場がある兵庫県西宮市に住んでいます。介護士してました。よろしくお願いいたします。
+                一言：よろしくお願いします🥳
               </div>
               <br />
               <div className="flex flex-col xl:flex-row items-center gap-8">
@@ -65,12 +65,12 @@ const NoriPage: React.FC = () => {
                   whileTap={{ cursor: 'grabbing' }}
                 >
                   <div
-                    className="w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] xl:w-[530px] xl:h-[700px] bg-no-repeat absolute -top-1 -right-1 z-0"
+                    className="w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] xl:w-[510px] xl:h-[700px] bg-no-repeat absolute -top-1 -right-1 z-0"
                     style={{}}
                   />
                   <MyImg
-                    containerStyles="w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] xl:w-[510px] xl:h-[510px] bg-no-repeat relative bg-bottom rounded-lg overflow-hidden shadow-lg"
-                    imgSrc='/nori/profile.png'
+                    containerStyles="w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] xl:w-[480px] xl:h-[510px] bg-no-repeat relative bg-bottom rounded-lg overflow-hidden shadow-lg"
+                    imgSrc='/hase/profile.jpeg'
                     style={{}}
                   />
                 </motion.div>
@@ -87,4 +87,4 @@ const NoriPage: React.FC = () => {
   );
 };
 
-export default NoriPage;
+export default KonisiPage;
