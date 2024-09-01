@@ -4,7 +4,7 @@ import Social from '../../components/hase/Social';
 import MyImg from "../../components/hase/MyImg";
 import { Transition } from '../../components/hase/transitions';
 
-const KonisiPage: React.FC = () => {
+const HasePage: React.FC = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useTransform(y, [-100, 100], [30, -30]);
@@ -87,4 +87,4 @@ const KonisiPage: React.FC = () => {
   );
 };
 
-export default KonisiPage;
+export default HasePage;
