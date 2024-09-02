@@ -82,10 +82,6 @@ const Template: React.FC = () => {
                     dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
                     whileTap={{ cursor: 'grabbing' }}
                   >
-                    <div
-                      className="w-[500px] h-[500px] bg-no-repeat absolute -top-1 -right-1 z-0"
-                      style={{ backgroundImage: `url('/template/shape-light.svg')` }}
-                    />
                     <MyImg
                       containerStyles="w-[510px] h-[462px] bg-no-repeat relative bg-bottom"
                       imgSrc='/knnts/img_knnts.jpg' // 🟩画像を追加
