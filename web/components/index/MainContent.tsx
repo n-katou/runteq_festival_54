@@ -42,6 +42,7 @@ const MainContent = () => {
   
     const links4 = [
       { href: "/members/yu-ki", text: "yu-ki" },
+      { href: "/members/shino", text: "shino" },
     ];
 
   return (
