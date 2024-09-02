@@ -66,12 +66,12 @@ const NoriPage: React.FC = () => {
                 >
                   <div
                     className="w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] xl:w-[530px] xl:h-[700px] bg-no-repeat absolute -top-1 -right-1 z-0"
-                    style={{ backgroundImage: `url('/template/shape-light.svg')` }}
+                    style={{}}
                   />
                   <MyImg
                     containerStyles="w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] xl:w-[510px] xl:h-[510px] bg-no-repeat relative bg-bottom rounded-lg overflow-hidden shadow-lg"
                     imgSrc='/nori/profile.png'
-                    style={{ backgroundImage: `url('/template/shape-1.svg')` }}
+                    style={{}}
                   />
                 </motion.div>
               </div>

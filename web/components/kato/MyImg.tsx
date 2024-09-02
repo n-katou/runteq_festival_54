@@ -9,10 +9,10 @@ interface MyImgProps {
 
 const MyImg: FC<MyImgProps> = ({ containerStyles, imgSrc, style }) => {
   return (
-    <div className={`${containerStyles}`} style={style}>
+    <div className={containerStyles} style={style}>
       <Image src={imgSrc} fill priority alt='' />
     </div>
   );
 };
 
-export default MyImg
+export default MyImg;

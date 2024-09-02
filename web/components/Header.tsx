@@ -1,20 +1,26 @@
 import React from 'react';
 import Image from 'next/image';
-
+import { useRouter } from 'next/router';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
+import { FaGithub } from 'react-icons/fa';
 
-import HeaderLogoImage from '../public/index/header_logo.png'
+import XIcon from '@mui/icons-material/X';
+
+import HeaderLogoImage from '../public/index/header_logo.png';
+import { shareOnX } from './shareOnX';
 
 const Header = () => {
   const theme = useTheme();
   const isSmallScreen = useMediaQuery(theme.breakpoints.down('sm'));
   const isMediumScreen = useMediaQuery(theme.breakpoints.between('sm', 'md'));
+  const router = useRouter(); // useRouterを使用して現在のURLを取得
 
   const getHeaderTitleVariant = () => {
     if (isSmallScreen) {
@@ -50,17 +56,25 @@ const Header = () => {
     <AppBar position="static" sx={{ backgroundColor: '#FFC4D4', color: '#fff' }}>
       <Toolbar>
         <Box sx={{ display: 'flex', flexGrow: 1, alignItems: 'center' }}>
-            <Box sx={{ width: { xs: '15%', sm: '10%', md: '8%' }, height: 'auto' }}>
-              <Image src={HeaderLogoImage} alt="header logo" style={{ width: '100%', height: 'auto' }} />
-            </Box>
-            <Button href="/" sx={{ color: 'inherit', ml:1 }}>
-              <Typography variant={getHeaderTitleVariant()} component="span" sx={{ fontWeight: 'bold' }}>
-                RunteqFestival54
-              </Typography>
-            </Button>
+          <Box sx={{ width: { xs: '15%', sm: '10%', md: '8%' }, height: 'auto' }}>
+            <Image src={HeaderLogoImage} alt="header logo" style={{ width: '100%', height: 'auto' }} />
+          </Box>
+          <Button href="/" sx={{ color: 'inherit', ml: 1 }}>
+            <Typography variant={getHeaderTitleVariant()} component="span" sx={{ fontWeight: 'bold' }}>
+              RunteqFestival54
+            </Typography>
+          </Button>
         </Box>
-        <Box sx={{ display: 'flex'}}>
-          <Button color="inherit" href="/about" className={``} size={getHeaderMenuVariant()} sx={{fontSize: getHeaderMenuFontSize()}}>About</Button>
+        <Box sx={{ display: 'flex', alignItems: 'center' }}>
+          <Button color="inherit" href="/about" size={getHeaderMenuVariant()} sx={{ fontSize: getHeaderMenuFontSize() }}>
+            About
+          </Button>
+          <IconButton color="inherit" href="https://github.com/n-katou/runteq_festival_54" target="_blank" sx={{ ml: 2 }}>
+            <FaGithub />
+          </IconButton>
+          <IconButton color="inherit" onClick={() => shareOnX()} sx={{ ml: 2 }}>
+            <XIcon />
+          </IconButton>
         </Box>
       </Toolbar>
     </AppBar>
