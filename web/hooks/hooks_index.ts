@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { useAnimationControls } from 'framer-motion';
 
 import {UseTextVisibilityProps} from '../types/types_index';
 
@@ -138,4 +139,32 @@ export const useImageHeight = (onImageLoad?: (height: number) => void) => {
   }, [imageRef.current, onImageLoad]);
 
   return imageRef;
+};
+
+export const useAnimationWithHover = (isHovered: boolean) => {
+  const controls = useAnimationControls();
+
+  const animationVariants = {
+    init: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, ease: 'easeInOut' },
+    },
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
+      transition: { duration: 0.5, ease: 'easeInOut' },
+    },
+  };
+
+  useEffect(() => {
+    if (isHovered) {
+      controls.start('visible');
+    } else {
+      controls.start('hidden');
+    }
+  }, [isHovered, controls]);
+
+  return { controls, animationVariants };
 };

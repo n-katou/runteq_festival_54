@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
+import { useTheme } from '@mui/material/styles';
+import { Box } from '@mui/material';
+
 import GenericImage from './GenericImage';
 import { useHoverEffect, useTextVisibility } from '../../hooks/hooks_index';
 
@@ -23,8 +26,9 @@ import { HoverableStrawberryProps } from '../../types/types_index';
 
 import PreviewCard from './PreviewCard';
 
-const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPercent, centered = false, initialColor = 'red', initialIndex, onLastImage, onHoverEnd, href, linkText }) => {
+const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPercent, centered = false, initialColor = 'red', initialIndex, onLastImage, onHoverEnd, href, linkText, setIsHovered }) => {
   const [imageHeight, setImageHeight] = useState<number | null>(null);
+  const theme = useTheme();
 
   const normalStrawberryImages = {
     red: [RedStrawberryImage],
@@ -48,7 +52,17 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
   const initialStrawberry = normalStrawberryImages[currentColor][0];
 
   // ホバー時の画像効果
-  const { currentImageIndex, isHovered, setIsHovered } = useHoverEffect(0, hoverStrawberryImages[currentColor]);
+  const { currentImageIndex, isHovered, setIsHovered: setHoverEffect } = useHoverEffect(0, hoverStrawberryImages[currentColor]);
+
+  const handleMouseEnter = () => {
+    setHoverEffect(true); // フックのホバー状態を更新
+    setIsHovered(true);   // 親コンポーネントのホバー状態を更新
+  };
+
+  const handleMouseLeave = () => {
+    setHoverEffect(false); // フックのホバー状態を解除
+    setIsHovered(false);   // 親コンポーネントのホバー状態を解除
+  };
 
   useTextVisibility({
     isHovered,
@@ -62,6 +76,36 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
       if (onHoverEnd) onHoverEnd();
     },
   });
+
+  const textColor = () => {
+    switch (currentColor) {
+      case 'red':
+        return '#A8D8BA';
+      case 'pink':
+        return '#E6584F';
+      case 'white':
+        return '#FDC7D2';
+      case 'green':
+        return '#FEFBEA';
+      default:
+        return 'black';
+    }
+  };
+
+  const hovertextColor = () => {
+    switch (currentColor) {
+      case 'red':
+        return '#FDC7D2';
+      case 'pink':
+        return '#FEFBEA';
+      case 'white':
+        return '#A8D8BA';
+      case 'green':
+        return '#E6584F';
+      default:
+        return 'black';
+    }
+  };
 
   const swingVariants = {
     initial: { rotate: 0 },
@@ -79,18 +123,18 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
   return (
     <>
       <motion.div
-      style={{
-        position: 'absolute',
-        left: `${left}%`,
-        transformOrigin: 'bottom center',
-        width: `${widthPercent}%`,
-      }}
-      variants={swingVariants}
-      initial="initial"
-      whileHover="animate"
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
-    >
+        style={{
+          position: 'absolute',
+          left: `${left}%`,
+          transformOrigin: 'bottom center',
+          width: `${widthPercent}%`,
+        }}
+        variants={swingVariants}
+        initial="initial"
+        whileHover="animate"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+      >
       <Link href={href || "#"} style={{ display: 'block', position: 'relative', height: '100%', minHeight: 'full' }}>
         <GenericImage
           src={isHovered ? hoverStrawberryImages[currentColor][currentImageIndex] : initialStrawberry}
@@ -100,42 +144,64 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
           onImageLoad={(height) => setImageHeight(height)}
         />
         {isHovered && currentImageIndex !== hoverStrawberryImages[currentColor].length - 1 && (
-          <span
-            style={{
-              position: 'absolute',
-              top: imageHeight
-                ? window.innerHeight > window.innerWidth
-                  ? `calc(${imageHeight / 2}px + 1vh)`  // 縦長の画面での設定
-                  : `calc(${imageHeight / 2}px + 2vh)`  // 横長の画面での設定
-                : '60%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              color: 'black',
-              textAlign: 'center',
-              pointerEvents: 'none',
-            }}
-          >
-            {linkText}
-          </span>
+          <Box
+          sx={{
+            position: 'absolute',
+            top: imageHeight
+              ? window.innerHeight > window.innerWidth
+                ? `calc(${imageHeight / 2}px + 1vh)`  // 縦長の画面での設定
+                : `calc(${imageHeight / 2}px + 2vh)`  // 横長の画面での設定
+              : '60%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            color: hovertextColor(),
+            textAlign: 'center',
+            pointerEvents: 'none',
+            fontFamily: 'cursive, Pacifico',
+            fontSize: '3vw',  // デフォルトのフォントサイズ
+            [theme.breakpoints.up('sm')]: {
+              fontSize: '3.5vw', // sm以上の画面で3vw
+            },
+            [theme.breakpoints.up('md')]: {
+              fontSize: '3vw', // md以上の画面で2vw
+            },
+            [theme.breakpoints.up('lg')]: {
+              fontSize: '2.3vw', // lg以上の画面で1vw
+            },
+          }}
+        >
+          {linkText}
+        </Box>
         )}
         {!isHovered && (
-          <span
-            style={{
-              position: 'absolute',
-              top: imageHeight
-                ? window.innerHeight > window.innerWidth
-                  ? `calc(${imageHeight / 2}px + 1vh )`  // 縦長の画面での設定
-                  : `calc(${imageHeight / 2}px + 2vh)`  // 横長の画面での設定
-                : '60%',
-              left: '50%',
-              transform: 'translate(-50%, -50%)',
-              color: 'black',
-              textAlign: 'center',
-              pointerEvents: 'none',
-            }}
-          >
-            {linkText}
-          </span>
+         <Box
+         sx={{
+           position: 'absolute',
+           top: imageHeight
+             ? window.innerHeight > window.innerWidth
+               ? `calc(${imageHeight / 2}px + 1vh)`  // 縦長の画面での設定
+               : `calc(${imageHeight / 2}px + 2vh)`  // 横長の画面での設定
+             : '60%',
+           left: '50%',
+           transform: 'translate(-50%, -50%)',
+           color: textColor(),
+           textAlign: 'center',
+           pointerEvents: 'none',
+           fontFamily: 'cursive, Pacifico',
+           fontSize: '3vw',  // デフォルトのフォントサイズ
+           [theme.breakpoints.up('sm')]: {
+             fontSize: '3vw', // sm以上の画面で3vw
+           },
+           [theme.breakpoints.up('md')]: {
+             fontSize: '2.5vw', // md以上の画面で2vw
+           },
+           [theme.breakpoints.up('lg')]: {
+             fontSize: '1.8vw', // lg以上の画面で1vw
+           },
+         }}
+       >
+         {linkText}
+       </Box>
         )}
       </Link>
     </motion.div>
