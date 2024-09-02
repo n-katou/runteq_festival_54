@@ -1,19 +1,24 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import Image from 'next/image';
 import { Box, Grid } from '@mui/material';
+import { motion } from 'framer-motion';
 
 import GenericImage from './GenericImage';
 import StrawberryLinks from './StrawberryLinks';
 import KirakiraEffect from './KirakiraEffect';
 
+import {useAnimationWithHover} from '../../hooks/hooks_index'
+
 import RunteqFestivalImage from '../../public/index/runteq_festival.png';
 import FiftyFourImage from '../../public/index/54.png';
 import IchigoTabetaiImage from '../../public/index/ichigo_tabetai.png';
 import ReactSaikoImage from '../../public/index/react_saiko.png';
-
 import IphoneImage from '../../public/index/iphone.png';
 
 const MainContent = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const { controls, animationVariants } = useAnimationWithHover(isHovered);
 
     // 各段ごとのリンク情報を定義
     const links1 = [
@@ -60,7 +65,7 @@ const MainContent = () => {
       >
         <Grid container direction="column" alignItems="center" spacing={24}>
           <Grid item>
-            <StrawberryLinks initialColor={'pink'} positions={[7, 29, 60, 82]} links={links1} />
+            <StrawberryLinks initialColor={'pink'} positions={[7, 29, 60, 82]} links={links1} setIsHovered={setIsHovered} />
           </Grid>
 
           <Grid item>
@@ -73,7 +78,7 @@ const MainContent = () => {
           </Grid>
 
           <Grid item>
-            <StrawberryLinks positions={[24, 66]} initialColor={'red'} links={links2}/>
+            <StrawberryLinks positions={[24, 66]} initialColor={'red'} links={links2} setIsHovered={setIsHovered}/>
 
             <GenericImage
               src={FiftyFourImage}
@@ -102,7 +107,7 @@ const MainContent = () => {
           </Grid>
 
           <Grid item>
-            <StrawberryLinks positions={[7, 29, 60, 82]} initialColor={'white'} links={links3}/>
+            <StrawberryLinks positions={[7, 29, 60, 82]} initialColor={'white'} links={links3} setIsHovered={setIsHovered}/>
           </Grid>
 
           <Grid item>
@@ -115,36 +120,62 @@ const MainContent = () => {
           </Grid>
 
           <Grid item>
-            <StrawberryLinks positions={[7, 29, 60, 82]} initialColor={'green'} links={links4}/>
+            <StrawberryLinks positions={[7, 29, 60, 82]} initialColor={'green'} links={links4} setIsHovered={setIsHovered}/>
           </Grid>
         </Grid>
       </Box>
 
-      <Image
-        src={ IphoneImage }
-        alt={ 'IphoneImage' }
-        className={ 'IphoneImage' }
-        style={{
-          width: '460px',
-          height: 'auto',
-          position: 'fixed',
-          left: -70,
-          bottom: 20,
-        }} 
-      />
+      {isHovered && (
+        <>
+          <motion.div
+            initial="init"
+            animate={controls}
+            variants={animationVariants}
+            style={{
+              width: '460px',
+              height: 'auto',
+              position: 'fixed',
+              left: -70,
+              bottom: 20,
+            }}
+          >
+            <Image
+              src={IphoneImage}
+              alt={'IphoneImage'}
+              className={'IphoneImage'}
+              style={{
+                width: '100%',  // 親の div の幅に合わせて画像の幅を100%に設定
+                height: 'auto',
+                objectFit: 'contain',  // 画像が親の div に収まるように調整
+              }}
+            />
+          </motion.div>
 
-      <Image
-        src={ IphoneImage }
-        alt={ 'IphoneImage' }
-        className={ 'IphoneImage' }
-        style={{
-          width: '460px',
-          height: 'auto',
-          position: 'fixed',
-          right: -70,
-          bottom: 20,
-        }} 
-      />
+          <motion.div
+            initial="init"
+            animate={controls}
+            variants={animationVariants}
+            style={{
+              width: '460px',
+              height: 'auto',
+              position: 'fixed',
+              right: -70,
+              bottom: 20,
+            }}
+          >
+            <Image
+              src={IphoneImage}
+              alt={'IphoneImage'}
+              className={'IphoneImage'}
+              style={{
+                width: '100%',  // 親の div の幅に合わせて画像の幅を100%に設定
+                height: 'auto',
+                objectFit: 'contain',  // 画像が親の div に収まるように調整
+              }}
+            />
+          </motion.div>
+        </>
+      )}
     </>
   );
 };

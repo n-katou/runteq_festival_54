@@ -26,7 +26,7 @@ import { HoverableStrawberryProps } from '../../types/types_index';
 
 import PreviewCard from './PreviewCard';
 
-const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPercent, centered = false, initialColor = 'red', initialIndex, onLastImage, onHoverEnd, href, linkText }) => {
+const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPercent, centered = false, initialColor = 'red', initialIndex, onLastImage, onHoverEnd, href, linkText, setIsHovered }) => {
   const [imageHeight, setImageHeight] = useState<number | null>(null);
   const theme = useTheme();
 
@@ -52,7 +52,17 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
   const initialStrawberry = normalStrawberryImages[currentColor][0];
 
   // ホバー時の画像効果
-  const { currentImageIndex, isHovered, setIsHovered } = useHoverEffect(0, hoverStrawberryImages[currentColor]);
+  const { currentImageIndex, isHovered, setIsHovered: setHoverEffect } = useHoverEffect(0, hoverStrawberryImages[currentColor]);
+
+  const handleMouseEnter = () => {
+    setHoverEffect(true); // フックのホバー状態を更新
+    setIsHovered(true);   // 親コンポーネントのホバー状態を更新
+  };
+
+  const handleMouseLeave = () => {
+    setHoverEffect(false); // フックのホバー状態を解除
+    setIsHovered(false);   // 親コンポーネントのホバー状態を解除
+  };
 
   useTextVisibility({
     isHovered,
@@ -92,8 +102,8 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
         variants={swingVariants}
         initial="initial"
         whileHover="animate"
-        onHoverStart={() => setIsHovered(true)}
-        onHoverEnd={() => setIsHovered(false)}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
       <Link href={href || "#"} style={{ display: 'block', position: 'relative', height: '100%', minHeight: 'full' }}>
         <GenericImage
