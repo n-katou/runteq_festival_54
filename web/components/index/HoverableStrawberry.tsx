@@ -95,13 +95,13 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
   const hovertextColor = () => {
     switch (currentColor) {
       case 'red':
-        return '#FEFBEA';
-      case 'pink':
-        return '#A8D8BA';
-      case 'white':
-        return '#E6584F';
-      case 'green':
         return '#FDC7D2';
+      case 'pink':
+        return '#FEFBEA';
+      case 'white':
+        return '#A8D8BA';
+      case 'green':
+        return '#E6584F';
       default:
         return 'black';
     }
@@ -154,10 +154,10 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
               : '60%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            color: textColor(),
+            color: hovertextColor(),
             textAlign: 'center',
             pointerEvents: 'none',
-            fontFamily: 'Pacifico, cursive',
+            fontFamily: 'cursive, Pacifico',
             fontSize: '3vw',  // デフォルトのフォントサイズ
             [theme.breakpoints.up('sm')]: {
               fontSize: '3.5vw', // sm以上の画面で3vw
@@ -184,10 +184,10 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
              : '60%',
            left: '50%',
            transform: 'translate(-50%, -50%)',
-           color: hovertextColor(),
+           color: textColor(),
            textAlign: 'center',
            pointerEvents: 'none',
-           fontFamily: 'Pacifico, cursive',
+           fontFamily: 'cursive, Pacifico',
            fontSize: '3vw',  // デフォルトのフォントサイズ
            [theme.breakpoints.up('sm')]: {
              fontSize: '3vw', // sm以上の画面で3vw
