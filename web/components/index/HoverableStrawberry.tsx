@@ -77,6 +77,36 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
     },
   });
 
+  const textColor = () => {
+    switch (currentColor) {
+      case 'red':
+        return '#A8D8BA';
+      case 'pink':
+        return '#E6584F';
+      case 'white':
+        return '#FDC7D2';
+      case 'green':
+        return '#FEFBEA';
+      default:
+        return 'black';
+    }
+  };
+
+  const hovertextColor = () => {
+    switch (currentColor) {
+      case 'red':
+        return '#FEFBEA';
+      case 'pink':
+        return '#A8D8BA';
+      case 'white':
+        return '#E6584F';
+      case 'green':
+        return '#FDC7D2';
+      default:
+        return 'black';
+    }
+  };
+
   const swingVariants = {
     initial: { rotate: 0 },
     animate: {
@@ -124,19 +154,19 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
               : '60%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
-            color: 'black',
+            color: textColor(),
             textAlign: 'center',
             pointerEvents: 'none',
             fontFamily: 'Pacifico, cursive',
             fontSize: '3vw',  // デフォルトのフォントサイズ
             [theme.breakpoints.up('sm')]: {
-              fontSize: '3vw', // sm以上の画面で3vw
+              fontSize: '3.5vw', // sm以上の画面で3vw
             },
             [theme.breakpoints.up('md')]: {
-              fontSize: '2.5vw', // md以上の画面で2vw
+              fontSize: '3vw', // md以上の画面で2vw
             },
             [theme.breakpoints.up('lg')]: {
-              fontSize: '1.8vw', // lg以上の画面で1vw
+              fontSize: '2.3vw', // lg以上の画面で1vw
             },
           }}
         >
@@ -154,7 +184,7 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
              : '60%',
            left: '50%',
            transform: 'translate(-50%, -50%)',
-           color: 'black',
+           color: hovertextColor(),
            textAlign: 'center',
            pointerEvents: 'none',
            fontFamily: 'Pacifico, cursive',

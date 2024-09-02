@@ -38,7 +38,7 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
         style={{
           position: 'fixed',
           right: '30px',
