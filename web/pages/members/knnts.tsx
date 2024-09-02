@@ -8,8 +8,8 @@ import { Transition } from '../../components/knnts/transitions';
 const Template: React.FC = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-  const rotateX = useTransform(y, [-100, 100], [30, -30])
-  const rotateY = useTransform(x, [-100, 100], [-30, 30])
+  const rotateX = useTransform(y, [-100, 100], [30, -30]);
+  const rotateY = useTransform(x, [-100, 100], [-30, 30]);
 
   return (
     <motion.section
@@ -30,7 +30,7 @@ const Template: React.FC = () => {
                 transition={{ Transition }}
                 className="text-orange max-w-[600px] flex-col justify-center mx-auto xl:mx-0 text-center xl:text-left">
 
-                <h2 className="text-8xl">
+                <h2 className="text-5xl sm:text-5xl md:text-6xl lg:text-8xl">
                   かなナッツ
                 </h2>
 
