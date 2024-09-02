@@ -8,14 +8,14 @@ import Curve from '../public/transition/index';
 const cache = createCache({ key: 'css', prepend: true });
 
 export default function Home() {
-  // Curveアニメーションを管理管理するためのstate
-  const [isCurveComplete, setIsCurveComplete] = useState(false);
+  // Curveアニメーションを管理するためのstate
+  const [isCurveComplete, setIsCurveComplete] = useState<boolean>(false);
 
   useEffect(() => {
     // ここでCurveの完了を監視し、完了したらtrueとする
     const timer = setTimeout(() => {
       setIsCurveComplete(true);
-    }, 1000); // 2秒後に表示
+    }, 1000); // 1秒後に表示
     return () => clearTimeout(timer); // 終わったらクリア
   }, []);
 
