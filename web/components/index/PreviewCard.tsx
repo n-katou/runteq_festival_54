@@ -10,17 +10,17 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
         style={{
           position: 'fixed',
-          left: '2%',
-          bottom: '4%',
-          width: '17%',
-          height: '76%',
+          left: '30px',
+          bottom: '80px',
+          width: '260px',
+          height: '530px',
           border: '1px solid black',
           backgroundColor: 'white',
           zIndex: 0,
-          borderRadius: '10px', 
+          borderRadius: '20px', 
           overflow: 'hidden', 
         }}
       >
@@ -38,17 +38,17 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
         style={{
           position: 'fixed',
-          right: '2%',
-          bottom: '4%',
-          width: '17%',
-          height: '76%',
+          right: '30px',
+          bottom: '80px',
+          width: '260px',
+          height: '530px',
           border: '1px solid black',
           backgroundColor: 'white',
           zIndex: 0,
-          borderRadius: '10px', 
+          borderRadius: '20px', 
           overflow: 'hidden', 
         }}
       >

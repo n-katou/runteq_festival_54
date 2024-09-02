@@ -1,41 +1,48 @@
-import React from 'react';
+import React, { useState,useEffect } from 'react';
 import Image from 'next/image';
 import { Box, Grid } from '@mui/material';
+import { motion } from 'framer-motion';
 
 import GenericImage from './GenericImage';
 import StrawberryLinks from './StrawberryLinks';
 import KirakiraEffect from './KirakiraEffect';
 
+import {useAnimationWithHover} from '../../hooks/hooks_index'
+
 import RunteqFestivalImage from '../../public/index/runteq_festival.png';
 import FiftyFourImage from '../../public/index/54.png';
 import IchigoTabetaiImage from '../../public/index/ichigo_tabetai.png';
 import ReactSaikoImage from '../../public/index/react_saiko.png';
-
 import IphoneImage from '../../public/index/iphone.png';
 
 const MainContent = () => {
+  const [isHovered, setIsHovered] = useState(false);
+
+  const { controls, animationVariants } = useAnimationWithHover(isHovered);
 
     // 各段ごとのリンク情報を定義
     const links1 = [
-      { href: "/members/kato", text: "加藤" },
+      { href: "/members/kato", text: "kato" },
       { href: "/members/mick", text: "mick" },
       { href: "/members/nori", text: "nori" },
-      { href: "/members/konisi", text: "小西" },
+      { href: "/members/konisi", text: "konisi" },
     ];
   
     const links2 = [
-      { href: "/members/knnts", text: "かなナッツ"  },
-      { href: "/members/mchan", text: "Mちゃん"  },
+      { href: "/members/knnts", text: "kana"  },
+      { href: "/members/mchan", text: "Mchan"  },
     ];
   
     const links3 = [
       { href: "/members/natsu", text: "natsu" },
       { href: "/members/rei", text: "rei" },
-      { href: "/members/sima9z", text: "sima9z" }
+      { href: "/members/sima9z", text: "sima9z" },
+      { href: "/members/hase", text: "hase" }
     ];
   
     const links4 = [
-      { href: "/contact/PC", text: "PC" },
+      { href: "/members/yu-ki", text: "yu-ki" },
+      { href: "/members/shino", text: "shino" },
     ];
 
   return (
@@ -57,9 +64,9 @@ const MainContent = () => {
           }
         }}
       >
-        <Grid container direction="column" alignItems="center" spacing={20}>
+        <Grid container direction="column" alignItems="center" spacing={24}>
           <Grid item>
-            <StrawberryLinks initialColor={'pink'} positions={[7, 29, 60, 82]} links={links1} />
+            <StrawberryLinks initialColor={'pink'} positions={[7, 29, 60, 82]} links={links1} setIsHovered={setIsHovered} />
           </Grid>
 
           <Grid item>
@@ -72,7 +79,7 @@ const MainContent = () => {
           </Grid>
 
           <Grid item>
-            <StrawberryLinks positions={[24, 66]} initialColor={'red'} links={links2}/>
+            <StrawberryLinks positions={[24, 66]} initialColor={'red'} links={links2} setIsHovered={setIsHovered}/>
 
             <GenericImage
               src={FiftyFourImage}
@@ -82,10 +89,10 @@ const MainContent = () => {
             >
               <KirakiraEffect
                 effects={[
-                  { style: { position: 'absolute', top: '-15%', left: '-15%' }, scale: [0, 1.5, 0], delay: 0 },
-                  { style: { position: 'absolute', top: '3%', left: '70%' }, scale: [0, 0.7, 0], delay: 0.3 },
-                  { style: { position: 'absolute', top: '-10%', left: '80%' }, scale: [0, 1.1, 0], delay: 0.6 },
-                  { style: { position: 'absolute', top: '65%', left: '2%' }, scale: [0, 0.9, 0], delay: 0.9 }
+                  { style: { position: 'absolute', top: '-5%', left: '-20%' }, scale: [0, 1.5, 0], delay: 0 },
+                  { style: { position: 'absolute', top: '3%', left: '65%' }, scale: [0, 0.7, 0], delay: 0.3 },
+                  { style: { position: 'absolute', top: '-5%', left: '85%' }, scale: [0, 1.1, 0], delay: 0.6 },
+                  { style: { position: 'absolute', top: '75%', left: '-10%' }, scale: [0, 0.9, 0], delay: 0.9 }
                 ]}
               />
             </GenericImage>
@@ -101,7 +108,7 @@ const MainContent = () => {
           </Grid>
 
           <Grid item>
-            <StrawberryLinks positions={[7, 29, 60, 82]} initialColor={'white'} links={links3}/>
+            <StrawberryLinks positions={[7, 29, 60, 82]} initialColor={'white'} links={links3} setIsHovered={setIsHovered}/>
           </Grid>
 
           <Grid item>
@@ -114,36 +121,62 @@ const MainContent = () => {
           </Grid>
 
           <Grid item>
-            <StrawberryLinks positions={[7, 29, 60, 82]} initialColor={'green'} links={links4}/>
+            <StrawberryLinks positions={[7, 29, 60, 82]} initialColor={'green'} links={links4} setIsHovered={setIsHovered}/>
           </Grid>
         </Grid>
       </Box>
 
-      <Image
-        src={ IphoneImage }
-        alt={ 'IphoneImage' }
-        className={ 'IphoneImage' }
-        style={{
-          width: '30%',
-          height: 'auto',
-          position: 'fixed',
-          left: -70,
-          bottom: -30,
-        }} 
-      />
+      {isHovered && (
+        <>
+          <motion.div
+            initial="init"
+            animate={controls}
+            variants={animationVariants}
+            style={{
+              width: '460px',
+              height: 'auto',
+              position: 'fixed',
+              left: -70,
+              bottom: 20,
+            }}
+          >
+            <Image
+              src={IphoneImage}
+              alt={'IphoneImage'}
+              className={'IphoneImage'}
+              style={{
+                width: '100%',  // 親の div の幅に合わせて画像の幅を100%に設定
+                height: 'auto',
+                objectFit: 'contain',  // 画像が親の div に収まるように調整
+              }}
+            />
+          </motion.div>
 
-      <Image
-        src={ IphoneImage }
-        alt={ 'IphoneImage' }
-        className={ 'IphoneImage' }
-        style={{
-          width: '30%',
-          height: 'auto',
-          position: 'fixed',
-          right: -70,
-          bottom: -30,
-        }} 
-      />
+          <motion.div
+            initial="init"
+            animate={controls}
+            variants={animationVariants}
+            style={{
+              width: '460px',
+              height: 'auto',
+              position: 'fixed',
+              right: -70,
+              bottom: 20,
+            }}
+          >
+            <Image
+              src={IphoneImage}
+              alt={'IphoneImage'}
+              className={'IphoneImage'}
+              style={{
+                width: '100%',  // 親の div の幅に合わせて画像の幅を100%に設定
+                height: 'auto',
+                objectFit: 'contain',  // 画像が親の div に収まるように調整
+              }}
+            />
+          </motion.div>
+        </>
+      )}
     </>
   );
 };

@@ -24,6 +24,7 @@ export interface HoverableStrawberryProps {
   onHoverEnd?: () => void;
   href?: string;
   linkText?: string; 
+  setIsHovered: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface StrawberriesProps {
@@ -35,6 +36,7 @@ export interface StrawberryLinksProps {
   positions: number[];
   initialColor?: 'red' | 'pink' | 'white' | 'green';
   links: { href: string; text: string }[];
+  setIsHovered: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface KirakiraEffectProps {
