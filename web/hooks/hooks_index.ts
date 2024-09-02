@@ -141,7 +141,7 @@ export const useImageHeight = (onImageLoad?: (height: number) => void) => {
   return imageRef;
 };
 
-export const useAnimationWithHover = (isHovered) => {
+export const useAnimationWithHover = (isHovered: boolean) => {
   const controls = useAnimationControls();
 
   const animationVariants = {
