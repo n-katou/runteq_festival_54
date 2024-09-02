@@ -1,5 +1,11 @@
 import React from "react";
 import Image from "next/image";
+import { M_PLUS_Rounded_1c } from 'next/font/google'
+
+const mplus1c = M_PLUS_Rounded_1c({
+    subsets: ['latin'],
+    weight: ['400', '700'],
+})
 
 interface CardProps {
   title: string;
@@ -20,8 +26,8 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc }) => {
         />
       </div>
       <div className="text-center sm:text-left">
-        <h2 className="text-xl mb-4 font-bold">{title}</h2>
-        <p className="text-lg leading-snug">{description}</p>
+        <h2 className={`font-bold text-2xl mb-4 ${mplus1c.className}`}>{title}</h2>
+        <p className={`text-lg leading-snug ${mplus1c.className}`}>{description}</p>
       </div>
     </div>
   );
