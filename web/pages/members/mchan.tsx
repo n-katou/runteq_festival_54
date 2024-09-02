@@ -5,7 +5,7 @@ import Social from '../../components/mchan/Social';
 import MyImg from "../../components/mchan/MyImg";
 import { Transition } from '../../components/mchan/transitions';
 
-const Template: React.FC = () => {
+const MchanPage: React.FC = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useTransform(y, [-100, 100], [30, -30]);
@@ -18,7 +18,7 @@ const Template: React.FC = () => {
       exit={{ opacity: 0 }}
       transition={{ Transition }}
     >
-      <div className="h-auto min-h-screen xl:h-screen relative">
+      <div className="h-auto min-h-screen xl:h-screen relative overflow-hidden">
         <div className="absolute w-full h-full z-10 bg-white/[0.4]" />
         <section className="relative z-20 py-12 xl:py-24 h-auto xl:pt-28">
           <div className="container mx-auto">
@@ -118,4 +118,4 @@ const Template: React.FC = () => {
   );
 };
 
-export default Template;
+export default MchanPage;
