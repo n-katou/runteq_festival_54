@@ -24,7 +24,7 @@ export default function Home() {
         {isCurveComplete && (
           <CacheProvider value={cache}>
             <CssBaseline />
-            <Box className="relative w-full h-auto bg-[#A1E0E6]" display="flex" justifyContent="center" alignItems="center">
+            <Box className="relative w-full h-auto bg-[#A1E0E6]" display="flex" justifyContent="center" alignItems="center" sx={{boxShadow: '0px -2px 2px inset gray, 0px 2px 2px inset gray'}}>
               <Grid container justifyContent="center" alignItems="center" className="relative w-full max-w-4xl">
                 <MainContent />
               </Grid>
