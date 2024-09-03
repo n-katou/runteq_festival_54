@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Box, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
@@ -7,7 +7,7 @@ import GenericImage from './GenericImage';
 import StrawberryLinks from './StrawberryLinks';
 import KirakiraEffect from './KirakiraEffect';
 
-import {useAnimationWithHover} from '../../hooks/hooks_index'
+import { useAnimationWithHover } from '../../hooks/hooks_index'
 
 import RunteqFestivalImage from '../../public/index/runteq_festival.png';
 import FiftyFourImage from '../../public/index/54.png';
@@ -29,7 +29,7 @@ const MainContent = () => {
     ];
   
     const links2 = [
-      { href: "/members/knnts", text: "kana"  },
+      { href: "/members/knnts", text: "kana nuts"  },
       { href: "/members/mchan", text: "Mchan"  },
     ];
   
@@ -136,8 +136,8 @@ const MainContent = () => {
               width: '460px',
               height: 'auto',
               position: 'fixed',
-              left: -70,
-              bottom: 20,
+              left: -85,
+              top: 20,
             }}
           >
             <Image
@@ -160,8 +160,8 @@ const MainContent = () => {
               width: '460px',
               height: 'auto',
               position: 'fixed',
-              right: -70,
-              bottom: 20,
+              right: -85,
+              top: 20,
             }}
           >
             <Image

@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { motion } from 'framer-motion';
 
-import { PreviewCardProps } from '../../types/types_index'
+import { PreviewCardProps } from '../../types/types_index';
+
+import LoadingImage from '../../public/index/loading.png';
 
 const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
   return (
@@ -13,12 +15,14 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
         transition={{ duration: 0.5, delay: 0.3 }}
         style={{
           position: 'fixed',
-          left: '30px',
-          bottom: '80px',
+          left: '20px',
+          top: '80px',
           width: '260px',
           height: '530px',
           border: '1px solid black',
-          backgroundColor: 'white',
+          backgroundImage: `url(${LoadingImage.src})`, // ここに背景画像を設定
+          backgroundSize: 'cover', // 画像がコンテナ全体にカバーされるように設定
+          backgroundPosition: 'center',
           zIndex: 0,
           borderRadius: '20px', 
           overflow: 'hidden', 
@@ -41,12 +45,14 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
         transition={{ duration: 0.5, delay: 0.3 }}
         style={{
           position: 'fixed',
-          right: '30px',
-          bottom: '80px',
+          right: '20px',
+          top: '80px',
           width: '260px',
           height: '530px',
           border: '1px solid black',
-          backgroundColor: 'white',
+          backgroundImage: `url(${LoadingImage.src})`, // ここに背景画像を設定
+          backgroundSize: 'cover', // 画像がコンテナ全体にカバーされるように設定
+          backgroundPosition: 'center',
           zIndex: 0,
           borderRadius: '20px', 
           overflow: 'hidden', 
@@ -65,4 +71,4 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
   );
 };
 
-export default PreviewCard;
+export default memo(PreviewCard);

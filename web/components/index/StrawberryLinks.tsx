@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import HoverableStrawberry from './HoverableStrawberry';
 
@@ -24,4 +24,4 @@ const StrawberryLinks: React.FC<StrawberryLinksProps> = ({ positions, initialCol
   );
 };
 
-export default StrawberryLinks;
+export default memo(StrawberryLinks);
