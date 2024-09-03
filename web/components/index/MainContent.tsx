@@ -137,7 +137,7 @@ const MainContent = () => {
               height: 'auto',
               position: 'fixed',
               left: -85,
-              top: 20,
+              top: 85,
             }}
           >
             <Image
@@ -161,7 +161,7 @@ const MainContent = () => {
               height: 'auto',
               position: 'fixed',
               right: -85,
-              top: 20,
+              top: 85,
             }}
           >
             <Image
