@@ -66,7 +66,7 @@ const MainContent = () => {
       >
         <Grid container direction="column" alignItems="center" spacing={24}>
           <Grid item>
-            <StrawberryLinks initialColor={'pink'} positions={[7, 29, 60, 82]} links={links1} setIsHovered={setIsHovered} />
+            <StrawberryLinks initialColor={'pink'} positions={[13, 33, 55, 75]} links={links1} setIsHovered={setIsHovered} />
           </Grid>
 
           <Grid item>
@@ -79,7 +79,7 @@ const MainContent = () => {
           </Grid>
 
           <Grid item>
-            <StrawberryLinks positions={[24, 66]} initialColor={'red'} links={links2} setIsHovered={setIsHovered}/>
+            <StrawberryLinks positions={[20, 67]} initialColor={'red'} links={links2} setIsHovered={setIsHovered}/>
 
             <GenericImage
               src={FiftyFourImage}
@@ -108,7 +108,7 @@ const MainContent = () => {
           </Grid>
 
           <Grid item>
-            <StrawberryLinks positions={[7, 29, 60, 82]} initialColor={'white'} links={links3} setIsHovered={setIsHovered}/>
+            <StrawberryLinks positions={[13, 33, 55, 75]} initialColor={'white'} links={links3} setIsHovered={setIsHovered}/>
           </Grid>
 
           <Grid item>
@@ -121,7 +121,7 @@ const MainContent = () => {
           </Grid>
 
           <Grid item>
-            <StrawberryLinks positions={[7, 29, 60, 82]} initialColor={'green'} links={links4} setIsHovered={setIsHovered}/>
+            <StrawberryLinks positions={[13, 33, 55, 75]} initialColor={'green'} links={links4} setIsHovered={setIsHovered}/>
           </Grid>
         </Grid>
       </Box>
