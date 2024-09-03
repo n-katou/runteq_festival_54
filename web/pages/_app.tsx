@@ -53,6 +53,7 @@ function MyApp({ Component, pageProps, router }: AppProps) {
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:description" content="54期の紹介ページ" />
         <meta name="twitter:image" content="https://runteq-festival-54.vercel.app/icons/og_image.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png" />
       </Head>
       <AnimatePresence mode="wait">
         <Component key={router.route} {...pageProps} />
