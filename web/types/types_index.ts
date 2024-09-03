@@ -4,17 +4,16 @@ import { ImageProps, StaticImageData } from 'next/image';
 export interface GenericImageProps {
   src: ImageProps['src'];
   alt: string;
-  top: number;
-  left: number;
   centered: boolean;
   widthPercent: number;
   children?: ReactNode;
   onMouseEnter?: () => void;
   onMouseLeave?: () => void;
+  style?: React.CSSProperties;
+  onImageLoad?: (height: number) => void; 
 }
 
 export interface HoverableStrawberryProps {
-  top: number;
   left: number;
   widthPercent: number;
   centered?: boolean;
@@ -23,12 +22,21 @@ export interface HoverableStrawberryProps {
   initialIndex: number;
   onLastImage?: () => void;
   onHoverEnd?: () => void;
+  href?: string;
+  linkText?: string; 
+  setIsHovered: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface StrawberriesProps {
   positions: number[];
-  top: number;
   initialColor: 'red' | 'pink' | 'white' | 'green'; 
+}
+
+export interface StrawberryLinksProps {
+  positions: number[];
+  initialColor?: 'red' | 'pink' | 'white' | 'green';
+  links: { href: string; text: string }[];
+  setIsHovered: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface KirakiraEffectProps {
@@ -51,4 +59,9 @@ export interface UseTextVisibilityProps {
   currentColor: 'red' | 'pink' | 'white' | 'green';
   onLastImage: () => void;
   onHoverEnd: () => void;
+}
+
+export interface PreviewCardProps {
+  title: string;
+  link: string;
 }

@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { useAnimationControls } from 'framer-motion';
 
 import {UseTextVisibilityProps} from '../types/types_index';
 
@@ -98,4 +99,72 @@ export const useTextVisibility = ({
       onHoverEnd();
     }
   }, [isHovered, currentImageIndex, hoverStrawberryImages, currentColor, onLastImage, onHoverEnd]);
+};
+
+export const useMaxSize = () => {
+  const [maxSize, setMaxSize] = useState({ maxWidth: '10vw', maxHeight: '10vw' });
+
+  useEffect(() => {
+    const handleResize = () => {
+      const screenWidth = window.innerWidth;
+      if (screenWidth > 1200) {
+        setMaxSize({ maxWidth: '35px', maxHeight: '35px' });  // 大きな画面の場合
+      } else if (screenWidth > 768) {
+        setMaxSize({ maxWidth: '25px', maxHeight: '25px' });  // 中くらいの画面の場合
+      } else {
+        setMaxSize({ maxWidth: '15px', maxHeight: '15px' });  // 小さな画面の場合
+      }
+    };
+
+    // 初回のサイズ設定
+    handleResize();
+
+    // リサイズイベントのリスナーを設定
+    window.addEventListener('resize', handleResize);
+
+    // クリーンアップ
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  return maxSize;
+};
+
+export const useImageHeight = (onImageLoad?: (height: number) => void) => {
+  const imageRef = useRef<HTMLImageElement>(null);
+
+  useEffect(() => {
+    if (imageRef.current && onImageLoad) {
+      onImageLoad(imageRef.current.clientHeight); // 画像の高さを親コンポーネントに渡す
+    }
+  }, [imageRef.current, onImageLoad]);
+
+  return imageRef;
+};
+
+export const useAnimationWithHover = (isHovered: boolean) => {
+  const controls = useAnimationControls();
+
+  const animationVariants = {
+    init: { opacity: 0, scale: 0.8 },
+    visible: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.5, ease: 'easeInOut' },
+    },
+    hidden: {
+      opacity: 0,
+      scale: 0.8,
+      transition: { duration: 0.5, ease: 'easeInOut' },
+    },
+  };
+
+  useEffect(() => {
+    if (isHovered) {
+      controls.start('visible');
+    } else {
+      controls.start('hidden');
+    }
+  }, [isHovered, controls]);
+
+  return { controls, animationVariants };
 };
