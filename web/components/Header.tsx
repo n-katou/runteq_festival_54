@@ -70,10 +70,10 @@ const Header = () => {
             About
           </Button>
           <IconButton color="inherit" href="https://github.com/n-katou/runteq_festival_54" target="_blank" > 
-            <FaGithub sx={{ fontSize: { xs: '12px', sm: '24px' } }} />
+            <FaGithub />
           </IconButton>
           <IconButton color="inherit" onClick={() => shareOnX()} >
-            <XIcon sx={{ fontSize: { xs: '20px', sm: '24px' } }} />
+            <XIcon />
           </IconButton>
         </Box>
       </Toolbar>
