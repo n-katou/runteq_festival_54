@@ -136,8 +136,8 @@ const MainContent = () => {
               width: '460px',
               height: 'auto',
               position: 'fixed',
-              left: -70,
-              bottom: 20,
+              left: -85,
+              top: 20,
             }}
           >
             <Image
@@ -160,8 +160,8 @@ const MainContent = () => {
               width: '460px',
               height: 'auto',
               position: 'fixed',
-              right: -70,
-              bottom: 20,
+              right: -85,
+              top: 20,
             }}
           >
             <Image

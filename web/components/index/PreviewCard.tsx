@@ -15,8 +15,8 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
         transition={{ duration: 0.5, delay: 0.3 }}
         style={{
           position: 'fixed',
-          left: '30px',
-          bottom: '80px',
+          left: '20px',
+          top: '80px',
           width: '260px',
           height: '530px',
           border: '1px solid black',
@@ -45,8 +45,8 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
         transition={{ duration: 0.5, delay: 0.3 }}
         style={{
           position: 'fixed',
-          right: '30px',
-          bottom: '80px',
+          right: '20px',
+          top: '80px',
           width: '260px',
           height: '530px',
           border: '1px solid black',
