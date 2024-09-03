@@ -149,14 +149,15 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
             position: 'absolute',
             top: imageHeight
               ? window.innerHeight > window.innerWidth
-                ? `calc(${imageHeight / 2}px + 1vh)`  // 縦長の画面での設定
-                : `calc(${imageHeight / 2}px + 2vh)`  // 横長の画面での設定
+                ? `calc(${imageHeight / 2}px + 1.2vh)`  // 縦長の画面での設定
+                : `calc(${imageHeight / 2}px + 2.5vh)`  // 横長の画面での設定
               : '60%',
             left: '50%',
             transform: 'translate(-50%, -50%)',
             color: hovertextColor(),
             textAlign: 'center',
             pointerEvents: 'none',
+            lineHeight: 1,
             fontFamily: 'Comic Sans MS, Comic Sans, cursive',
             fontSize: '3vw',  // デフォルトのフォントサイズ
             [theme.breakpoints.up('sm')]: {
@@ -179,14 +180,15 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
            position: 'absolute',
            top: imageHeight
              ? window.innerHeight > window.innerWidth
-               ? `calc(${imageHeight / 2}px + 1vh)`  // 縦長の画面での設定
-               : `calc(${imageHeight / 2}px + 2vh)`  // 横長の画面での設定
+               ? `calc(${imageHeight / 2}px + 1.2vh)`  // 縦長の画面での設定
+               : `calc(${imageHeight / 2}px + 2.5vh)`  // 横長の画面での設定
              : '60%',
            left: '50%',
            transform: 'translate(-50%, -50%)',
            color: textColor(),
            textAlign: 'center',
            pointerEvents: 'none',
+           lineHeight: 1,
            fontFamily: 'Comic Sans MS, Comic Sans, cursive',
            fontSize: '3vw',  // デフォルトのフォントサイズ
            [theme.breakpoints.up('sm')]: {
