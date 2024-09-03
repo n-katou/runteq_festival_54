@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React ,{ memo } from 'react';
 import { Grid } from '@mui/material';
 import Image from 'next/image';
 
@@ -46,4 +46,4 @@ const GenericImage: React.FC<GenericImageProps> = ({ src, alt, centered, widthPe
   );
 };
 
-export default GenericImage;
+export default memo(GenericImage);
