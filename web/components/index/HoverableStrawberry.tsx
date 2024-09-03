@@ -128,19 +128,17 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
           left: `${left}%`,
           transformOrigin: 'bottom center',
           width: `${widthPercent}%`,
-        }}
-        variants={swingVariants}
-        initial="initial"
-        whileHover="animate"
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
-        sx={{
           '@media (hover: none)': {
             whileHover: 'initial', // モバイル・タブレットではホバーエフェクトを無効化
             onMouseEnter: undefined, // モバイル・タブレットではホバーエフェクトを無効化
             onMouseLeave: undefined, // モバイル・タブレットではホバーエフェクトを無効化
           },
         }}
+        variants={swingVariants}
+        initial="initial"
+        whileHover="animate"
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
       >
       <Link href={href || "#"} style={{ display: 'block', position: 'relative', height: '100%', minHeight: 'full' }}>
         <GenericImage
