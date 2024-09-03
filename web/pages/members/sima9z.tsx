@@ -14,7 +14,7 @@ const Sima9zPage: React.FC = () => {
   return (
     <ThemeProvider theme={Theme}>
       <Box sx={{ position: 'relative', width: '100%', height: '100vh', zIndex: 10, pointerEvents: 'none' }}>
-        <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: 'auto', maxWidth: '100%', maxHeight: '100%' }}>
+        <Box sx={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}>
         <Image
           src="/sima9z/strawberry_frame.png"
           alt="strawberry_frame"
