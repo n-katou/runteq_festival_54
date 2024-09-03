@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useMemo } from 'react';
 import { useAnimationControls } from 'framer-motion';
 
 import {UseTextVisibilityProps} from '../types/types_index';
@@ -144,7 +144,7 @@ export const useImageHeight = (onImageLoad?: (height: number) => void) => {
 export const useAnimationWithHover = (isHovered: boolean) => {
   const controls = useAnimationControls();
 
-  const animationVariants = {
+  const animationVariants = useMemo(() => ({
     init: { opacity: 0, scale: 0.8 },
     visible: {
       opacity: 1,
@@ -156,7 +156,7 @@ export const useAnimationWithHover = (isHovered: boolean) => {
       scale: 0.8,
       transition: { duration: 0.5, ease: 'easeInOut' },
     },
-  };
+  }), []);
 
   useEffect(() => {
     if (isHovered) {

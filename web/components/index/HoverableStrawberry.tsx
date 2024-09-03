@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
@@ -226,4 +226,4 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
   );
 };
 
-export default HoverableStrawberry;
+export default memo(HoverableStrawberry);

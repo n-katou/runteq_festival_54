@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Box, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
@@ -7,7 +7,7 @@ import GenericImage from './GenericImage';
 import StrawberryLinks from './StrawberryLinks';
 import KirakiraEffect from './KirakiraEffect';
 
-import {useAnimationWithHover} from '../../hooks/hooks_index'
+import { useAnimationWithHover } from '../../hooks/hooks_index'
 
 import RunteqFestivalImage from '../../public/index/runteq_festival.png';
 import FiftyFourImage from '../../public/index/54.png';

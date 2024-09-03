@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { motion } from 'framer-motion';
 
 import { PreviewCardProps } from '../../types/types_index'
@@ -18,7 +18,7 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
           width: '260px',
           height: '530px',
           border: '1px solid black',
-          backgroundColor: 'white',
+          backgroundColor: '#7DC2D3',
           zIndex: 0,
           borderRadius: '20px', 
           overflow: 'hidden', 
@@ -46,7 +46,7 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
           width: '260px',
           height: '530px',
           border: '1px solid black',
-          backgroundColor: 'white',
+          backgroundColor: '#7DC2D3',
           zIndex: 0,
           borderRadius: '20px', 
           overflow: 'hidden', 
@@ -65,4 +65,4 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
   );
 };
 
-export default PreviewCard;
+export default memo(PreviewCard);
