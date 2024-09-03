@@ -79,7 +79,7 @@ const MainContent = () => {
           </Grid>
 
           <Grid item>
-            <StrawberryLinks positions={[20, 67]} initialColor={'red'} links={links2} setIsHovered={setIsHovered}/>
+            <StrawberryLinks positions={[23, 64]} initialColor={'red'} links={links2} setIsHovered={setIsHovered}/>
 
             <GenericImage
               src={FiftyFourImage}
