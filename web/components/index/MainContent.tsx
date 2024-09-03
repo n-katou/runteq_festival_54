@@ -29,7 +29,7 @@ const MainContent = () => {
     ];
   
     const links2 = [
-      { href: "/members/knnts", text: "kana"  },
+      { href: "/members/knnts", text: "kana nuts"  },
       { href: "/members/mchan", text: "Mchan"  },
     ];
   
