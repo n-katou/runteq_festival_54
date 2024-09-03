@@ -54,26 +54,26 @@ const Header = () => {
 
   return (
     <AppBar position="static" sx={{ backgroundColor: '#FFC4D4', color: '#fff' }}>
-      <Toolbar>
+      <Toolbar sx={{ padding: { xs: '0 4px', sm: '0 16px' } }}>
         <Box sx={{ display: 'flex', flexGrow: 1, alignItems: 'center' }}>
           <Box sx={{ width: { xs: '15%', sm: '10%', md: '8%' }, height: 'auto' }}>
             <Image src={HeaderLogoImage} alt="header logo" style={{ width: '100%', height: 'auto' }} />
           </Box>
-          <Button href="/" sx={{ color: 'inherit', ml: 1 }}>
+          <Button href="/" sx={{ color: 'inherit', ml: { xs: 0, sm: '0.5rem' } }}>
             <Typography variant={getHeaderTitleVariant()} component="span" sx={{ fontWeight: 'bold' }}>
               RunteqFestival54
             </Typography>
           </Button>
         </Box>
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          <Button color="inherit" href="/about" size={getHeaderMenuVariant()} sx={{ fontSize: getHeaderMenuFontSize() }}>
+        <Box sx={{ display: 'flex', alignItems: 'center', gap: { xs: 0, sm: 1, md: 2 } }}>
+          <Button color="inherit" href="/about" size={getHeaderMenuVariant()} sx={{ fontSize: getHeaderMenuFontSize(), padding: { xs: '4px 6px 4px 0', sm: '4px 5px' }, textAlign: 'right', justifyContent: 'flex-end', width: '100%' }}>
             About
           </Button>
-          <IconButton color="inherit" href="https://github.com/n-katou/runteq_festival_54" target="_blank" sx={{ ml: 2 }}>
-            <FaGithub />
+          <IconButton color="inherit" href="https://github.com/n-katou/runteq_festival_54" target="_blank" > 
+            <FaGithub sx={{ fontSize: { xs: '12px', sm: '24px' } }} />
           </IconButton>
-          <IconButton color="inherit" onClick={() => shareOnX()} sx={{ ml: 2 }}>
-            <XIcon />
+          <IconButton color="inherit" onClick={() => shareOnX()} >
+            <XIcon sx={{ fontSize: { xs: '20px', sm: '24px' } }} />
           </IconButton>
         </Box>
       </Toolbar>
