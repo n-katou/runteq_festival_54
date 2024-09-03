@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { memo } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
@@ -49,4 +49,4 @@ const KirakiraEffect: React.FC<KirakiraEffectProps> = ({ effects }) => {
   )
 }
 
-export default KirakiraEffect;
+export default memo(KirakiraEffect);

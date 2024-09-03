@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
@@ -122,89 +122,101 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
 
   return (
     <>
-      <motion.div
-        style={{
+      <Box
+        sx={{
           position: 'absolute',
           left: `${left}%`,
           transformOrigin: 'bottom center',
           width: `${widthPercent}%`,
+          '@media (hover: none)': {
+            '&:hover': {
+              // ホバーエフェクト無効化
+              animation: 'none',
+            },
+          },
         }}
-        variants={swingVariants}
-        initial="initial"
-        whileHover="animate"
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
       >
-      <Link href={href || "#"} style={{ display: 'block', position: 'relative', height: '100%', minHeight: 'full' }}>
-        <GenericImage
-          src={isHovered ? hoverStrawberryImages[currentColor][currentImageIndex] : initialStrawberry}
-          alt={`${currentColor} strawberry`}
-          centered={centered}
-          widthPercent={100}
-          onImageLoad={(height) => setImageHeight(height)}
-        />
-        {isHovered && currentImageIndex !== hoverStrawberryImages[currentColor].length - 1 && (
-          <Box
-          sx={{
-            position: 'absolute',
-            top: imageHeight
-              ? window.innerHeight > window.innerWidth
-                ? `calc(${imageHeight / 2}px + 1vh)`  // 縦長の画面での設定
-                : `calc(${imageHeight / 2}px + 2vh)`  // 横長の画面での設定
-              : '60%',
-            left: '50%',
-            transform: 'translate(-50%, -50%)',
-            color: hovertextColor(),
-            textAlign: 'center',
-            pointerEvents: 'none',
-            fontFamily: 'cursive, Pacifico',
-            fontSize: '3vw',  // デフォルトのフォントサイズ
-            [theme.breakpoints.up('sm')]: {
-              fontSize: '3.5vw', // sm以上の画面で3vw
-            },
-            [theme.breakpoints.up('md')]: {
-              fontSize: '3vw', // md以上の画面で2vw
-            },
-            [theme.breakpoints.up('lg')]: {
-              fontSize: '2.3vw', // lg以上の画面で1vw
-            },
-          }}
+        <motion.div
+          variants={swingVariants}
+          initial="initial"
+          whileHover="animate"
         >
-          {linkText}
-        </Box>
-        )}
-        {!isHovered && (
-         <Box
-         sx={{
-           position: 'absolute',
-           top: imageHeight
-             ? window.innerHeight > window.innerWidth
-               ? `calc(${imageHeight / 2}px + 1vh)`  // 縦長の画面での設定
-               : `calc(${imageHeight / 2}px + 2vh)`  // 横長の画面での設定
-             : '60%',
-           left: '50%',
-           transform: 'translate(-50%, -50%)',
-           color: textColor(),
-           textAlign: 'center',
-           pointerEvents: 'none',
-           fontFamily: 'cursive, Pacifico',
-           fontSize: '3vw',  // デフォルトのフォントサイズ
-           [theme.breakpoints.up('sm')]: {
-             fontSize: '3vw', // sm以上の画面で3vw
-           },
-           [theme.breakpoints.up('md')]: {
-             fontSize: '2.5vw', // md以上の画面で2vw
-           },
-           [theme.breakpoints.up('lg')]: {
-             fontSize: '1.8vw', // lg以上の画面で1vw
-           },
-         }}
-       >
-         {linkText}
-       </Box>
-        )}
-      </Link>
-    </motion.div>
+        <Link href={href || "#"} style={{ display: 'block', position: 'relative', height: '100%', minHeight: 'full' }}>
+          <GenericImage
+            src={isHovered ? hoverStrawberryImages[currentColor][currentImageIndex] : initialStrawberry}
+            alt={`${currentColor} strawberry`}
+            centered={centered}
+            widthPercent={100}
+            onImageLoad={(height) => setImageHeight(height)}
+          />
+          {isHovered && currentImageIndex !== hoverStrawberryImages[currentColor].length - 1 && (
+            <Box
+              sx={{
+                position: 'absolute',
+                top: imageHeight
+                  ? window.innerHeight > window.innerWidth
+                    ? `calc(${imageHeight / 2}px + 1.2vh)`  // 縦長の画面での設定
+                    : `calc(${imageHeight / 2}px + 2.5vh)`  // 横長の画面での設定
+                  : '60%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                color: hovertextColor(),
+                textAlign: 'center',
+                pointerEvents: 'none',
+                lineHeight: 1,
+                fontFamily: 'Comic Sans MS, Comic Sans, cursive',
+                fontSize: '3vw',  // デフォルトのフォントサイズ
+                [theme.breakpoints.up('sm')]: {
+                  fontSize: '3.5vw', // sm以上の画面で3vw
+                },
+                [theme.breakpoints.up('md')]: {
+                  fontSize: '3vw', // md以上の画面で2vw
+                },
+                [theme.breakpoints.up('lg')]: {
+                  fontSize: '2.3vw', // lg以上の画面で1vw
+                },
+             }}
+            >
+              {linkText}
+            </Box>
+          )}
+          {!isHovered && (
+            <Box
+              sx={{
+                position: 'absolute',
+                top: imageHeight
+                  ? window.innerHeight > window.innerWidth
+                    ? `calc(${imageHeight / 2}px + 1.2vh)`  // 縦長の画面での設定
+                    : `calc(${imageHeight / 2}px + 2.5vh)`  // 横長の画面での設定
+                  : '60%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                color: textColor(),
+                textAlign: 'center',
+                pointerEvents: 'none',
+                lineHeight: 1,
+                fontFamily: 'Comic Sans MS, Comic Sans, cursive',
+                fontSize: '3vw',  // デフォルトのフォントサイズ
+                [theme.breakpoints.up('sm')]: {
+                  fontSize: '3vw', // sm以上の画面で3vw
+                },
+                [theme.breakpoints.up('md')]: {
+                  fontSize: '2.5vw', // md以上の画面で2vw
+                },
+                [theme.breakpoints.up('lg')]: {
+                  fontSize: '1.8vw', // lg以上の画面で1vw
+                },
+              }}
+            >
+              {linkText}
+            </Box>
+          )}
+        </Link>
+      </motion.div>
+    </Box>
+
       {/* isHovered が true のときに PreviewCard を HoverableStrawberry コンポーネントの外で表示 */}
       {isHovered && href && (
         <PreviewCard 
@@ -213,8 +225,7 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
         />
       )}
     </>
-
   );
 };
 
-export default HoverableStrawberry;
+export default memo(HoverableStrawberry);
