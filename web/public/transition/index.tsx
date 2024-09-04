@@ -12,7 +12,8 @@ interface RouteMap {
 const routes: RouteMap = {
     "/members/mick": "Mick",
     "/": "Gather! Strawberry Forest",
-    "/about": "About the 54th term"
+    "/about": "About the 54th term",
+    "/members/natsu": "Natsu",
 };
 
 const anim = (variants: any) => {

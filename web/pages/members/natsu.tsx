@@ -4,6 +4,8 @@ import { motion, useMotionValue, useTransform } from 'framer-motion'
 import Social from '../../components/natsu/Social';
 import MyImg from "../../components/natsu/MyImg";
 import { Transition } from '../../components/natsu/transitions';
+import Curve from "../../public/transition/index";
+import React, { useState, useEffect } from 'react';
 
 const Template: React.FC = () => {
   const x = useMotionValue(0);
@@ -11,18 +13,34 @@ const Template: React.FC = () => {
   const rotateX = useTransform(y, [-100, 100], [30, -30])
   const rotateY = useTransform(x, [-100, 100], [-30, 30])
 
+ // Curveアニメーションを管理するためのstate
+ const [isCurveComplete, setIsCurveComplete] = useState<boolean>(false);
+
+  useEffect(() => {
+    // ここでCurveの完了を監視し、完了したらtrueとする
+    const timer = setTimeout(() => {
+      setIsCurveComplete(true);
+    }, 1000); // 1秒後に表示
+    return () => clearTimeout(timer); // 終わったらクリア
+  }, []);
+
+
   return (
+    <>
+    <Curve>
+      <></>
+    </Curve>
     <motion.section
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ Transition }}
-      className="relative min-h-screen"
+      className="relative min-h-screen overflow-hidden"
     >
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen">
       <div className="absolute w-full h-full z-10" style={{ backgroundColor: 'rgba(253, 203, 110, 0.46)' }} />
         <section className="relative z-20 py-12 xl:py-24 text-white w-full">
-          <div className="container mx-auto flex flex-col lg:flex-row items-center gap-x-8">
+          <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center gap-x-8">
               <motion.div
                 initial={{ opacity: 0, y: '-50%' }}
                 animate={{ opacity: 1, y: 0 }}
@@ -30,9 +48,9 @@ const Template: React.FC = () => {
                 transition={{ Transition }}
                 className="text-darkGreen max-w-full xl:max-w-[600px] flex-col xl:mx-0 text-center xl:text-left">
                 <div className="p-8 rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 transform" style={{opacity: 1, willChange: 'auto', transform: 'none', maxWidth: '100%', backgroundColor: 'rgba(255, 255, 255, 0.5)'}}>
-                <h2 className="text-8xl">
+                <h2 className="text-[32px] sm:text-[48px] md:text-[64px] lg:text-[96px]">
                   Hello!<br /></h2>
-                  <h3 className="text-6xl">My Name is<br/ > Natsumi Kawashita</h3><br />
+                  <h3 className="text-[32px] sm:text-[32px] md:text-[48px] lg:text-[64px]">My Name is<br/ > Natsumi Kawashita</h3><br />
                 <div className="text-xl">前職は日本料理人で、懐石料理のお店やお寿司屋さんで働いていました。<br />
                 飲食店で働いていた経験を活かして、３年を目処に飲食店特化の会計管理アプリを作成したいと考えています。<br />
                 そのためにも技術や知識の習得をして、エンジニアとして活躍していきたいです！<br />
@@ -67,13 +85,22 @@ const Template: React.FC = () => {
                     whileTap={{ cursor: 'grabbing' }}
                   >
                     <div
-                      className="w-[500px] h-[500px] bg-no-repeat absolute -top-1 -right-1 z-0"
-                      style={{ backgroundImage: `url('/template/shape-light.svg')` }}
+                      className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] bg-no-repeat absolute -top-1 -right-1 z-0"
+                      style={{
+                        backgroundImage: `url('/template/shape-light.svg')`,
+                        backgroundSize: 'contain', // 'cover'から'contain'に変更
+                        backgroundPosition: 'center', // 追加
+                      }}
                     />
                     <MyImg
-                      containerStyles="w-[510px] h-[462px] bg-no-repeat relative bg-bottom"
+                      containerStyles="w-[310px] h-[272px] sm:w-[410px] sm:h-[362px] lg:w-[510px] lg:h-[462px] bg-no-repeat relative bg-bottom rounded-lg"
                       imgSrc='/natsu/natsu.png'
-                      style={{ backgroundImage: `url('/template/shape-1.svg')` }}
+                      style={{
+                        backgroundImage: `url('/template/shape-1.svg')`,
+                        backgroundSize: 'contain',
+                        backgroundPosition: 'center',
+                        display: 'block' // natsu.pngは常に表示
+                      }}
                     />
                   </motion.div>
                 </div>
@@ -98,6 +125,7 @@ const Template: React.FC = () => {
       </video>
       </div>
     </motion.section>
+    </>
   );
 };
 
