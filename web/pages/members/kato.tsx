@@ -4,6 +4,7 @@ import Social from '../../components/kato/Social';
 import MyImg from "../../components/kato/MyImg";
 import AppsList from '../../components/kato/AppsList';
 import SpotlightTransition from '../../components/kato/SpotlightTransition';
+import GoHomeButton from '../../components/GoHomeButton';
 
 const KatoPage: React.FC = () => {
   const [showContent, setShowContent] = useState(false);
@@ -24,7 +25,7 @@ const KatoPage: React.FC = () => {
       animate={{ opacity: 1 }} // アニメーション: 表示
       exit={{ opacity: 0 }} // ページ離脱時: フェードアウト
       transition={{ duration: 1 }} // フェードインの時間
-      className="relative min-h-screen"
+      className="relative min-h-screen flex flex-col justify-between"
     >
       {!showContent && <SpotlightTransition onComplete={handleTransitionComplete} />}
 
@@ -40,7 +41,7 @@ const KatoPage: React.FC = () => {
             initial={{ opacity: 0 }} // 初期状態: 非表示
             animate={{ opacity: 1 }} // アニメーション: 表示
             transition={{ duration: 1 }} // フェードインの時間
-            className="relative z-10 flex flex-col items-center justify-center min-h-screen"
+            className="relative z-10 flex flex-col items-center justify-center flex-grow"
           >
             <section className="relative z-20 py-12 xl:py-24 text-white w-full">
               <div className="container mx-auto flex flex-col lg:flex-row items-center gap-x-8">
@@ -95,12 +96,12 @@ const KatoPage: React.FC = () => {
                     />
                   </div>
                 </motion.div>
-
               </div>
             </section>
 
             <AppsList />
           </motion.div>
+          <GoHomeButton />
         </>
       )}
     </motion.section>

@@ -16,6 +16,11 @@ const GoHomeButton: React.FC = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
+        marginBottom: '30px',
+        '@media (min-width: 900px)': {
+          justifyContent: 'flex-end',
+          paddingRight: '20px',
+        },
       }}
     >
       <Button
@@ -26,6 +31,9 @@ const GoHomeButton: React.FC = () => {
           backgroundColor: '#FFC4D4',
           fontFamily: 'Comic Sans MS, Comic Sans, cursive',
           fontSize: '16px',
+          '&:hover': {
+            backgroundColor: '#FF99AA',
+          },
         }}
       >
         Home
