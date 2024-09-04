@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { Box, Grid, Typography } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
@@ -54,4 +54,4 @@ const CreateApplicationsSection: React.FC = () => {
   );
 };
 
-export default CreateApplicationsSection;
+export default memo(CreateApplicationsSection);
