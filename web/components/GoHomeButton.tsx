@@ -16,10 +16,12 @@ const GoHomeButton: React.FC = () => {
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        marginBottom: '30px',
+        marginBottom: '50px',
+        width: '100%',
         '@media (min-width: 900px)': {
           justifyContent: 'flex-end',
-          paddingRight: '20px',
+          paddingRight: '50px', 
+          marginBottom: '50px',
         },
       }}
     >
@@ -28,9 +30,10 @@ const GoHomeButton: React.FC = () => {
         startIcon={<HomeIcon />}
         onClick={handleGoHome}
         sx={{
+          padding: '10px 20px',
           backgroundColor: '#FFC4D4',
           fontFamily: 'Comic Sans MS, Comic Sans, cursive',
-          fontSize: '16px',
+          fontSize: '18px',
           '&:hover': {
             backgroundColor: '#FF99AA',
           },
