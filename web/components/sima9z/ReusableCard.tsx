@@ -29,7 +29,7 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ imageSrc, imageAlt, title, 
       />
       {link === '#' ? (
         <Button onClick={onClick}>
-          <Typography variant="h5" sx={{ marginTop: 2, color: '#ff3e60', fontFamily: 'Pacifico, cursive' }}>
+          <Typography variant="h5" sx={{ marginTop: 2, color: '#ff3e60', fontFamily: 'Comic Sans MS, Arial Rounded MT Bold, sans-serif' }}>
             {title}
           </Typography>
         </Button>
@@ -40,7 +40,7 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ imageSrc, imageAlt, title, 
           target="_blank"
           rel="noopener noreferrer"
         >
-          <Typography variant="h5" sx={{ marginTop: 2, color: '#ff3e60', fontFamily: 'Pacifico, cursive' }}>
+          <Typography variant="h5" sx={{ marginTop: 2, color: '#ff3e60', fontFamily: 'Comic Sans MS, Arial Rounded MT Bold, sans-serif' }}>
             {title}
           </Typography>
         </Button>

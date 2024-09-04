@@ -160,7 +160,7 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
                 textAlign: 'center',
                 pointerEvents: 'none',
                 lineHeight: 1,
-                fontFamily: 'Comic Sans MS, Comic Sans, cursive',
+                fontFamily: 'Comic Sans MS, Arial Rounded MT Bold, sans-serif',
                 fontSize: '3vw',  // デフォルトのフォントサイズ
                 [theme.breakpoints.up('sm')]: {
                   fontSize: '3.5vw', // sm以上の画面で3vw
@@ -191,7 +191,7 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
                 textAlign: 'center',
                 pointerEvents: 'none',
                 lineHeight: 1,
-                fontFamily: 'Comic Sans MS, Comic Sans, cursive',
+                fontFamily: 'Comic Sans MS, Arial Rounded MT Bold, sans-serif',
                 fontSize: '3vw',  // デフォルトのフォントサイズ
                 [theme.breakpoints.up('sm')]: {
                   fontSize: '3vw', // sm以上の画面で3vw
