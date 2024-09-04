@@ -19,13 +19,13 @@ const ShinoPage: React.FC = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ Transition }}
-      className="relative min-h-screen"
+      className="relative flex flex-col min-h-screen"
     >
-      {/* 背景ビデオの配置 */}
+      {/* 背景画像の配置 */}
       <img
         src="/shino/background.jpg"
         alt="Lavender"
-        className="absolute top-0 left-0 w-full h-full object-cover"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
       />
 
       {/* コンテンツエリア */}
@@ -84,10 +84,10 @@ const ShinoPage: React.FC = () => {
                 >
                   <div
                     className="w-[500px] h-[500px] bg-no-repeat absolute -top-1 -right-1 z-0"
-                    style={{ backgroundImage: `url('/shino/shape-light.svg')` }}
+                    
                   />
                   <MyImg
-                    containerStyles="w-[510px] h-[462px] bg-no-repeat relative bg-bottom rounded-full overflow-hidden shadow-lg"
+                    containerStyles="w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] xl:w-[480px] xl:h-[510px] bg-no-repeat relative bg-bottom rounded-full overflow-hidden shadow-lg"
                     imgSrc='/shino/profile.png'
                     style={{ backgroundImage: `url('/shino/shape-1.svg')` }}
                   />
