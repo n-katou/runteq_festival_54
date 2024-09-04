@@ -24,7 +24,7 @@ const ReiPage: React.FC = () => {
     >
       {/* コンテンツエリア */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen overflow-hidden">
-        <section className="relative z-20 py-8 md:py-16 xl:py-24 w-full bg-cream/[0.7] backdrop-blur-md">
+        <section className="relative z-20 py-8 md:py-16 xl:py-24 w-full backdrop-blur-md bg-cream/[0.7]">
           <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             {/* 浮遊する絵文字を追加 */}
             {[...Array(5)].map((_, i) => (
@@ -41,15 +41,15 @@ const ReiPage: React.FC = () => {
               transition={{ Transition }}
               className="w-full lg:w-1/2 text-orange bg-white/[0.8] border-2 border-red rounded-lg p-6"
             >
-              <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-red">🍓Strawberry Crub!🍓</h2>
-              <p className="text-xl md:text-2xl text-center mb-6 text-red">〜🦀スタンプ荒らしマン54期代表🦀〜</p>
+              <h2 className="text-3xl md:text-4xl font-bold text-center mb-6 text-red">🍓StrawCrub🍓</h2>
+              <p className="text-xl md:text-2xl text-center mb-6 text-red">〜🦀スタンプダイスキデス🦀〜</p>
               <div className="text-lg md:text-xl mb-3 font-semibold">Ida Reiya (rei_54a)</div>
               <div className="text-lg md:text-xl mb-4 font-medium text-red">特性：「好奇心・向上心・遊び心」</div>
               <p className="text-base md:text-lg mb-6 leading-relaxed">
                 工業高校で情報系コースを専攻し、PC操作や情報の基礎を学びました。卒業後、大手総合化学品メーカーで製造オペレーターとして約3年間勤務。その際、社内ITシステムに助けられた経験から、システム開発に興味を持ちました。デイトラWeb制作コース受講しております。今後エンジニアとして、主体的に動いてチャレンジと課題解決を図り、自分の可能性を広げてスペシャリストを目指していきます。
               </p>
               <Social
-                containerStyles="flex justify-center gap-6 mt-6"
+                containerStyles="flex justify-center gap-6 mt-6 flex-wrap"
                 iconStyles="w-12 h-12 border-2 border-red rounded-full flex justify-center items-center text-red text-xl bg-white hover:bg-red hover:text-white transition-all duration-300"
               />
             </motion.div>
@@ -104,6 +104,9 @@ const ReiPage: React.FC = () => {
           </div>
           {/* アプリケーション */}
           <Applications />
+          <div className="mt-10">
+          <GoHomeButton />
+          </div>
         </section>
 
         {/* 背景ビデオの配置 */}
@@ -116,7 +119,6 @@ const ReiPage: React.FC = () => {
           <source src="/rei/strawberry.mp4" type="video/mp4" />
         </video>
       </div>
-      <GoHomeButton />
     </motion.section>
   );
 };
