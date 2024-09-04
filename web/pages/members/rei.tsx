@@ -24,7 +24,7 @@ const ReiPage: React.FC = () => {
     >
       {/* コンテンツエリア */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen overflow-hidden">
-        <section className="relative z-20 py-8 md:py-16 xl:py-24 w-full backdrop-blur-md bg-cream/[0.7]">
+        <section className="relative z-20 py-8 pb-0 md:py-16 xl:py-24 w-full backdrop-blur-md bg-cream/[0.7]">
           <div className="container mx-auto px-4 flex flex-col lg:flex-row items-center gap-8 lg:gap-12">
             {/* 浮遊する絵文字を追加 */}
             {[...Array(5)].map((_, i) => (
