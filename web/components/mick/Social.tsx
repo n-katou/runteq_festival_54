@@ -7,8 +7,8 @@ import { SiQiita, SiMattermost } from "react-icons/si";
 const socials = [
   { icon: <FaGithub />, path: "https://github.com/micknomick" },
   { icon: <SiQiita />, path: "https://qiita.com/noob_engineer_mick" },
-  { icon: <XIcon />, path: "https://x.com/@mitsuno1" },
-  { icon: <SiMattermost />, path: "https://chat.runteq.jp/runteq/channels/times_54期b_mitsuno_takayoshi" }
+  { icon: <XIcon />, path: "https://x.com/mistuno1" },
+  { icon: <SiMattermost />, path: "https://chat.runteq.jp/runteq/channels/times_54b_mitsuno_takayoshi" }
 ]
 
 // プロップの型定義
