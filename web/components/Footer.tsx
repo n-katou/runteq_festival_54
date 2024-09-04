@@ -27,7 +27,7 @@ const Footer = () => {
     <Box 
       component="footer" 
       sx={{ 
-        backgroundImage: 'linear-gradient(to bottom, #FFC4D4 50%, #FCD8D4)', 
+        backgroundColor: '#FFC4D4', 
         display:'flex', 
         alignItems: 'center',
         justifyContent: 'center',

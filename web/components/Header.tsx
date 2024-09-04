@@ -53,7 +53,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static" sx={{ backgroundImage: 'linear-gradient(to top, #FFC4D4 50%, #FCD8D4)', color: '#fff' }}>
+    <AppBar position="static" sx={{ backgroundColor: '#FFC4D4', color: '#fff' }}>
       <Toolbar sx={{ padding: { xs: '0 4px', sm: '0 16px' } }}>
         <Box sx={{ display: 'flex', flexGrow: 1, alignItems: 'center' }}>
           <Box sx={{ width: { xs: '15%', sm: '10%', md: '8%' }, height: 'auto' }}>
