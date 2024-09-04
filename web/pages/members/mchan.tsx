@@ -104,18 +104,20 @@ const MchanPage: React.FC = () => {
               </motion.div>
             </div>
           </div>
+          <div className="mt-10">
+          <GoHomeButton />
+          </div>
         </section>
 
         {/* 背景ひまわり */}
-        <video
-          src="/mchan/9184_640x360.mp4"
-          className="absolute top-0 left-0 w-full h-full object-cover"
-          autoPlay
-          loop
+        <video 
+          src="/mchan/9184_640x360.mp4" 
+          className="absolute top-0 left-0 w-full h-full object-cover" 
+          autoPlay 
+          loop 
           muted
         ></video>
       </div>
-      <GoHomeButton />
     </motion.section>
   );
 };
