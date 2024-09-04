@@ -14,13 +14,14 @@ const HeadSection: React.FC = () => {
           position: 'relative',
           top: 0,
           bgcolor: '#D56866',
-          padding: 12,
+          padding: { xs: 4, sm: 8, md: 12 },
           textAlign: 'center',
           borderRadius: '10px',
           display: 'flex',
           flexDirection: 'column',
           alignItems: 'center',
           justifyContent: 'center',
+          width: '100%',
         }}
       >
         <Typography
@@ -28,13 +29,13 @@ const HeadSection: React.FC = () => {
           sx={{
             color: 'white',
             fontFamily: 'Pacifico, cursive',
-            textAlign: 'center',  // テキストを中央揃え
-            width: '100%',        // 親要素全体に広がるように設定
+            textAlign: 'center',
+            width: '100%',
             fontSize: {
-              xs: '3rem', // 小さい画面での文字サイズ
-              sm: '4rem', // 中くらいの画面での文字サイズ
-              md: '4rem', // 大きな画面での文字サイズ
-              lg: '5rem', // 非常に大きな画面での文字サイズ
+              xs: '3rem',
+              sm: '4rem',
+              md: '4rem',
+              lg: '5rem', 
             },
           }}
         >
