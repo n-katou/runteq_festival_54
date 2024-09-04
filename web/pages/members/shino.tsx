@@ -4,6 +4,8 @@ import Social from '../../components/shino/Social';
 import MyImg from "../../components/shino/MyImg";
 import { Transition } from '../../components/shino/transitions';
 import AppsList from '../../components/shino/AppsList';
+import GoHomeButton from '../../components/GoHomeButton';
+
 
 const ShinoPage: React.FC = () => {
   const x = useMotionValue(0);
@@ -20,11 +22,11 @@ const ShinoPage: React.FC = () => {
       className="relative min-h-screen"
     >
       {/* 背景ビデオの配置 */}
-      <img 
-  src="/shino/background.jpg" 
-  alt="Lavender" 
-  className="absolute top-0 left-0 w-full h-full object-cover" 
-/>
+      <img
+        src="/shino/background.jpg"
+        alt="Lavender"
+        className="absolute top-0 left-0 w-full h-full object-cover"
+      />
 
       {/* コンテンツエリア */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen">
@@ -42,15 +44,15 @@ const ShinoPage: React.FC = () => {
               <div className="text-xl mt-4 text-sky-700">My Vision to Become an Engineer <br />
                 Who Makes Everyone Happy！</div>
               <div className="mt-4 text-lg leading-relaxed text-sky-700">北海道出身、名古屋在住、元公務員のおしのです🐹<br />勉強ばかりなのでそろそろ旅行したい今日このごろ✈️<br />
-              今回はTOPページやロゴなどいろいろデザインできて楽しかったです！Reactも学びたい！
+                今回はTOPページやロゴなどいろいろデザインできて楽しかったです！Reactも学びたい！
               </div>
-        
-             <div className="mt-4 flex justify-center">
-              <MyImg
-                    containerStyles="w-[300px] h-[300px] bg-no-repeat relative bg-bottom rounded-full overflow-hidden shadow-lg"
-                    imgSrc='/shino/logo.png'
-                    style={{ backgroundImage: `url('/shino/shape-1.svg')` }}
-                  />
+
+              <div className="mt-4 flex justify-center">
+                <MyImg
+                  containerStyles="w-[300px] h-[300px] bg-no-repeat relative bg-bottom rounded-full overflow-hidden shadow-lg"
+                  imgSrc='/shino/logo.png'
+                  style={{ backgroundImage: `url('/shino/shape-1.svg')` }}
+                />
               </div>
               <div className="mt-8 flex flex-col xl:flex-row items-center gap-8">
                 <Social
@@ -97,6 +99,7 @@ const ShinoPage: React.FC = () => {
 
         <AppsList />
       </div>
+      <GoHomeButton />
     </motion.section>
   );
 };

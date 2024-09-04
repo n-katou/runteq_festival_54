@@ -128,12 +128,6 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
           left: `${left}%`,
           transformOrigin: 'bottom center',
           width: `${widthPercent}%`,
-          '@media (hover: none)': {
-            '&:hover': {
-              // ホバーエフェクト無効化
-              animation: 'none',
-            },
-          },
         }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
@@ -141,7 +135,7 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
         <motion.div
           variants={swingVariants}
           initial="initial"
-          whileHover="animate"
+          whileHover={window.matchMedia('(hover: none)').matches ? '' : 'animate'} // モバイル端末ではホバーエフェクトを無効化
         >
         <Link href={href || "#"} style={{ display: 'block', position: 'relative', height: '100%', minHeight: 'full' }}>
           <GenericImage
