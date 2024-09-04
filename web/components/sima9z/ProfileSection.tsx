@@ -12,12 +12,13 @@ const ProfileSection = () => {
         maxWidth="lg" 
         sx={{ 
           display: 'flex', 
-          justifyContent: 'center'
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
-        <Grid container alignItems="center" spacing={4} sx={{ maxWidth: '800px', marginTop: 8 }}>
+        <Grid container alignItems="center" justifyContent="center" spacing={4} sx={{ maxWidth: '800px', marginTop: 8, textAlign: { xs: 'center', sm: 'left' } }}>
           <Grid item xs={12} sm={4}>
-            <Box sx={{ textAlign: 'center' }}>
+            <Box sx={{ display: 'flex', justifyContent: 'center' }}>
               <Image
                 src="/sima9z/profile.jpg"
                 alt="Profile"

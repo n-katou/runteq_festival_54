@@ -4,6 +4,7 @@ import { motion, useMotionValue, useTransform } from 'framer-motion';
 import Social from '../../components/mchan/Social';
 import MyImg from "../../components/mchan/MyImg";
 import { Transition } from '../../components/mchan/transitions';
+import GoHomeButton from '../../components/GoHomeButton';
 
 const MchanPage: React.FC = () => {
   const x = useMotionValue(0);
@@ -106,14 +107,15 @@ const MchanPage: React.FC = () => {
         </section>
 
         {/* 背景ひまわり */}
-        <video 
-          src="/mchan/9184_640x360.mp4" 
-          className="absolute top-0 left-0 w-full h-full object-cover" 
-          autoPlay 
-          loop 
+        <video
+          src="/mchan/9184_640x360.mp4"
+          className="absolute top-0 left-0 w-full h-full object-cover"
+          autoPlay
+          loop
           muted
         ></video>
       </div>
+      <GoHomeButton />
     </motion.section>
   );
 };

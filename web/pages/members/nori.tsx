@@ -3,6 +3,7 @@ import { motion, useMotionValue, useTransform } from 'framer-motion';
 import Social from '../../components/nori/Social';
 import MyImg from "../../components/nori/MyImg";
 import { Transition } from '../../components/nori/transitions';
+import GoHomeButton from '../../components/GoHomeButton';
 
 const NoriPage: React.FC = () => {
   const x = useMotionValue(0);
@@ -82,6 +83,7 @@ const NoriPage: React.FC = () => {
           <source src="/template/strawberry.mp4" type="video/mp4" />
         </video>
       </div>
+      <GoHomeButton />
     </motion.section>
 
   );
