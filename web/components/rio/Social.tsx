@@ -6,7 +6,6 @@ import { SiQiita, SiMattermost } from "react-icons/si";
 
 const socials = [
   { icon: <FaGithub />, path: "https://github.com/ryota10000" },
-  { icon: <SiQiita />, path: "https://qiita.com/" },
   { icon: <XIcon />, path: "https://x.com/sh7hs71" },
   { icon: <SiMattermost />, path: "https://chat.runteq.jp/runteq/channels/times_54b_shimizu_ryota",},
 ];

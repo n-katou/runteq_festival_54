@@ -17,6 +17,7 @@ const RioPage: React.FC = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ Transition }}
+      className="relative min-h-screen"
     >
       <div className="h-[80vh] xl:h-screen relative">
         <div className="absolute w-full h-full z-10 bg-blue/[0.86]" />
@@ -62,7 +63,7 @@ const RioPage: React.FC = () => {
                   damping: 10,
                   delay: 0.4,
                 }}
-                className="hidden xl:flex relative"
+                className="flex relative"
               >
                 <div style={{ perspective: 2000 }}>
                   <motion.div
@@ -75,14 +76,14 @@ const RioPage: React.FC = () => {
                     <div
                       className="w-[500px] h-[500px] bg-no-repeat absolute -top-1 -right-1 z-0"
                       style={{
-                        backgroundImage: `url('/template/shape-light.svg')`,
+                        backgroundImage: `url('/rio/shape-light.svg')`,
                       }}
                     />
                     <MyImg
                       containerStyles="w-[510px] h-[462px] bg-no-repeat relative bg-bottom"
-                      imgSrc="/rio/pubg.png"
+                      imgSrc="/rio/profile.png"
                       style={{
-                        backgroundImage: `url('/profile/shape-1.svg')`,
+                        backgroundImage: `url('/rio/shape-1.svg')`,
                       }}
                     />
                   </motion.div>
@@ -97,7 +98,7 @@ const RioPage: React.FC = () => {
           muted
           className="absolute top-0 left-0 w-full h-full object-cover"
         >
-          <source src="/template/strawberry.mp4" type="video/mp4" />
+          <source src="/rio/strawberry.mp4" type="video/mp4" />
         </video>
       </div>
     </motion.section>
