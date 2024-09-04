@@ -168,3 +168,17 @@ export const useAnimationWithHover = (isHovered: boolean) => {
 
   return { controls, animationVariants };
 };
+
+export const useDelayedPreview = (delay: number) => {
+  const [showPreview, setShowPreview] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowPreview(true); // Show the preview after the specified delay
+    }, delay);
+
+    return () => clearTimeout(timer); // Clear the timer on unmount
+  }, [delay]);
+
+  return showPreview;
+};

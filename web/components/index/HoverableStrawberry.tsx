@@ -135,7 +135,7 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
         <motion.div
           variants={swingVariants}
           initial="initial"
-          whileHover={window.matchMedia('(hover: none)').matches ? '' : 'animate'} // モバイル端末ではホバーエフェクトを無効化
+          whileHover={!window.matchMedia('(hover: none)').matches ? 'animate' : undefined}  // モバイル端末ではホバーエフェクトを無効化
         >
         <Link href={href || "#"} style={{ display: 'block', position: 'relative', height: '100%', minHeight: 'full' }}>
           <GenericImage
