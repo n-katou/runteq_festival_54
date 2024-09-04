@@ -86,7 +86,7 @@ const Template: React.FC = () => {
                     whileTap={{ cursor: 'grabbing' }}
                   >
                     <div
-                      className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] bg-no-repeat absolute -top-1 -right-1 z-0"
+                      className="w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] lg:w-[500px] lg:h-[500px] bg-no-repeat absolute -top-1 -right-1 z-0"
                       style={{
                         backgroundImage: `url('/template/shape-light.svg')`,
                         backgroundSize: 'contain',
@@ -94,7 +94,7 @@ const Template: React.FC = () => {
                       }}
                     />
                     <MyImg
-                      containerStyles="w-[310px] h-[272px] sm:w-[410px] sm:h-[362px] lg:w-[510px] lg:h-[462px] bg-no-repeat relative bg-bottom rounded-lg"
+                      containerStyles="w-[240px] h-[252px] sm:w-[350px] sm:h-[362px] lg:w-[510px] lg:h-[462px] bg-no-repeat relative bg-bottom rounded-lg"
                       imgSrc='/natsu/natsu.png'
                       style={{
                         backgroundImage: `url('/template/shape-1.svg')`,
