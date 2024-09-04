@@ -3,6 +3,7 @@ import { motion, useMotionValue, useTransform } from 'framer-motion';
 import Social from '../../components/konisi/Social';
 import MyImg from "../../components/konisi/MyImg";
 import { Transition } from '../../components/konisi/transitions';
+import GoHomeButton from '../../components/GoHomeButton';
 
 const KonisiPage: React.FC = () => {
   const x = useMotionValue(0);
@@ -83,6 +84,7 @@ const KonisiPage: React.FC = () => {
           <source src="/template/strawberry.mp4" type="video/mp4" />
         </video>
       </div>
+      <GoHomeButton />
     </motion.section>
 
   );

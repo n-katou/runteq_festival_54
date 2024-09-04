@@ -3,6 +3,7 @@ import { motion, useMotionValue, useTransform } from 'framer-motion';
 import Social from '../../components/hase/Social';
 import MyImg from "../../components/hase/MyImg";
 import { Transition } from '../../components/hase/transitions';
+import GoHomeButton from '../../components/GoHomeButton';
 
 const HasePage: React.FC = () => {
   const x = useMotionValue(0);
@@ -82,6 +83,7 @@ const HasePage: React.FC = () => {
           <source src="/template/strawberry.mp4" type="video/mp4" />
         </video>
       </div>
+      <GoHomeButton />
     </motion.section>
 
   );
