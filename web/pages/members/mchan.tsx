@@ -104,6 +104,9 @@ const MchanPage: React.FC = () => {
               </motion.div>
             </div>
           </div>
+          <div className="mt-10">
+          <GoHomeButton />
+          </div>
         </section>
 
         {/* 背景ひまわり */}
@@ -114,7 +117,6 @@ const MchanPage: React.FC = () => {
           loop 
           muted
         ></video>
-        <GoHomeButton />
       </div>
     </motion.section>
   );
