@@ -47,8 +47,8 @@ const ButtonLinks = () => {
                 color:'white', 
                 borderColor:'white',
                 '&:hover': {
-                  backgroundColor: '#F2A3A2', // ホバー時の背景色を指定
-                  borderColor: '#A3D9A5', // ホバー時のアウトラインの色を指定
+                  backgroundColor: '#F2A3A2',
+                  borderColor:'white',
                 } 
               }}
             >
