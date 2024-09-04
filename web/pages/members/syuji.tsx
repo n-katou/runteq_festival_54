@@ -4,6 +4,7 @@ import { motion, useMotionValue, useTransform } from 'framer-motion'
 import Social from '../../components/syuji/Social';
 import Moviesaga from '../../components/syuji/MovieSaga';
 import { Transition } from '../../template/components/transitions';
+import GoHomeButton from '../../components/GoHomeButton';
 
 
 const SyujiPage: React.FC = () => {
@@ -18,14 +19,15 @@ const SyujiPage: React.FC = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ Transition }}
+      className="min-h-screen flex flex-col justify-center bg-lightblue"
     >
-      <div className="h-[110vh] relative">
+      <div className="h-full xl:h-screen relative">
         <div className="absolute w-full h-full z-10 bg-blue/[0.86]" />
         <section className="relative z-20 py-12 xl:py-24 h-[84] xl:pt-28">
           <div className="container mx-auto">
             <div className='flex justify-center'>
-              <img 
-                src="/syuji/image.png" 
+              <img
+                src="/syuji/image.png"
                 alt="Circular image"
                 className="h-[250px] object-cover rounded-full lg:hidden mb-10"
               />
@@ -73,12 +75,12 @@ const SyujiPage: React.FC = () => {
                       className="w-[500px] h-[500px] bg-no-repeat absolute -top-1 -right-1 z-0"
                       style={{ backgroundImage: `url('/template/shape-light.svg')` }}
                     />
-                    <div 
+                    <div
                       className="w-[400px] h-[400px] mr-24 bg-no-repeat bg-bottom rounded-full overflow-hidden"
                       style={{ backgroundImage: `url('/template/shape-1.svg')` }}
                     >
-                      <img 
-                        src="/syuji/image.png" 
+                      <img
+                        src="/syuji/image.png"
                         alt="Circular image"
                         className="w-full h-full object-cover"
                       />
@@ -93,6 +95,7 @@ const SyujiPage: React.FC = () => {
           <source src="/template/strawberry.mp4" type="video/mp4" />
         </video>
       </div>
+      <GoHomeButton />
     </motion.section>
   );
 };
