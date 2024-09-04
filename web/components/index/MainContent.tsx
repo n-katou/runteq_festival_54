@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Box, Grid } from '@mui/material';
 import { motion } from 'framer-motion';
@@ -7,7 +7,7 @@ import GenericImage from './GenericImage';
 import StrawberryLinks from './StrawberryLinks';
 import KirakiraEffect from './KirakiraEffect';
 
-import {useAnimationWithHover} from '../../hooks/hooks_index'
+import { useAnimationWithHover } from '../../hooks/hooks_index'
 
 import RunteqFestivalImage from '../../public/index/runteq_festival.png';
 import FiftyFourImage from '../../public/index/54.png';
@@ -29,7 +29,7 @@ const MainContent = () => {
     ];
   
     const links2 = [
-      { href: "/members/knnts", text: "kana"  },
+      { href: "/members/knnts", text: "kana nuts"  },
       { href: "/members/mchan", text: "Mchan"  },
     ];
   
@@ -66,7 +66,7 @@ const MainContent = () => {
       >
         <Grid container direction="column" alignItems="center" spacing={24}>
           <Grid item>
-            <StrawberryLinks initialColor={'pink'} positions={[7, 29, 60, 82]} links={links1} setIsHovered={setIsHovered} />
+            <StrawberryLinks initialColor={'pink'} positions={[13, 33, 55, 75]} links={links1} setIsHovered={setIsHovered} />
           </Grid>
 
           <Grid item>
@@ -79,7 +79,7 @@ const MainContent = () => {
           </Grid>
 
           <Grid item>
-            <StrawberryLinks positions={[24, 66]} initialColor={'red'} links={links2} setIsHovered={setIsHovered}/>
+            <StrawberryLinks positions={[23, 64]} initialColor={'red'} links={links2} setIsHovered={setIsHovered}/>
 
             <GenericImage
               src={FiftyFourImage}
@@ -108,7 +108,7 @@ const MainContent = () => {
           </Grid>
 
           <Grid item>
-            <StrawberryLinks positions={[7, 29, 60, 82]} initialColor={'white'} links={links3} setIsHovered={setIsHovered}/>
+            <StrawberryLinks positions={[13, 33, 55, 75]} initialColor={'white'} links={links3} setIsHovered={setIsHovered}/>
           </Grid>
 
           <Grid item>
@@ -121,7 +121,7 @@ const MainContent = () => {
           </Grid>
 
           <Grid item>
-            <StrawberryLinks positions={[7, 29, 60, 82]} initialColor={'green'} links={links4} setIsHovered={setIsHovered}/>
+            <StrawberryLinks positions={[13, 33, 55, 75]} initialColor={'green'} links={links4} setIsHovered={setIsHovered}/>
           </Grid>
         </Grid>
       </Box>
@@ -136,8 +136,8 @@ const MainContent = () => {
               width: '460px',
               height: 'auto',
               position: 'fixed',
-              left: -70,
-              bottom: 20,
+              left: -85,
+              top: 85,
             }}
           >
             <Image
@@ -160,8 +160,8 @@ const MainContent = () => {
               width: '460px',
               height: 'auto',
               position: 'fixed',
-              right: -70,
-              bottom: 20,
+              right: -85,
+              top: 85,
             }}
           >
             <Image
