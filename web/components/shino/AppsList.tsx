@@ -1,4 +1,4 @@
-import, { memo } React from 'react';
+import React, { memo } from "react";
 import { motion } from 'framer-motion';
 import { BsFillPostageHeartFill } from "react-icons/bs";
 import { GiClownfish } from "react-icons/gi";
