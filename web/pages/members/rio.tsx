@@ -24,7 +24,6 @@ const RioPage: React.FC = () => {
         <div className="absolute w-full h-full z-10 bg-blue/[0.86]" />
         <section className="relative z-20 py-12 xl:py-24 text-white w-full">
           <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center gap-x-8">
-            <div className="flex justify-between gap-x-8">
               <motion.div
                 initial={{ opacity: 0, y: "-50%" }}
                 animate={{ opacity: 1, y: 0 }}
@@ -36,7 +35,7 @@ const RioPage: React.FC = () => {
                   Hello!!
                   <br />
                   <div className="text-8xl mt-2 font-semibold text-orange">
-                    My Name is Ryota Shimizu
+                    My nickname is Rio!
                   </div>
                 </h2>
 
@@ -90,7 +89,6 @@ const RioPage: React.FC = () => {
                   </motion.div>
                 </div>
               </motion.div>
-            </div>
           </div>
         </section>
         <video
