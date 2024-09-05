@@ -1,9 +1,8 @@
 import Link from "next/link"
-import { FC } from "react";
-import { FaGithub, FaInstagram } from 'react-icons/fa';
+import { FC, memo } from "react";
+import { FaGithub } from 'react-icons/fa';
 import XIcon from '@mui/icons-material/X';
 import { SiQiita, SiMattermost } from "react-icons/si";
-import React, { memo } from 'react';
 
 const socials = [
   { icon: <FaGithub />, path: "https://github.com/n-katou" },
