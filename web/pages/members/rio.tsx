@@ -1,3 +1,4 @@
+import { memo } from "react";
 //import motion
 import { motion, useMotionValue, useTransform } from "framer-motion";
 //componets
@@ -17,12 +18,12 @@ const RioPage: React.FC = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ Transition }}
-      className="relative min-h-screen"
+      className="relative min-h-screen overflow-hidden"
     >
-      <div className="h-[80vh] xl:h-screen relative">
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen">
         <div className="absolute w-full h-full z-10 bg-blue/[0.86]" />
-        <section className="relative z-20 py-12 xl:py-24 h-[84] xl:pt-28">
-          <div className="container mx-auto">
+        <section className="relative z-20 py-12 xl:py-24 text-white w-full">
+          <div className="container mx-auto flex flex-col-reverse lg:flex-row items-center gap-x-8">
             <div className="flex justify-between gap-x-8">
               <motion.div
                 initial={{ opacity: 0, y: "-50%" }}
@@ -80,7 +81,7 @@ const RioPage: React.FC = () => {
                       }}
                     />
                     <MyImg
-                      containerStyles="w-[510px] h-[462px] bg-no-repeat relative bg-bottom"
+                      containerStyles="w-[280px] h-[246px] sm:w-[350px] sm:h-[308px] md:w-[400px] md:h-[352px] lg:w-[450px] lg:h-[396px] bg-no-repeat relative bg-bottom"
                       imgSrc="/rio/profile.png"
                       style={{
                         backgroundImage: `url('/rio/shape-1.svg')`,
@@ -105,4 +106,4 @@ const RioPage: React.FC = () => {
   );
 };
 
-export default RioPage;
+export default memo(RioPage);
