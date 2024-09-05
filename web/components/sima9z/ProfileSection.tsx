@@ -29,7 +29,7 @@ const ProfileSection = () => {
             </Box>
           </Grid>
           <Grid item xs={12} sm={8}>
-            <Typography variant="h4" sx={{ color: '#ff3e60', fontFamily: 'Pacifico, cursive', marginBottom: 2 }}>
+            <Typography variant="h4" sx={{ color: '#ff3e60', fontFamily: 'Comic Sans MS, Arial Rounded MT Bold, sans-serif', marginBottom: 2 }}>
               Profile
             </Typography>
             <Typography variant="body1" sx={{ lineHeight: 1.6 }}>

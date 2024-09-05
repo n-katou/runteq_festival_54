@@ -3,16 +3,11 @@ import { FC } from "react";
 import { FaGithub, FaInstagram } from 'react-icons/fa';
 import XIcon from '@mui/icons-material/X';
 import { SiQiita, SiMattermost } from "react-icons/si";
-import { GrDocumentNotes } from "react-icons/gr";
-import GroupsIcon from '@mui/icons-material/Groups';
 
 const socials = [
-  { icon: <FaGithub />, path: "https://github.com/rei-dev99" },
-  { icon: <SiQiita />, path: "https://qiita.com/rei-dev99" },
-  { icon: <XIcon />, path: "https://twitter.com/ida09r" },
-  { icon: <SiMattermost />, path: "https://chat.runteq.jp/runteq/channels/times_54a_ida_reiya" },
-  { icon: <GrDocumentNotes />, path: "https://note.com/jolly_panda388/" },
-  { icon: <GroupsIcon />, path: "https://school.runteq.jp/social_portfolios/rei_dev99" }
+  { icon: <FaGithub />, path: "https://github.com/SYUJI-SHIKI" },
+  { icon: <XIcon />, path: "https://x.com/ganbaritaiman9" },
+  { icon: <SiMattermost />, path: "https://chat.runteq.jp/runteq/channels/times_54-a_iida_syuji" }
 ]
 
 // プロップの型定義
