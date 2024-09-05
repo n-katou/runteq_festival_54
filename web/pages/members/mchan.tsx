@@ -1,3 +1,4 @@
+import { memo } from 'react';
 //import motion
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 //components
@@ -104,7 +105,7 @@ const MchanPage: React.FC = () => {
               </motion.div>
             </div>
           </div>
-          <div className="mt-10">
+          <div className="mt-24">
           <GoHomeButton />
           </div>
         </section>
@@ -122,4 +123,4 @@ const MchanPage: React.FC = () => {
   );
 };
 
-export default MchanPage;
+export default memo(MchanPage);
