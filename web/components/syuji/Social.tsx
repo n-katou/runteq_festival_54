@@ -1,13 +1,13 @@
 import Link from "next/link"
-import { FC, memo } from "react"; // memoをインポート
+import { FC } from "react";
 import { FaGithub, FaInstagram } from 'react-icons/fa';
 import XIcon from '@mui/icons-material/X';
 import { SiQiita, SiMattermost } from "react-icons/si";
 
 const socials = [
-  { icon: <FaGithub />, path: "https://github.com/kana-54b" },
-  { icon: <XIcon />, path: "https://x.com/t_kana_54b" },
-  { icon: <SiMattermost />, path: "https://chat.runteq.jp/runteq/channels/times_54b_takei_kana" }
+  { icon: <FaGithub />, path: "https://github.com/SYUJI-SHIKI" },
+  { icon: <XIcon />, path: "https://x.com/ganbaritaiman9" },
+  { icon: <SiMattermost />, path: "https://chat.runteq.jp/runteq/channels/times_54-a_iida_syuji" }
 ]
 
 // プロップの型定義
@@ -30,4 +30,4 @@ const Social: FC<SocialProps> = ({ containerStyles, iconStyles }) => {
   );
 };
 
-export default memo(Social); // memoでエクスポート
+export default Social

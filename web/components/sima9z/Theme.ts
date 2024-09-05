@@ -10,7 +10,7 @@ export const Theme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Comic Sans MS, Comic Sans, cursive',
+    fontFamily: 'Comic Sans MS, Arial Rounded MT Bold, sans-serif',
   },
 });
 
@@ -24,6 +24,6 @@ export const ProfileSectionTheme = createTheme({
     },
   },
   typography: {
-    fontFamily: 'Comic Sans MS, Comic Sans, cursive',
+    fontFamily: 'Comic Sans MS, Arial Rounded MT Bold, sans-serif',
   },
 });

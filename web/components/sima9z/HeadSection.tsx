@@ -28,7 +28,7 @@ const HeadSection: React.FC = () => {
           variant="h2"
           sx={{
             color: 'white',
-            fontFamily: 'Pacifico, cursive',
+            fontFamily: 'Comic Sans MS, Arial Rounded MT Bold, sans-serif',
             textAlign: 'center',
             width: '100%',
             fontSize: {
