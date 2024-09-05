@@ -8,7 +8,7 @@ import Curve from "../../public/transition/index";
 import React, { useState, useEffect } from 'react';
 import GoHomeButton from '../../components/GoHomeButton';
 
-const Template: React.FC = () => {
+const NatsuPage: React.FC = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useTransform(y, [-100, 100], [30, -30])
@@ -132,4 +132,4 @@ const Template: React.FC = () => {
   );
 };
 
-export default Template
+export default NatsuPage;
