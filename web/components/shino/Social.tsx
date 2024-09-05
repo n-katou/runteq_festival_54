@@ -1,3 +1,4 @@
+import { memo } from "react";
 import Link from "next/link"
 import { FC } from "react";
 import { FaGithub, FaInstagram } from 'react-icons/fa';
@@ -33,4 +34,4 @@ const Social: FC<SocialProps> = ({ containerStyles, iconStyles }) => {
   );
 };
 
-export default Social
+export default memo(Social);

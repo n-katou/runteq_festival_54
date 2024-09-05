@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import Social from '../../components/shino/Social';
 import MyImg from "../../components/shino/MyImg";
@@ -37,7 +37,7 @@ const ShinoPage: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: '-50%' }}
               transition={{ Transition }}
-              className="backdrop-blur-lg bg-white/20 p-8 rounded-lg shadow-lg max-w-[600px] mx-auto xl:mx-0 text-center xl:text-left lg:w-1/2"
+              className="backdrop-blur-lg bg-white/20 p-8 rounded-lg shadow-lg max-w-full mx-auto xl:mx-0 text-center xl:text-left lg:w-1/2"
             >
               <h2 className="text-5xl font-bold text-sky-700">おしの</h2>
               <div className="text-3xl mt-2 font-semibold text-sky-700">My Name is Shino Omata</div>
@@ -49,7 +49,7 @@ const ShinoPage: React.FC = () => {
 
               <div className="mt-4 flex justify-center">
                 <MyImg
-                  containerStyles="w-[300px] h-[300px] bg-no-repeat relative bg-bottom rounded-full overflow-hidden shadow-lg"
+                  containerStyles="w-[240px] h-[240px] sm:w-[300px] sm:h-[300px] xl:w-[480px] xl:h-[510px] bg-no-repeat relative bg-bottom rounded-full overflow-hidden shadow-lg"
                   imgSrc='/shino/logo.png'
                   style={{ backgroundImage: `url('/shino/shape-1.svg')` }}
                 />
@@ -104,4 +104,4 @@ const ShinoPage: React.FC = () => {
   );
 };
 
-export default ShinoPage;
+export default memo(ShinoPage);
