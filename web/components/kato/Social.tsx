@@ -1,6 +1,6 @@
 import Link from "next/link"
-import { FC } from "react";
-import { FaGithub, FaInstagram } from 'react-icons/fa';
+import { FC, memo } from "react";
+import { FaGithub } from 'react-icons/fa';
 import XIcon from '@mui/icons-material/X';
 import { SiQiita, SiMattermost } from "react-icons/si";
 
@@ -31,4 +31,4 @@ const Social: FC<SocialProps> = ({ containerStyles, iconStyles }) => {
   );
 };
 
-export default Social
+export default memo(Social);
