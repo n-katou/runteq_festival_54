@@ -5,6 +5,7 @@ import { motion, useMotionValue, useTransform } from "framer-motion";
 import Social from "../../components/rio/Social";
 import MyImg from "../../components/rio/MyImg";
 import { Transition } from "../../components/rio/transitions";
+import GoHomeButton from '../../components/GoHomeButton';
 
 const RioPage: React.FC = () => {
   const x = useMotionValue(0);
@@ -89,6 +90,9 @@ const RioPage: React.FC = () => {
                 </motion.div>
               </div>
             </motion.div>
+          </div>
+          <div className="mt-10">
+            <GoHomeButton />
           </div>
         </section>
         <video
