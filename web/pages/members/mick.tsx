@@ -123,7 +123,16 @@ export default function Mick() {
         >
           <Cards/>
         </motion.div>
-        <GoHomeButton />
+        <div
+          style={{
+            backgroundColor: '#ffc4d4',
+            padding: 0,            // すべての padding を 0 にリセット
+            margin: 0,             // すべての margin を 0 にリセット
+            minHeight: '20vh',    // ページ全体の高さを確保
+          }}
+        >
+          <GoHomeButton />
+        </div>
       </div>
     </>
   );

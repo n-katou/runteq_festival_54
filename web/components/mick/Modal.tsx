@@ -7,7 +7,7 @@ interface ModalProps {
   children: React.ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({ open, onClose, children }) => {
+const Modal: React.FC<ModalProps> = React.memo(({ open, onClose, children }) => {
   return (
     // backdrop
     <div
@@ -36,6 +36,6 @@ const Modal: React.FC<ModalProps> = ({ open, onClose, children }) => {
       </div>
     </div>
   );
-}
+});
 
 export default Modal;
