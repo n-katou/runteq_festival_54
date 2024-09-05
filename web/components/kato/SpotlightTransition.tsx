@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import { motion } from 'framer-motion';
 import styles from '../../styles/kato/spotlight.module.css';
 
@@ -147,4 +147,4 @@ const SpotlightTransition: React.FC<SpotlightTransitionProps> = ({ onComplete })
   );
 };
 
-export default SpotlightTransition;
+export default memo(SpotlightTransition);
