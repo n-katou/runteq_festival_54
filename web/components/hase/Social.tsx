@@ -3,6 +3,7 @@ import { FC } from "react";
 import { FaGithub } from 'react-icons/fa';
 import XIcon from '@mui/icons-material/X';
 import { SiMattermost } from "react-icons/si";
+import React, { memo } from 'react';
 
 const socials = [
   { icon: <FaGithub />, path: "https://github.com/hase-n323" },
@@ -30,4 +31,4 @@ const Social: FC<SocialProps> = ({ containerStyles, iconStyles }) => {
   );
 };
 
-export default Social
+export default memo(Social);
