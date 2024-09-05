@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from 'react';
+import React, { memo } from 'react';
 import { motion } from 'framer-motion';
 
 import { PreviewCardProps } from '../../types/types_index';
