@@ -5,6 +5,7 @@ import { motion, useMotionValue, useTransform } from 'framer-motion'
 import Social from '../../components/knnts/Social'; // メモ化したSocial
 import MyImg from "../../components/knnts/MyImg"; // メモ化したMyImg
 import { Transition } from '../../components/knnts/transitions';
+import GoHomeButton from '../../components/GoHomeButton';
 
 const Template: React.FC = () => {
   const x = useMotionValue(0);
@@ -97,6 +98,7 @@ const Template: React.FC = () => {
           <source src="/template/strawberry.mp4" type="video/mp4" />
         </video>
       </div>
+      <GoHomeButton />
     </motion.section>
   );
 };
