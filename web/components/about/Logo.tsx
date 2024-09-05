@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Image from "next/image";
 
 function Logo() {
@@ -31,4 +31,4 @@ function Logo() {
   );
 }
 
-export default Logo;
+export default memo(Logo);
