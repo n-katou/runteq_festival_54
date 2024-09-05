@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Paper, Typography, Box } from '@mui/material';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -56,4 +56,4 @@ const ReusableCard: React.FC<ReusableCardProps> = ({ imageSrc, imageAlt, title, 
   );
 };
 
-export default ReusableCard;
+export default memo(ReusableCard);

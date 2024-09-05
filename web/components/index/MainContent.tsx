@@ -140,6 +140,7 @@ const MainContent = () => {
               position: 'fixed',
               left: -85,
               top: 85,
+              zIndex: 20,
             }}
           >
             <Image
@@ -164,6 +165,7 @@ const MainContent = () => {
               position: 'fixed',
               right: -85,
               top: 85,
+              zIndex: 20,
             }}
           >
             <Image

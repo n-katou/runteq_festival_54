@@ -1,4 +1,4 @@
-import React, { useState, memo } from 'react';
+import React, { useState, memo, useEffect } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 
@@ -28,6 +28,8 @@ import PreviewCard from './PreviewCard';
 
 const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPercent, centered = false, initialColor = 'red', initialIndex, onLastImage, onHoverEnd, href, linkText, setIsHovered }) => {
   const [imageHeight, setImageHeight] = useState<number | null>(null);
+  const [isHoverable, setIsHoverable] = useState(true);
+
   const theme = useTheme();
 
   const normalStrawberryImages = {
@@ -54,14 +56,33 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
   // ホバー時の画像効果
   const { currentImageIndex, isHovered, setIsHovered: setHoverEffect } = useHoverEffect(0, hoverStrawberryImages[currentColor]);
 
+  useEffect(() => {
+    const hoverableQuery = window.matchMedia('(hover: hover)');
+    const updateHoverable = () => setIsHoverable(hoverableQuery.matches);
+
+    // 初回評価
+    updateHoverable();
+
+    // リスナーでリアルタイムに変化を監視
+    hoverableQuery.addEventListener('change', updateHoverable);
+
+    return () => {
+      hoverableQuery.removeEventListener('change', updateHoverable);
+    };
+  }, []);
+
   const handleMouseEnter = () => {
-    setHoverEffect(true); // フックのホバー状態を更新
-    setIsHovered(true);   // 親コンポーネントのホバー状態を更新
+    if (isHoverable) {
+      setHoverEffect(true); // フックのホバー状態を更新
+      setIsHovered(true);   // 親コンポーネントのホバー状態を更新
+    }
   };
 
   const handleMouseLeave = () => {
-    setHoverEffect(false); // フックのホバー状態を解除
-    setIsHovered(false);   // 親コンポーネントのホバー状態を解除
+    if (isHoverable) {
+      setHoverEffect(false); // フックのホバー状態を解除
+      setIsHovered(false);   // 親コンポーネントのホバー状態を解除
+    }
   };
 
   useTextVisibility({
@@ -135,7 +156,7 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
         <motion.div
           variants={swingVariants}
           initial="initial"
-          whileHover={!window.matchMedia('(hover: none)').matches ? 'animate' : undefined}  // モバイル端末ではホバーエフェクトを無効化
+          whileHover={isHoverable ? 'animate' : undefined}
         >
         <Link href={href || "#"} style={{ display: 'block', position: 'relative', height: '100%', minHeight: 'full' }}>
           <GenericImage
