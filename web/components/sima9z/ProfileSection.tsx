@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Container, Box, Grid, Typography } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import Image from 'next/image';
@@ -44,4 +44,4 @@ const ProfileSection = () => {
   );
 };
 
-export default ProfileSection;
+export default memo(ProfileSection);

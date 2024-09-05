@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Image from "next/image";
 import { M_PLUS_Rounded_1c } from 'next/font/google'
 
@@ -33,4 +33,4 @@ const Card: React.FC<CardProps> = ({ title, description, imgSrc }) => {
   );
 };
 
-export default Card;
+export default memo(Card);
