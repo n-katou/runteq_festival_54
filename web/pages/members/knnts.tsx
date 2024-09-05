@@ -7,7 +7,7 @@ import MyImg from "../../components/knnts/MyImg"; // メモ化したMyImg
 import { Transition } from '../../components/knnts/transitions';
 import GoHomeButton from '../../components/GoHomeButton';
 
-const Template: React.FC = () => {
+const KnntsPage: React.FC = () => {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useTransform(y, [-100, 100], [30, -30]);
@@ -103,4 +103,4 @@ const Template: React.FC = () => {
   );
 };
 
-export default Template
+export default KnntsPage;
