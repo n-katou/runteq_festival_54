@@ -74,7 +74,7 @@ const RioPage: React.FC = () => {
                     whileTap={{ cursor: "grabbing" }}
                   >
                     <div
-                      className="w-[500px] h-[500px] bg-no-repeat absolute -top-1 -right-1 z-0"
+                      className="w-[280px] h-[246px] sm:w-[350px] sm:h-[308px] md:w-[400px] md:h-[352px] lg:w-[450px] lg:h-[396px] bg-no-repeat absolute -top-1 -right-1 z-0"
                       style={{
                         backgroundImage: `url('/rio/shape-light.svg')`,
                       }}
