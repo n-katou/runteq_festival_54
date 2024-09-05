@@ -42,4 +42,6 @@ const Modal: React.FC<ModalProps> = React.memo(({ open, onClose, children }) => 
   );
 });
 
+Modal.displayName = 'Modal';
+
 export default Modal;
