@@ -1,4 +1,4 @@
-import React, { memo, useState, useEffect } from 'react';
+import React, { memo } from 'react';
 import { motion } from 'framer-motion';
 
 import { PreviewCardProps } from '../../types/types_index';
@@ -28,7 +28,7 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
               backgroundImage: `url(${LoadingImage.src})`,
               backgroundSize: 'cover', // 画像がコンテナ全体にカバーされるように設定
               backgroundPosition: 'center',
-              zIndex: 0,
+              zIndex: 10,
               borderRadius: '20px', 
               overflow: 'hidden', 
             }}
@@ -58,7 +58,7 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
               backgroundImage: `url(${LoadingImage.src})`,
               backgroundSize: 'cover', // 画像がコンテナ全体にカバーされるように設定
               backgroundPosition: 'center',
-              zIndex: 0,
+              zIndex: 10,
               borderRadius: '20px', 
               overflow: 'hidden', 
             }}

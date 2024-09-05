@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useRouter } from 'next/router';
 import { Button, Box } from '@mui/material';
 import HomeIcon from '@mui/icons-material/Home';
@@ -32,7 +32,7 @@ const GoHomeButton: React.FC = () => {
         sx={{
           padding: '10px 20px',
           backgroundColor: '#FFC4D4',
-          fontFamily: 'Comic Sans MS, Comic Sans, cursive',
+          fontFamily: 'Comic Sans MS, Arial Rounded MT Bold, sans-serif',
           fontSize: '18px',
           '&:hover': {
             backgroundColor: '#FF99AA',
@@ -45,4 +45,4 @@ const GoHomeButton: React.FC = () => {
   );
 };
 
-export default GoHomeButton;
+export default memo(GoHomeButton);

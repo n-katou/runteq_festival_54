@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "framer-motion";
 
 interface FloatingEmojiProps {
@@ -34,4 +34,4 @@ const FloatingEmoji: React.FC<FloatingEmojiProps> = ({ emoji, delay }) => {
   );
 };
 
-export default FloatingEmoji;
+export default memo(FloatingEmoji);
