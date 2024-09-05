@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { FC } from "react";
+import { FC, memo } from "react";
 import { FaGithub } from 'react-icons/fa';
 import { SiMattermost } from "react-icons/si";
 
@@ -28,4 +28,4 @@ const Social: FC<SocialProps> = ({ containerStyles, iconStyles }) => {
   );
 };
 
-export default Social
+export default memo(Social);
