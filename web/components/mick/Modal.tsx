@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { FiX } from 'react-icons/fi';
 
 interface ModalProps {
@@ -7,24 +7,28 @@ interface ModalProps {
   children: React.ReactNode;
 }
 
-const Modal: React.FC<ModalProps> = ({ open, onClose, children }) => {
+const Modal: React.FC<ModalProps> = React.memo(({ open, onClose, children }) => {
+  const backdropClasses = useMemo(() => `
+    fixed inset-0 flex justify-center items-center transition-colors
+    ${open ? "visible bg-black/20" : "invisible"}
+  `, [open]);
+
+  const modalClasses = useMemo(() => `
+    bg-white rounded-xl shadow p-6 transition-all
+    ${open ? "scale-100 opacity-100" : "scale-125 opacity-0"}
+  `, [open]);
+
   return (
     // backdrop
     <div
       onClick={onClose}
-      className={`
-        fixed inset-0 flex justify-center items-center transition-colors
-        ${open ? "visible bg-black/20" : "invisible"}
-      `}
+      className={backdropClasses}
       style={{ zIndex: 90 }}
     >
       {/* modal */}
       <div
         onClick={(e) => e.stopPropagation()}
-        className={`
-          bg-white rounded-xl shadow p-6 transition-all
-          ${open ? "scale-100 opacity-100" : "scale-125 opacity-0"}
-        `}
+        className={modalClasses}
       >
         <button
           onClick={onClose}
@@ -36,6 +40,8 @@ const Modal: React.FC<ModalProps> = ({ open, onClose, children }) => {
       </div>
     </div>
   );
-}
+});
+
+Modal.displayName = 'Modal';
 
 export default Modal;

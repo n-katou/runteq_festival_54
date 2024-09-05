@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { motion } from 'framer-motion';
 import { FaRegEdit, FaStar, FaDumbbell } from 'react-icons/fa';
 
@@ -56,4 +56,4 @@ const AppsList: React.FC = () => {
   );
 };
 
-export default AppsList;
+export default memo(AppsList);

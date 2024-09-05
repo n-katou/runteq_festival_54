@@ -53,7 +53,7 @@ const Template: React.FC = () => {
                     Hello!<br /></h2>
                   <h3 className="text-[32px] sm:text-[32px] md:text-[48px] lg:text-[64px]">My Name is<br /> Natsumi Kawashita</h3><br />
                   <div className="text-xl">前職は日本料理人で、懐石料理のお店やお寿司屋さんで働いていました。<br />
-                    飲食店で働いていた経験を活かして、３年を目処に飲食店特化の会計管理アプリを作成したいと考えています。<br />
+                    飲食店で働いていた経験を活かして、将来は飲食店特化の会計管理アプリを作成したいと考えています。<br />
                     そのためにも技術や知識の習得をして、エンジニアとして活躍していきたいです！<br />
                     そして素晴らしき54期の一員としてチーム開発に携わらせていただき感謝でいっぱいです！！</div>
                   <br />
@@ -86,15 +86,15 @@ const Template: React.FC = () => {
                     whileTap={{ cursor: 'grabbing' }}
                   >
                     <div
-                      className="w-[300px] h-[300px] sm:w-[400px] sm:h-[400px] lg:w-[500px] lg:h-[500px] bg-no-repeat absolute -top-1 -right-1 z-0"
+                      className="w-[220px] h-[220px] sm:w-[280px] sm:h-[280px] lg:w-[500px] lg:h-[500px] bg-no-repeat absolute -top-1 -right-1 z-0"
                       style={{
                         backgroundImage: `url('/template/shape-light.svg')`,
-                        backgroundSize: 'contain', // 'cover'から'contain'に変更
-                        backgroundPosition: 'center', // 追加
+                        backgroundSize: 'contain',
+                        backgroundPosition: 'center',
                       }}
                     />
                     <MyImg
-                      containerStyles="w-[310px] h-[272px] sm:w-[410px] sm:h-[362px] lg:w-[510px] lg:h-[462px] bg-no-repeat relative bg-bottom rounded-lg"
+                      containerStyles="w-[240px] h-[252px] sm:w-[350px] sm:h-[362px] lg:w-[510px] lg:h-[462px] bg-no-repeat relative bg-bottom rounded-lg"
                       imgSrc='/natsu/natsu.png'
                       style={{
                         backgroundImage: `url('/template/shape-1.svg')`,
@@ -108,7 +108,7 @@ const Template: React.FC = () => {
               </motion.div>
             </div>
           </section>
-          <section className="relative z-20 py-8 xl:py-16 h-[84] xl:pt-15">
+          <section className="relative z-20 py-8 xl:py-16 h-[84] xl:pt-15 w-full">
             <h2 className="text-4xl font-bold text-center mb-12 text-darkGreen">My Application</h2>
             <div className="flex justify-center items-center">
               <div className="p-8 bg-white rounded-lg shadow-lg hover:shadow-2xl hover:scale-105 transition duration-300 transform" style={{ opacity: 1, willChange: 'auto', transform: 'none', maxWidth: '80%' }}>
@@ -120,11 +120,12 @@ const Template: React.FC = () => {
                 <a href="https://kousiennow.onrender.com/" className="text-darkGreen hover:text-orange-700 hover:underline" target="_blank" rel="noopener noreferrer">View App</a>
               </div>
             </div>
+            <div style={{ height: '50px' }}></div>
+            <GoHomeButton />
           </section>
           <video autoPlay loop muted className="absolute top-0 left-0 w-full h-full object-cover z-0">
             <source src="/template/strawberry.mp4" type="video/mp4" />
           </video>
-          <GoHomeButton />
         </div>
       </motion.section>
     </>

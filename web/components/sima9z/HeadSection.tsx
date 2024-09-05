@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 
 import { Box, Typography } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
@@ -47,4 +47,4 @@ const HeadSection: React.FC = () => {
   );
 };
 
-export default HeadSection;
+export default memo(HeadSection);

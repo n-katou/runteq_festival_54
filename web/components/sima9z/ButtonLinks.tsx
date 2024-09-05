@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { Button, Box } from '@mui/material';
 import { ThemeProvider } from '@mui/material/styles';
 import GroupsIcon from '@mui/icons-material/Groups';
@@ -60,4 +60,4 @@ const ButtonLinks = () => {
   );
 };
 
-export default ButtonLinks;
+export default memo(ButtonLinks);

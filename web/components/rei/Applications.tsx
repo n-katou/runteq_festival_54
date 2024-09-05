@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { motion } from "framer-motion";
 import MyImg from "./MyImg";
 import FloatingEmoji from "./FloatingEmoji";
@@ -60,4 +60,4 @@ const Applications = () => {
   );
 };
 
-export default Applications;
+export default memo(Applications);

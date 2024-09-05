@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { FC, CSSProperties, memo } from "react";
-
+import { FC, CSSProperties } from "react";
 
 interface MyImgProps {
   containerStyles: string;
@@ -10,10 +9,10 @@ interface MyImgProps {
 
 const MyImg: FC<MyImgProps> = ({ containerStyles, imgSrc, style }) => {
   return (
-    <div className={containerStyles} style={style}>
-      <Image src={imgSrc} fill priority alt='' />
+    <div className={`${containerStyles}`} style={style}>
+      <Image src={imgSrc} fill priority alt="" />
     </div>
   );
 };
 
-export default memo(MyImg);
+export default MyImg;
