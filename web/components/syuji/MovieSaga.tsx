@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 
 const Moviesaga: React.FC = () => {
   const [visible, setVisible] = useState(false);
@@ -41,4 +41,4 @@ const Moviesaga: React.FC = () => {
   );
 };
 
-export default Moviesaga;
+export default memo(Moviesaga);
