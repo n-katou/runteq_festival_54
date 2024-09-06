@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { motion, useMotionValue, useTransform } from 'framer-motion';
 import Social from '../../components/shino/Social';
 import MyImg from "../../components/shino/MyImg";
@@ -104,4 +104,4 @@ const ShinoPage: React.FC = () => {
   );
 };
 
-export default ShinoPage;
+export default memo(ShinoPage);
