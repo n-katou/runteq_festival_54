@@ -90,12 +90,14 @@ const SyujiPage: React.FC = () => {
               </motion.div>
             </div>
           </div>
+          <div className="mt-10">
+            <GoHomeButton />
+          </div>
         </section>
         <video autoPlay loop muted className="absolute top-0 left-0 w-full h-full object-cover hidden xl:block">
           <source src="/template/strawberry.mp4" type="video/mp4" />
         </video>
       </div>
-      <GoHomeButton />
     </motion.section>
   );
 };
