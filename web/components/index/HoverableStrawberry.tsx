@@ -6,7 +6,7 @@ import { useTheme } from '@mui/material/styles';
 import { Box } from '@mui/material';
 
 import GenericImage from './GenericImage';
-import { useHoverEffect, useTextVisibility } from '../../hooks/hooks_index';
+import { useHoverEffect, useTextVisibility, useIsHoverable } from '../../hooks/hooks_index';
 
 import RedStrawberryImage from '../../public/index/red_strawberry.png';
 import RedStrawberryImage2 from '../../public/index/red_strawberry2.png';
@@ -28,7 +28,6 @@ import PreviewCard from './PreviewCard';
 
 const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPercent, centered = false, initialColor = 'red', initialIndex, onLastImage, onHoverEnd, href, linkText, setIsHovered }) => {
   const [imageHeight, setImageHeight] = useState<number | null>(null);
-  const [isHoverable, setIsHoverable] = useState(true);
 
   const theme = useTheme();
 
@@ -56,20 +55,7 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
   // ホバー時の画像効果
   const { currentImageIndex, isHovered, setIsHovered: setHoverEffect } = useHoverEffect(0, hoverStrawberryImages[currentColor]);
 
-  useEffect(() => {
-    const hoverableQuery = window.matchMedia('(hover: hover)');
-    const updateHoverable = () => setIsHoverable(hoverableQuery.matches);
-
-    // 初回評価
-    updateHoverable();
-
-    // リスナーでリアルタイムに変化を監視
-    hoverableQuery.addEventListener('change', updateHoverable);
-
-    return () => {
-      hoverableQuery.removeEventListener('change', updateHoverable);
-    };
-  }, []);
+  const isHoverable = useIsHoverable();
 
   const handleMouseEnter = () => {
     if (isHoverable) {
