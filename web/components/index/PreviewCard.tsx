@@ -1,4 +1,4 @@
-import React, { memo } from 'react';
+import React, { memo,useState,useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 import { PreviewCardProps } from '../../types/types_index';
@@ -7,7 +7,13 @@ import { useDelayedPreview } from '../../hooks/hooks_index'
 import LoadingImage from '../../public/index/loading.png';
 
 const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
-  const showPreview = useDelayedPreview(2000);
+  const showPreview = useDelayedPreview(1000);
+  const [iframeLoaded, setIframeLoaded] = useState(false); // iframeのロード状態を管理する
+
+  // iframeがロードされたら背景画像を隠す
+  const handleIframeLoad = () => {
+    setIframeLoaded(true);
+  };
 
   return (
     <>
@@ -25,7 +31,7 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
               width: '260px',
               height: '530px',
               border: '1px solid black',
-              backgroundImage: `url(${LoadingImage.src})`,
+              backgroundImage: iframeLoaded ? 'none' : `url(${LoadingImage.src})`, // iframeがロードされるまで背景画像を表示
               backgroundSize: 'cover', // 画像がコンテナ全体にカバーされるように設定
               backgroundPosition: 'center',
               zIndex: 10,
@@ -38,8 +44,9 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
               width="100%"
               height="100%"
               style={{ border: 'none', overflow: 'hidden' }}
-              sandbox="allow-scripts allow-same-origin"
+              sandbox="allow-scripts"
               scrolling="no"
+              onLoad={handleIframeLoad} // iframeがロードされたときに呼ばれるイベント
             />
           </motion.div>
 
@@ -55,7 +62,7 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
               width: '260px',
               height: '530px',
               border: '1px solid black',
-              backgroundImage: `url(${LoadingImage.src})`,
+              backgroundImage: iframeLoaded ? 'none' : `url(${LoadingImage.src})`,
               backgroundSize: 'cover', // 画像がコンテナ全体にカバーされるように設定
               backgroundPosition: 'center',
               zIndex: 10,
@@ -68,8 +75,9 @@ const PreviewCard: React.FC<PreviewCardProps> = ({ title, link }) => {
               width="100%"
               height="100%"
               style={{ border: 'none', overflow: 'hidden' }}
-              sandbox="allow-scripts allow-same-origin"
+              sandbox="allow-scripts"
               scrolling="no"
+              onLoad={handleIframeLoad} 
             />
           </motion.div>
        </>

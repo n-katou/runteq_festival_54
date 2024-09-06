@@ -122,6 +122,7 @@ const MainContent = () => {
             <Image
               src={IphoneImage}
               alt={'IphoneImage'}
+              priority
               className={'IphoneImage'}
               style={{
                 width: '100%',  // 親の div の幅に合わせて画像の幅を100%に設定
@@ -147,6 +148,7 @@ const MainContent = () => {
             <Image
               src={IphoneImage}
               alt={'IphoneImage'}
+              priority
               className={'IphoneImage'}
               style={{
                 width: '100%',  // 親の div の幅に合わせて画像の幅を100%に設定
