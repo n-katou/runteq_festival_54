@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 import GenericImage from './GenericImage';
 import StrawberryLinks from './StrawberryLinks';
 import KirakiraEffect from './KirakiraEffect';
-import { MembersLinks } from './MembersLinks';
+import { MembersLinks } from '../../utils/index/MembersLinks';
 
 import { useAnimationWithHover } from '../../hooks/hooks_index'
 

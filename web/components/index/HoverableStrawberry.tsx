@@ -8,8 +8,8 @@ import { Box } from '@mui/material';
 import GenericImage from './GenericImage';
 import { useHoverEffect, useTextVisibility, useIsHoverable } from '../../hooks/hooks_index';
 
-import { normalStrawberryImages, hoverStrawberryImages } from './StrawberryImages';
-import { getTextColor, getHoverTextColor } from './StrawberryTextColors';
+import { normalStrawberryImages, hoverStrawberryImages } from '../../utils/index/StrawberryImages';
+import { getTextColor, getHoverTextColor } from '../../utils/index/StrawberryTextColors';
 
 import { HoverableStrawberryProps } from '../../types/types_index';
 
