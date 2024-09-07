@@ -175,6 +175,7 @@ export const useDelayedPreview = (delay: number) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowPreview(true); // Show the preview after the specified delay
+      console.log('Preview is ready to show');
     }, delay);
 
     return () => clearTimeout(timer); // Clear the timer on unmount
@@ -182,3 +183,25 @@ export const useDelayedPreview = (delay: number) => {
 
   return showPreview;
 };
+
+export const useIsHoverable=()=>{
+  const [isHoverable, setIsHoverable] = useState(true);
+
+  useEffect(() => {
+    const hoverableQuery = window.matchMedia('(hover: hover)');
+    const updateHoverable = () => setIsHoverable(hoverableQuery.matches);
+
+    // 初回評価
+    updateHoverable();
+
+    // リスナーでリアルタイムに変化を監視
+    hoverableQuery.addEventListener('change', updateHoverable);
+
+    return () => {
+      hoverableQuery.removeEventListener('change', updateHoverable);
+    };
+  }, []);
+
+    return isHoverable;
+  }
+

@@ -28,6 +28,7 @@ const GenericImage: React.FC<GenericImageProps> = ({ src, alt, centered, widthPe
           ref={imageRef}
           src={src}
           alt={alt}
+          priority
           className={`${alt}-image z-10`}
           style={{ width: '100%', height: 'auto', maxWidth: '100%' }}
           onLoad={() => {
