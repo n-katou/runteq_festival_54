@@ -41,6 +41,7 @@ const KirakiraEffect: React.FC<KirakiraEffectProps> = ({ effects }) => {
           <Image
             src={KirakiraImage}
             alt={'kirakira'}
+            priority
             style={{ width: '10vw', height: 'auto', maxWidth: maxSize.maxWidth, maxHeight: maxSize.maxHeight, }}
           />
         </motion.div>
