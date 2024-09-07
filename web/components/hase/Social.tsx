@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 import { FC, memo } from "react";
 import { FaGithub } from 'react-icons/fa';
 import XIcon from '@mui/icons-material/X';
@@ -8,7 +8,7 @@ const socials = [
   { icon: <FaGithub />, path: "https://github.com/hase-n323" },
   { icon: <XIcon />, path: "https://x.com/hase_n323" },
   { icon: <SiMattermost />, path: "https://chat.runteq.jp/runteq/channels/times_54a_hasegawa_noriko" },
-]
+];
 
 // プロップの型定義
 interface SocialProps {
@@ -21,10 +21,12 @@ const Social: FC<SocialProps> = ({ containerStyles, iconStyles }) => {
     <div className={containerStyles}>
       {socials.map((item, index) => {
         return (
-          <Link key={index} href={item.path} className={iconStyles}>
-            {item.icon}
+          <Link key={index} href={item.path} legacyBehavior>
+            <a className={iconStyles} target="_blank" rel="noopener noreferrer">
+              {item.icon}
+            </a>
           </Link>
-        )
+        );
       })}
     </div>
   );
