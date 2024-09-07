@@ -38,7 +38,7 @@ const SyujiPage: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: '-50%' }}
                 transition={{ Transition }}
-                className="text-orange max-w-[500px] flex-col justify-center mx-auto xl:ml-20 text-center xl:text-left bg-white bg-opacity-50 rounded-2xl p-10">
+                className="text-orange max-w-[350px] sm:max-w-[500px] flex-col justify-center mx-auto xl:ml-20 text-center xl:text-left bg-white bg-opacity-50 rounded-2xl p-5">
                 <h2 className="text-5xl mb-5">
                   飯田秋至
                 </h2>
