@@ -8,19 +8,8 @@ import { Box } from '@mui/material';
 import GenericImage from './GenericImage';
 import { useHoverEffect, useTextVisibility, useIsHoverable } from '../../hooks/hooks_index';
 
-import RedStrawberryImage from '../../public/index/red_strawberry.png';
-import RedStrawberryImage2 from '../../public/index/red_strawberry2.png';
-import RedStrawberryImage3 from '../../public/index/red_strawberry3.png';
-import PinkStrawberryImage from '../../public/index/pink_strawberry.png';
-import PinkStrawberryImage2 from '../../public/index/pink_strawberry2.png';
-import PinkStrawberryImage3 from '../../public/index/pink_strawberry3.png';
-import WhiteStrawberryImage from '../../public/index/white_strawberry.png';
-import WhiteStrawberryImage2 from '../../public/index/white_strawberry2.png';
-import WhiteStrawberryImage3 from '../../public/index/white_strawberry3.png';
-import GreenStrawberryImage from '../../public/index/green_strawberry.png';
-import GreenStrawberryImage2 from '../../public/index/green_strawberry2.png';
-import GreenStrawberryImage3 from '../../public/index/green_strawberry3.png';
-import StrawberryCalyxImage from '../../public/index/strawberry_calyx.png';
+import { normalStrawberryImages, hoverStrawberryImages } from './StrawberryImages';
+import { getTextColor, getHoverTextColor } from './StrawberryTextColors';
 
 import { HoverableStrawberryProps } from '../../types/types_index';
 
@@ -30,20 +19,6 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
   const [imageHeight, setImageHeight] = useState<number | null>(null);
 
   const theme = useTheme();
-
-  const normalStrawberryImages = {
-    red: [RedStrawberryImage],
-    pink: [PinkStrawberryImage],
-    white: [WhiteStrawberryImage],
-    green: [GreenStrawberryImage],
-  };
-
-  const hoverStrawberryImages = {
-    red: [RedStrawberryImage, RedStrawberryImage2, RedStrawberryImage3, StrawberryCalyxImage],
-    pink: [PinkStrawberryImage, PinkStrawberryImage2, PinkStrawberryImage3, StrawberryCalyxImage],
-    white: [WhiteStrawberryImage, WhiteStrawberryImage2, WhiteStrawberryImage3, StrawberryCalyxImage],
-    green: [GreenStrawberryImage, GreenStrawberryImage2, GreenStrawberryImage3, StrawberryCalyxImage],
-  };
 
   const colorOrder: Array<'red' | 'pink' | 'white' | 'green'> = ['red', 'pink', 'white', 'green'];
   
@@ -84,35 +59,8 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
     },
   });
 
-  const textColor = () => {
-    switch (currentColor) {
-      case 'red':
-        return '#A8D8BA';
-      case 'pink':
-        return '#E6584F';
-      case 'white':
-        return '#FDC7D2';
-      case 'green':
-        return '#FEFBEA';
-      default:
-        return 'black';
-    }
-  };
-
-  const hovertextColor = () => {
-    switch (currentColor) {
-      case 'red':
-        return '#FDC7D2';
-      case 'pink':
-        return '#FEFBEA';
-      case 'white':
-        return '#A8D8BA';
-      case 'green':
-        return '#E6584F';
-      default:
-        return 'black';
-    }
-  };
+  const textColor = getTextColor(currentColor);
+  const hovertextColor = getHoverTextColor(currentColor);
 
   const swingVariants = {
     initial: { rotate: 0 },
@@ -163,7 +111,7 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
                   : '60%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
-                color: hovertextColor(),
+                color: hovertextColor,
                 textAlign: 'center',
                 pointerEvents: 'none',
                 lineHeight: 1,
@@ -194,7 +142,7 @@ const HoverableStrawberry: React.FC<HoverableStrawberryProps> = ({ left, widthPe
                   : '60%',
                 left: '50%',
                 transform: 'translate(-50%, -50%)',
-                color: textColor(),
+                color: textColor,
                 textAlign: 'center',
                 pointerEvents: 'none',
                 lineHeight: 1,
