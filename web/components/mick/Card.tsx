@@ -26,6 +26,8 @@ const Cards = () => {
           <a
             href='https://battleofrunteq.vercel.app/'
             className='hover:underline font-bold'
+            target="_blank"
+            rel="noopener noreferrer"
           >
             View
           </a>
@@ -73,7 +75,12 @@ const Cards = () => {
         </div>
         <p className='mb-1 lg:mb-1'>集まれ54期 いちごの森</p>
         <p className='mb-1 lg:mb-1'>54期の皆様と共同開発したアプリになります。</p>
-        <a className='text-xm lg:text-sm font-bold' href='https://runteq-festival-54.vercel.app/'>View</a>
+        <a
+          className='text-xm lg:text-sm font-bold'
+          href='https://runteq-festival-54.vercel.app/'
+          target="_blank"
+          rel="noopener noreferrer"
+          >View</a>
       </div>
       {/* card image */}
       <div>
