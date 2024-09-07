@@ -11,7 +11,7 @@ const Moviesaga: React.FC = () => {
   return (
     <div className='text-2xl'>
       <div className='my-4'>制作アプリ</div>
-      <div className="bg-black h-48 sm:h-64 rounded-xl overflow-hidden relative flex items-center justify-center group">
+      <div className="bg-black h-48 rounded-xl overflow-hidden relative flex items-center justify-center group">
         <div className="absolute inset-0 bg-gradient-to-r from-red-800 to-purple-900 opacity-50 transition-all duration-500 group-hover:opacity-75"></div>
         <div className="absolute inset-0 bg-[url('/film-grain.png')] opacity-20 group-hover:opacity-30 transition-opacity duration-500"></div>
         <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-20 transition-opacity duration-500"></div>
