@@ -34,7 +34,9 @@ export default function Mick() {
       <Curve>
         <></>
       </Curve>
-      <div className="min-h-screen bg-pink">
+      <div className="min-h-screen bg-pink flex flex-col">
+      <div className="flex-grow">
+        {/* メインコンテンツをここに配置 */}
         <div className="min-h-[550px] sm:min-h-[600px] bg-pink flex justify-center items-center text-white">
           <div className="container pb-8 sm:pb-0">
             <div className="grid grid-cols-1 sm:grid-cols-2">
@@ -123,14 +125,8 @@ export default function Mick() {
         >
           <Cards/>
         </motion.div>
-        <div
-          style={{
-            backgroundColor: '#ffc4d4',
-            padding: 0,            // すべての padding を 0 にリセット
-            margin: 0,             // すべての margin を 0 にリセット
-            minHeight: '20vh',    // ページ全体の高さを確保
-          }}
-        >
+      </div>
+        <div className="w-full bg-pink">
           <GoHomeButton />
         </div>
       </div>
