@@ -1,14 +1,16 @@
-import Link from "next/link"
-import { FC, memo } from "react"; // memoをインポート
-import { FaGithub, FaInstagram } from 'react-icons/fa';
+import Link from "next/link";
+import { FC, memo } from "react";
+import { FaGithub } from 'react-icons/fa';
 import XIcon from '@mui/icons-material/X';
-import { SiQiita, SiMattermost } from "react-icons/si";
+import { SiMattermost } from "react-icons/si";
+import GroupsIcon from '@mui/icons-material/Groups';
 
 const socials = [
   { icon: <FaGithub />, path: "https://github.com/kana-54b" },
   { icon: <XIcon />, path: "https://x.com/t_kana_54b" },
-  { icon: <SiMattermost />, path: "https://chat.runteq.jp/runteq/channels/times_54b_takei_kana" }
-]
+  { icon: <SiMattermost />, path: "https://chat.runteq.jp/runteq/channels/times_54b_takei_kana" },
+  { icon: <GroupsIcon />, path: "https://school.runteq.jp/social_portfolios/knnts" }
+];
 
 // プロップの型定義
 interface SocialProps {
@@ -21,13 +23,15 @@ const Social: FC<SocialProps> = ({ containerStyles, iconStyles }) => {
     <div className={containerStyles}>
       {socials.map((item, index) => {
         return (
-          <Link key={index} href={item.path} className={iconStyles}>
-            {item.icon}
+          <Link key={index} href={item.path} legacyBehavior>
+            <a className={iconStyles} target="_blank" rel="noopener noreferrer">
+              {item.icon}
+            </a>
           </Link>
-        )
+        );
       })}
     </div>
   );
 };
 
-export default memo(Social); // memoでエクスポート
+export default memo(Social);
