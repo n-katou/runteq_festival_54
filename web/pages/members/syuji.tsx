@@ -21,7 +21,7 @@ const SyujiPage: React.FC = () => {
       transition={{ Transition }}
       className="min-h-screen flex flex-col justify-center bg-lightblue"
     >
-      <div className="h-full xl:h-screen relative">
+      <div className="h-full xl:h-screen relative lg:overflow-y-hidden">
         <div className="absolute w-full h-full z-10 bg-blue/[0.86]" />
         <section className="relative z-20 py-12 xl:py-24 h-[84] xl:pt-28">
           <div className="container mx-auto">
@@ -38,7 +38,7 @@ const SyujiPage: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: '-50%' }}
                 transition={{ Transition }}
-                className="text-orange max-w-[500px] flex-col justify-center mx-auto xl:ml-20 text-center xl:text-left bg-white bg-opacity-50 rounded-2xl p-10">
+                className="text-orange max-w-[350px] sm:max-w-[500px] flex-col justify-center mx-auto xl:ml-20 text-center xl:text-left bg-white bg-opacity-50 rounded-2xl p-5">
                 <h2 className="text-5xl mb-5">
                   飯田秋至
                 </h2>
@@ -86,12 +86,15 @@ const SyujiPage: React.FC = () => {
                       />
                     </div>
                   </motion.div>
+                  <div className='hidden md:block mt-20'>
+                    <GoHomeButton />
+                  </div>
                 </div>
               </motion.div>
             </div>
-          </div>
-          <div className="mt-10">
-            <GoHomeButton />
+            <div className='lg:hidden mt-10'>
+              <GoHomeButton />
+            </div>
           </div>
         </section>
         <video autoPlay loop muted className="absolute top-0 left-0 w-full h-full object-cover hidden xl:block">
