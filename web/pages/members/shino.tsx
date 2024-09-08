@@ -56,7 +56,7 @@ const ShinoPage: React.FC = () => {
               </div>
               <div className="mt-8 flex flex-col xl:flex-row items-center gap-8">
                 <Social
-                  containerStyles="flex gap-6"
+                  containerStyles="flex justify-center gap-6 mt-6 flex-wrap"
                   iconStyles="w-12 h-12 border border-green rounded-full flex justify-center items-center text-white text-base bg-green hover:bg-darkGreen hover:text-white transition-all duration-500 text-5xl"
                 />
               </div>
