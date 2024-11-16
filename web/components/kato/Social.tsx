@@ -3,14 +3,14 @@ import { FC, memo } from "react";
 import { FaGithub } from 'react-icons/fa';
 // import XIcon from '@mui/icons-material/X';
 import { SiMattermost } from "react-icons/si";
-import GroupsIcon from '@mui/icons-material/Groups';
+// import GroupsIcon from '@mui/icons-material/Groups';
 
 const socials = [
   { icon: <FaGithub />, path: "https://github.com/n-katou" },
   // { icon: <SiQiita />, path: "https://qiita.com/n-katou" },
   // { icon: <XIcon />, path: "https://x.com/k1997022023" },
   { icon: <SiMattermost />, path: "https://chat.runteq.jp/runteq/channels/times_pro_3a_kato_naoto" },
-  { icon: <GroupsIcon />, path: "https://school.runteq.jp/social_portfolios/n_kato" }
+  // { icon: <GroupsIcon />, path: "https://school.runteq.jp/social_portfolios/n_kato" }
 ];
 
 // プロップの型定義
